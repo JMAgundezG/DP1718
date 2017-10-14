@@ -1,0 +1,9 @@
+--Map
+MAP#10#10#99#5#
+--Characters in the simulation
+STARK#John#J#1#
+TARGARYEN#Daenerys#D#1#
+CAMINANTE#IceWalker#I#2#
+STARK#Sansa#S#2#
+LANNISTER#Tyrion#T#1#
+TARGARYEN#Aerys#A#2#
