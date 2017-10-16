@@ -1,9 +1,13 @@
+import datastructures.List;
+
 public class Map {
 
     private Square[][] map;
 
     private int columns;
     private int rows;
+
+    private DoorMan doorMan;
 
     public Map(int rows, int columns){
 
@@ -65,6 +69,10 @@ public class Map {
         this.rows = rows;
     }
 
+
+    /*
+    TODO
+     */
     public void spendWeaponsD1(){
         int k = 0;
         int numWeaponsSquares = 60;
@@ -74,16 +82,16 @@ public class Map {
                 new Weapon("GuanteInfinito",21), new Weapon("LazoVerdad",9),
                 new Weapon("CadenaFuego",19), new Weapon("Capa",11),
                 new Weapon("Flecha",17), new Weapon("Tridente",13),
-                new  Weapon("Antorcha",15), new Weapon("Baston",28),
+                new Weapon("Antorcha",15), new Weapon("Baston",28),
                 new Weapon("Latigo",2), new  Weapon("MazaOro",26),
                 new Weapon("CampoMagnetico",4), new Weapon("Tentaculo",24),
-                new Weapon ("CampoEnergia",6), new Weapon("Cetro",22),
+                new Weapon("CampoEnergia",6), new Weapon("Cetro",22),
                 new Weapon("RayoEnergia",8), new Weapon("Laser",20), new Weapon("Bola",10), 
                 new Weapon("Espada",18),  new Weapon("Sable",12),  new Weapon("Acido",16),
                 new Weapon("Gema",14), new Weapon("Nullifier",23), new Weapon("Mjolnir",1), 
                 new Weapon("Anillo",29), new Weapon("Garra",3), new Weapon("Weapondura",27),
                 new Weapon("Red",5),  new Weapon("Escudo",25), new Weapon("Lucille",7), 
-                new  Weapon("Lawgiver",23), new Weapon("GuanteInfinito",9),
+                new Weapon("Lawgiver",23), new Weapon("GuanteInfinito",9),
                 new Weapon("LazoVerdad",21), new Weapon("CadenaFuego",11),
                 new Weapon("Capa",19), new Weapon("Flecha",13), new Weapon("Tridente",17), 
                 new Weapon("Antorcha",28), new Weapon("Baston",15), new Weapon("Latigo",26), 
