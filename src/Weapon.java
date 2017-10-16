@@ -1,4 +1,6 @@
-public class Weapon {
+
+
+public class Weapon implements Comparable<Weapon> {
 
     private int power;
     private String name;
@@ -14,12 +16,12 @@ public class Weapon {
 
     }
 
-
     public int compareTo(Weapon w){
-
-        Object o = new Object();
-        return power - w.getPower();
-
+        int val = power - w.getPower();
+        if(val>0)
+            return 1; //First value is greater
+        else if(val==0) return 0; // both values are equals
+            else return -1; //Second value is greater
     }
 
 

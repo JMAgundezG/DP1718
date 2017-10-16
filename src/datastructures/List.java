@@ -9,7 +9,7 @@ package datastructures;
 * Program Development<br/>
 * 16/17 Course
 */
-public class List {
+public class List<E extends Comparable<E>> {
 	/** Reference to the first element in the list*/
 	private Node first;
 	
@@ -17,11 +17,11 @@ public class List {
 	private Node last;
 	
 	/** datastructures.List size*/
-	Integer size=0;
+	private Integer size = 0;
 	
     public class Node {
     	/** Data stored in each node */
-        private Integer Data;
+        private E Data;
     	/** Reference to the next node */
         private Node next;
     	/** Reference to the previous node */
@@ -30,7 +30,7 @@ public class List {
         /**
     	 * Parametrized Constructor for the Node class
     	 */
-        public Node(Node prev, Integer Data, Node next) {
+        public Node(Node prev, E Data, Node next) {
             this.Data = Data;
             this.next = next;
             this.prev = prev;
@@ -57,7 +57,7 @@ public class List {
     	 *
     	 * @return the data contained in the current node
     	 */        
-        public Integer get() {
+        public E get() {
         		return Data;
         }
     }//class Node
@@ -77,7 +77,7 @@ public class List {
 	 *
 	 * @param data the data that the datastructures.List will store
 	 */
-	public List(Integer data) {
+	public List(E data) {
 		addLast(data);
 	}
 	
@@ -86,7 +86,7 @@ public class List {
 	 *
 	 * @return the first element
 	 */
-	public Integer getFirst() {
+	public E getFirst() {
 		return first.Data;
 	}
 
@@ -95,7 +95,7 @@ public class List {
 	 *
 	 * @return the last data
 	 */
-	public Integer getLast() {
+	public E getLast() {
 		return last.Data;
 	}
 	/**
@@ -138,8 +138,8 @@ public class List {
 	 * @param pos the position of the element to be returned 
 	 * @return the data contained in the position passed as parameter
 	 */
-	public Integer get (Integer pos){
-		Integer d = null; 
+	public E get (Integer pos){
+		E d = null;
 		Node iter=first;
 		Integer i=0; 
 		boolean encontrado = false;
@@ -160,7 +160,7 @@ public class List {
 	 *
 	 * @param Data value that is going to be added to the list
 	 */
-	public void addLast(Integer Data) {
+	public void addLast(E Data) {
         Node l = last;
         Node nodo = new Node(l, Data, null);
         last = nodo;
@@ -195,6 +195,7 @@ public class List {
 	public void removeFirst() {
 		//TODO: Implement this method
 		first = first().next;
+		size--;
 	}
 	
 	
@@ -203,7 +204,7 @@ public class List {
 	 *
 	 * 
 	 */
-	public int removeDato(Integer dato) {
+	public int removeDato(E dato) {
 		Node iter = first;
 		while(iter!= null) {
 			if(iter.Data.equals(dato)) {
@@ -228,8 +229,51 @@ public class List {
 	* It adds an elmement to the list in a sorted way
 	*
 	*/
-	public void sortedAdd(Integer Data) {
-		//TODO: Implement the method 
+	public void sortedAdd(E Data) {
+		if(first.Data.compareTo(Data)>0){
+			addFirst(Data);
+		}
+		else if(last.Data.compareTo(Data) < 0){
+			addLast(Data);
+		}else{
+			boolean inserted = false;
+			Node aux = first;
+			while (!inserted) {
+				if (aux.Data.compareTo(Data) < 0) {
+					Node newNode = new Node(aux, Data, aux.next);
+					newNode.next.prev = newNode;
+					aux.next = newNode;
+					size++;
+				}
+			}
+		}
+	}
+
+
+
+	/**
+	 * It adds an elmement to the list in a sorted way but inversed TODO revisar
+	 *
+	 */
+	public void sortedAddInversed(E Data) {
+
+		if(first.Data.compareTo(Data)<0){
+			addFirst(Data);
+		}
+		else if(last.Data.compareTo(Data) > 0){
+			addLast(Data);
+		}else{
+			boolean inserted = false;
+			Node aux = first;
+			while (!inserted) {
+				if (aux.Data.compareTo(Data) > 0) {
+					Node newNode = new Node(aux, Data, aux.next);
+					newNode.next.prev = newNode;
+					aux.next = newNode;
+					size++;
+				}
+			}
+		}
 	}
 	
 	/**
@@ -237,8 +281,10 @@ public class List {
 	 *
 	 * @param Data valor que se va a insertar
 	 */
-	public void addFirst(Integer Data) {
-		//TODO: Implement the method 
+	public void addFirst(E Data) {
+		Node newNode = new Node(null, Data, first);
+		first = newNode;
+		size++;
 	}
 
 	
@@ -246,8 +292,14 @@ public class List {
 	 * Checks whether a data is contained in the list
 	 *
 	 */
-	public boolean contains(Integer Data) {
-		//TODO: Implement the method 
+	public boolean contains(E Data) {
+		Node p = first;
+		while (p != null){
+			if(p.Data == Data){
+				return true;
+			}
+			p = p.next;
+		}
 		return false;
    }
    
@@ -255,7 +307,7 @@ public class List {
 	 * It adds a data into the list before the value passed as parameter (searchedValue) 
 	 *
 	 * @param Data valor que se va a insertar
-	 * @param valorbuscar valor delante del cual se insertará el nuevo dato
+	 * @param searchedValue valor delante del cual se insertará el nuevo dato
 	 */
 	public void addBefore(Integer Data, Integer searchedValue ) {
 		//TODO: Implement the method 
@@ -300,8 +352,14 @@ public class List {
 	 * @param index posición del Data que se eliminará
 	 * @return el dato que está al inicio de la lista
 	 */
-	public Integer removeIndex(int index) {
-		//TODO: Implement the method 
+	public E removeIndex(int index) {
+		Node p = first;
+		if(index < size){
+			for (int i = 0; i < index; i++) {
+				p = p.next;
+			}
+			removeDato(p.Data);
+		}
 		return null;
 	}
 
@@ -321,40 +379,40 @@ public class List {
   * @param args An array of String that the main method receives as parameter
   */
 	public static void main (String args[]) {
-		Integer[] dataSet = {new Integer(2), new Integer(8), 
-							new Integer(3), new Integer(1),
-							new Integer(4), new Integer(5),
-							new Integer(6), new Integer(7),
-							new Integer(9), new Integer(0)};
-		
-		//Testing the addition by the end 
-		List list = new List();
-		for (int i = 0; i < dataSet.length; i++) {
-			list.addLast(dataSet[i]);
-		}
-		
-		//Showing the list
-        Node iteratorNode = list.first();
-        while (iteratorNode!= null) {
-        		System.out.print(iteratorNode.get() + " : ");
-        		iteratorNode = iteratorNode.next();
-        }
-		System.out.println("\n--------------------------");
-
-		//Showing the list
-        for (int i=0;i<list.size();i++) {
-    			System.out.print(list.get(i)+ " : ");
-        }
-		System.out.println("\n--------------------------");
-        
-		for (int i = 0; i < 5; i++)
-			list.removeLast();
-		
-		//Showing the list
-        for (int i=0;i<list.size();i++) {
-    			System.out.print(list.get(i)+ " : ");
-        }
-		System.out.println("\n--------------------------");
+//		Integer[] dataSet = {new Integer(2), new Integer(8),
+//							new Integer(3), new Integer(1),
+//							new Integer(4), new Integer(5),
+//							new Integer(6), new Integer(7),
+//							new Integer(9), new Integer(0)};
+//
+//		//Testing the addition by the end
+//		List list = new List();
+//		for (int i = 0; i < dataSet.length; i++) {
+//			list.addLast(dataSet[i]);
+//		}
+//
+//		//Showing the list
+//        Node iteratorNode = list.first();
+//        while (iteratorNode!= null) {
+//        		System.out.print(iteratorNode.get() + " : ");
+//        		iteratorNode = iteratorNode.next();
+//        }
+//		System.out.println("\n--------------------------");
+//
+//		//Showing the list
+//        for (int i=0;i<list.size();i++) {
+//    			System.out.print(list.get(i)+ " : ");
+//        }
+//		System.out.println("\n--------------------------");
+//
+//		for (int i = 0; i < 5; i++)
+//			list.removeLast();
+//
+//		//Showing the list
+//        for (int i=0;i<list.size();i++) {
+//    			System.out.print(list.get(i)+ " : ");
+//        }
+//		System.out.println("\n--------------------------");
 	}
 }
 
