@@ -31,7 +31,7 @@ public class Map {
     private String initialMap;
 
     /**
-     * Map constructor
+     * game.Map constructor
      *
      * @param dimY it should be an integer bigger than 0
      * @param dimX it should be an integer bigger than 0

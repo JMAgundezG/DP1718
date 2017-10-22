@@ -1,5 +1,7 @@
 package datastructures;
 
+import game.Weapon;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 
@@ -13,12 +15,12 @@ import java.io.IOException;
  * Year: 2017/2018 <br/>
  * Group: Rubber Duck <br/>
  */
-public class BinaryTree<TYPE extends Comparable<TYPE>>{
+public class WeaponTree{
 
     /**
      * Stored data in each node of the Tree.
      */
-    private TYPE rootData;
+    private Weapon rootData;
 
     /**
      * Indicates whether the tree is empty or not.
@@ -28,17 +30,17 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
     /**
      * Left child of the current node.
      */
-    private BinaryTree<TYPE> leftC;
+    private WeaponTree leftC;
 
     /**
      * Right child of the current node.
      */
-    private BinaryTree<TYPE> rightC;
+    private WeaponTree rightC;
 
     /**
      * Default constructor of the class. Initializes an empty tree.
      */
-    public BinaryTree() {
+    public WeaponTree() {
         this.isEmpty = true;
         this.leftC = null;
         this.rightC = null;
@@ -51,7 +53,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
      * @param rootData Root of the tree that is being created.
      * @param rightC     The right child of the tree that is being created.
      */
-    public BinaryTree(BinaryTree leftC, TYPE rootData, BinaryTree rightC) {
+    public WeaponTree(WeaponTree leftC, Weapon rootData, WeaponTree rightC) {
         this.isEmpty = false;
         this.rootData = rootData;
         this.leftC = leftC;
@@ -63,7 +65,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
      *
      * @return Left child.
      */
-    public BinaryTree<TYPE> getLeftChild() {
+    public WeaponTree getLeftChild() {
         return leftC;
     }
 
@@ -72,7 +74,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
      *
      * @return Right child.
      */
-    public BinaryTree<TYPE> getRightChild() {
+    public WeaponTree getRightChild() {
         return rightC;
     }
 
@@ -81,7 +83,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
      *
      * @return The root of the tree.
      */
-    public TYPE getRoot() {
+    public Weapon getRoot() {
         return rootData;
     }
 
@@ -100,20 +102,20 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
      * @param data the data to insert.
      * @return true if the data has been succesfully inserted. False on the opposite case.
      */
-    public boolean insertData(TYPE data) {
+    public boolean insertData(Weapon data) {
         boolean resultado = true;
         if (empty()) {
             rootData = data;
             isEmpty = false;
         } else {
             if (!(this.rootData.equals(data))) {
-                BinaryTree<TYPE> aux;
+                WeaponTree aux;
                 if (data.compareTo(this.rootData) < 0) { //data < rootData
                     if ((aux = getLeftChild()) == null)
-                        leftC = aux = new BinaryTree();
+                        leftC = aux = new WeaponTree();
                 } else {                                    //data > rootData
                     if ((aux = getRightChild()) == null)
-                        rightC = aux = new BinaryTree();
+                        rightC = aux = new WeaponTree();
                 }
                 resultado = aux.insertData(data);
             } else
@@ -128,8 +130,8 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
      * @param data the data to look for.
      * @return True if the data is inside the tree. False on the opposite case.
      */
-    public boolean belongs(TYPE data) {
-        BinaryTree aux = null;
+    public boolean belongs(Weapon data) {
+        WeaponTree aux = null;
         boolean encontrado = false;
         if (!empty()) {
             if (this.rootData.equals(data))
@@ -151,7 +153,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
      *
      * @param data The data you want to delete.
      */
-    public void delete(TYPE data) {
+    public void delete(Weapon data) {
         if (!empty()) {
             if (data.compareTo(this.rootData) < 0) {            //data<rootData
                 if (leftC != null) leftC = leftC.deleteOrdered(data);
@@ -174,21 +176,21 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
      * @param data data to delete
      * @return Returns the resulting tree after deleting the data.
      */
-    private BinaryTree<TYPE> deleteOrdered(TYPE data) {
-        TYPE datoaux;
-        BinaryTree<TYPE> retorno = this;
-        BinaryTree<TYPE> aborrar, candidato, antecesor;
+    private WeaponTree deleteOrdered(Weapon data) {
+        Weapon datoaux;
+        WeaponTree comeback = this;
+        WeaponTree aborrar, candidato, antecesor;
 
         if (!empty()) {
             if (data.compareTo(this.rootData) < 0) {        // dato<rootData
                 if (leftC != null) leftC = leftC.deleteOrdered(data);
-                else retorno=null;
+                else comeback=null;
             } else if (data.compareTo(this.rootData) > 0) {    // dato>rootData
                 if (rightC != null) rightC = rightC.deleteOrdered(data);
-                else retorno=null;
+                else comeback=null;
             } else {
                 if ((rightC == null) && (leftC == null)) { /*si es hoja*/
-                    retorno = null;
+                    comeback = null;
                 } else {
                     if (rightC == null) { /*Solo hijo izquierdo*/
                         aborrar = leftC;
@@ -198,7 +200,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
                         leftC = leftC.getLeftChild();
                         rightC = aborrar.getRightChild();
 
-                        retorno = this;
+                        comeback = this;
                     } else if (leftC == null) { /*Solo hijo derecho*/
                         aborrar = rightC;
                         datoaux = rootData;
@@ -207,7 +209,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
                         rightC = rightC.getRightChild();
                         leftC = aborrar.getLeftChild();
 
-                        retorno = this;
+                        comeback = this;
                     } else { /* Tiene dos hijos */
                         candidato = this.getLeftChild();
                         antecesor = this;
@@ -231,7 +233,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
                 }
             }
         }
-        return retorno;
+        return comeback;
     }
 
     /**
@@ -251,7 +253,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
     public void inOrder(BufferedWriter writing) {
 
         String s = "";
-        BinaryTree<TYPE> aux;
+        WeaponTree aux;
         if (!empty()) {
             if ((aux = getLeftChild()) != null) {
                 aux.inOrder(writing);
@@ -273,13 +275,13 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
     }
 
     /**
-     * Method that returns the depth of the DataStructures.datastructures.BinaryTree.
+     * Method that returns the depth of the DataStructures.datastructures.WeaponTree.
      *
      * @return the depth of the tree.
      */
     public int depth(){
         int totaldepth = 0, leftDepth = 0, rightDepth = 0;
-        BinaryTree<TYPE> aux;
+        WeaponTree aux;
         if (!empty()) {
             if ((aux = getLeftChild()) != null)
                 leftDepth = aux.depth() + 1;
@@ -298,23 +300,23 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
      * @param data the data to find.
      * @return true if the data is found. False on the opposite case.
      */
-    public boolean isLeaf(TYPE data){
-    boolean leafyIsHere = false;
-    if (!empty()){
-        if (leftC == null && rightC ==null)
-            leafyIsHere = true;
-        if (data.compareTo(rootData)<0 && leftC !=null)
-            leafyIsHere= leftC.isLeaf(data);
-        if (data.compareTo(rootData)>0 && rightC !=null)
-            leafyIsHere= rightC.isLeaf(data);
+    public boolean isLeaf(Weapon data){
+        boolean leafyIsHere = false;
+        if (!empty()){
+            if (leftC == null && rightC ==null)
+                leafyIsHere = true;
+            if (data.compareTo(rootData)<0 && leftC !=null)
+                leafyIsHere= leftC.isLeaf(data);
+            if (data.compareTo(rootData)>0 && rightC !=null)
+                leafyIsHere= rightC.isLeaf(data);
+        }
+        return leafyIsHere;
     }
-    return leafyIsHere;
-}
 
-/**
- * Method that calculates the number of leaves of the tree.
- * @return returns the number of leaves of the tree.
- */
+    /**
+     * Method that calculates the number of leaves of the tree.
+     * @return returns the number of leaves of the tree.
+     */
 
     public int countLeaves(){
         int leavesNumber=0;
@@ -323,12 +325,12 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
                 leavesNumber++;
             }
             if (this.leftC !=null){
-                    leavesNumber= leavesNumber + this.getLeftChild().countLeaves();
-                }
-                if (this.rightC !=null){
-                    leavesNumber= leavesNumber + this.getRightChild().countLeaves();
-                }
+                leavesNumber= leavesNumber + this.getLeftChild().countLeaves();
             }
+            if (this.rightC !=null){
+                leavesNumber= leavesNumber + this.getRightChild().countLeaves();
+            }
+        }
         return leavesNumber;
     }
     /**
@@ -351,8 +353,31 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
         return innersNumber;
     }
 
+
+    /**
+     * Method that searches the biggest weapon on the tree.
+     * @return that weapon
+     */
+    public Weapon biggestWeapon(){
+        Weapon bigger = rootData;
+        Weapon leftBigger, rightBigger;
+        if(leftC != null){
+            leftBigger = leftC.biggestWeapon();
+            if(leftBigger.getPower()>bigger.getPower()){
+                bigger = leftBigger;
+            }
+        }
+        if (rightC != null){
+            rightBigger = rightC.biggestWeapon();
+            if(rightBigger.getPower()>bigger.getPower()){
+                bigger = rightBigger;
+            }
+        }
+        return bigger;
+    }
+
     public String StringInOrder() {
-        BinaryTree aux = null;
+        WeaponTree aux = null;
         String message = "";
         if (!empty()) {
             if ((aux = getLeftChild()) != null) {

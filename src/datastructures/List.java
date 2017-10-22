@@ -244,6 +244,7 @@ public class List<E extends Comparable<E>> {
 					newNode.next.prev = newNode;
 					aux.next = newNode;
 					size++;
+					inserted = true;
 				}
 			}
 		}
@@ -282,6 +283,9 @@ public class List<E extends Comparable<E>> {
 	 * @param Data valor que se va a insertar
 	 */
 	public void addFirst(E Data) {
+		/**
+		 * TODO no hace nada con el anterior primero
+		 */
 		Node newNode = new Node(null, Data, first);
 		first = newNode;
 		size++;

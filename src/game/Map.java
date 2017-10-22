@@ -1,4 +1,4 @@
-import datastructures.List;
+package game;
 
 public class Map {
 
@@ -9,11 +9,17 @@ public class Map {
 
     private DoorMan doorMan;
 
-    public Map(int rows, int columns){
+    private int dailyPlanet;
+
+    private static Map singletonInstance = null;
+
+    private Map(int rows, int columns, int dailyPlanet, int depth){
 
         this.map = new Square[rows][columns];
         this.rows = rows;
         this.columns = columns;
+        this.dailyPlanet = dailyPlanet;
+
         int k = 0;
 
         for (int i = 0; i < rows; i++) {
@@ -23,7 +29,20 @@ public class Map {
             }
         }
 
+        this.doorMan = new DoorMan(depth);
+
         spendWeaponsD1();
+    }
+
+    public static Map getSingleton(){
+        return singletonInstance;
+    }
+
+    public static Map getSingletonInstance(int rows, int columns, int dailyPlanet, int depth){
+        if(singletonInstance == null){
+            singletonInstance = new Map(rows, columns, dailyPlanet, depth);
+        }
+        return singletonInstance;
     }
 
     /**
@@ -46,7 +65,7 @@ public class Map {
 
     /**
      * Getter of square matrix
-     * @return a [rows][columns] Square matrix
+     * @return a [rows][columns] game.Square matrix
      */
     public Square[][] getMap() {
         return map;
@@ -69,14 +88,21 @@ public class Map {
         this.rows = rows;
     }
 
+    public DoorMan getDoorMan() {
+        return doorMan;
+    }
+
+    public int getDailyPlanet() {
+        return dailyPlanet;
+    }
 
     /*
-    TODO
-     */
+            TODO
+             */
     public void spendWeaponsD1(){
         int k = 0;
         int numWeaponsSquares = 60;
-        Weapon [] weaponsSquares = {new Weapon("Mjolnir",29), new Weapon("Anillo",1),
+        Weapon[] weaponsSquares = {new Weapon("Mjolnir",29), new Weapon("Anillo",1),
                 new Weapon("Garra",27), new Weapon("Weapondura",3), new Weapon("Red",25), 
                 new Weapon("Escudo",5), new Weapon("Lucille",23), new Weapon("Lawgiver",7), 
                 new Weapon("GuanteInfinito",21), new Weapon("LazoVerdad",9),
@@ -111,6 +137,13 @@ public class Map {
         }
     }
 
+    /**
+     * Method to print the map info on terminal
+     */
+    public void show(){
+        System.out.printf("(Mapa:" + Integer.toString(dailyPlanet)+")");
+        doorMan.show();
+    }
     public Square findSquare(int nSquare) {
         Square r = null;
         try{

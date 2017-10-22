@@ -1,4 +1,7 @@
+package game;
+
 import datastructures.List;
+import game.Weapon;
 
 public class Square {
 
@@ -17,5 +20,11 @@ public class Square {
 
         this.weaponList.sortedAddInversed(w);
 
+    }
+
+    public Weapon dropWeapon(){
+        Weapon w = weaponList.first().get();
+        weaponList.removeFirst();
+        return w;
     }
 }
