@@ -1,11 +1,12 @@
 package game;
 
 import datastructures.BinaryTree;
-import datastructures.WeaponTree;
+
+import java.util.Comparator;
 
 public class DoorMan {
 
-    private WeaponTree tree;
+    private BinaryTree tree;
 
     private Weapon [] doorManWeapons;
 
@@ -17,7 +18,7 @@ public class DoorMan {
 
         this.depth = depth;
 
-        tree = new WeaponTree();
+        tree = new BinaryTree();
 
         doorManWeapons = new Weapon[]{new Weapon("CampoEnergia", 5), new Weapon("Weapondura", 13),
                 new Weapon("Anillo", 11), new Weapon("Acido", 1), new Weapon("Antorcha", 5),
@@ -28,7 +29,7 @@ public class DoorMan {
                 new Weapon("Garra", 22), new Weapon("Flecha", 12), new Weapon("Gema", 4)};
 
         gateOpened = true;
-
+        configure();
     }
 
 
@@ -42,7 +43,7 @@ public class DoorMan {
 
     public boolean tryWeapon(Weapon w){
         boolean done = false;
-        Weapon bw = this.tree.biggestWeapon();
+        Weapon bw = (Weapon) this.tree.mostValuedNode(Comparator.comparingInt(Weapon::getPower));
         if (bw.getPower() < w.getPower()){
             tree.delete(bw);
             done = true;
@@ -59,7 +60,7 @@ public class DoorMan {
         gateOpened = false;
     }
 
-    public WeaponTree getTree() {
+    public BinaryTree getTree() {
         return tree;
     }
 
@@ -71,7 +72,7 @@ public class DoorMan {
         return doorManWeapons;
     }
 
-    public void show(){
+    public String toString(){
         String message = "(hombrepuerta:";
         if (gateOpened)
             message += "abierta:";
@@ -79,5 +80,6 @@ public class DoorMan {
             message += "cerrada:";
         message += Integer.toString(depth);
         message += tree.toString();
+        return message;
     }
 }

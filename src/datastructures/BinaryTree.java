@@ -1,7 +1,10 @@
 package datastructures;
 
+import game.Weapon;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.util.Comparator;
 
 /**
  * Implementation of the Binary Search Tree.
@@ -51,7 +54,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
      * @param rootData Root of the tree that is being created.
      * @param rightC     The right child of the tree that is being created.
      */
-    public BinaryTree(BinaryTree leftC, TYPE rootData, BinaryTree rightC) {
+    public BinaryTree(BinaryTree<TYPE> leftC, TYPE rootData, BinaryTree<TYPE> rightC) {
         this.isEmpty = false;
         this.rootData = rootData;
         this.leftC = leftC;
@@ -110,10 +113,10 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
                 BinaryTree<TYPE> aux;
                 if (data.compareTo(this.rootData) < 0) { //data < rootData
                     if ((aux = getLeftChild()) == null)
-                        leftC = aux = new BinaryTree();
+                        leftC = aux = new BinaryTree<>();
                 } else {                                    //data > rootData
                     if ((aux = getRightChild()) == null)
-                        rightC = aux = new BinaryTree();
+                        rightC = aux = new BinaryTree<>();
                 }
                 resultado = aux.insertData(data);
             } else
@@ -129,7 +132,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
      * @return True if the data is inside the tree. False on the opposite case.
      */
     public boolean belongs(TYPE data) {
-        BinaryTree aux = null;
+        BinaryTree<TYPE> aux = null;
         boolean encontrado = false;
         if (!empty()) {
             if (this.rootData.equals(data))
@@ -144,6 +147,24 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
             }
         }
         return encontrado;
+    }
+
+    public TYPE extract(TYPE data) {
+        BinaryTree<TYPE> aux = null;
+        boolean encontrado = false;
+        if (!empty()) {
+            if (this.rootData.equals(data))
+                return rootData;
+            else {
+                if (data.compareTo(this.rootData) < 0)    //data < rootData
+                    aux = getLeftChild();
+                else                                    //data > rootData
+                    aux = getRightChild();
+                if (aux != null)
+                    return aux.extract(data);
+            }
+        }
+        return null;
     }
 
     /**
@@ -244,6 +265,24 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
         }
     }
 
+    public TYPE mostValuedNode(Comparator<TYPE> cmp){
+        TYPE bigger = rootData;
+        TYPE leftBigger, rightBigger;
+        if(leftC != null){
+            leftBigger = (TYPE) leftC.mostValuedNode(cmp);
+            if (cmp.compare(rootData, leftBigger)<0) {
+                    bigger = leftBigger;
+                }
+            }
+        if (rightC != null){
+            rightBigger = (TYPE) rightC.mostValuedNode(cmp);
+            if(cmp.compare(rootData, rightBigger)<0){
+                bigger = rightBigger;
+            }
+        }
+        return bigger;
+    }
+
 
     /**
      * inOrder traverse of the tree.
@@ -272,6 +311,26 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
         }
     }
 
+    /**
+     * Showing inOrder
+     */
+
+    public void showInOrder() {
+
+        BinaryTree<TYPE> aux;
+        if (!empty()) {
+            if ((aux = getLeftChild()) != null) {
+                aux.showInOrder();
+            }
+
+            System.out.print(this.rootData.toString());
+
+
+            if ((aux = getRightChild()) != null) {
+                aux.showInOrder();
+            }
+        }
+    }
     /**
      * Method that returns the depth of the DataStructures.datastructures.BinaryTree.
      *
@@ -352,7 +411,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
     }
 
     public String StringInOrder() {
-        BinaryTree aux = null;
+        BinaryTree<TYPE> aux = null;
         String message = "";
         if (!empty()) {
             if ((aux = getLeftChild()) != null) {
