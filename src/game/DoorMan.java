@@ -79,7 +79,11 @@ public class DoorMan {
         else
             message += "cerrada:";
         message += Integer.toString(depth);
-        message += tree.toString();
+        message += tree.StringInOrder();
         return message;
+    }
+
+    public boolean isGateOpened() {
+        return gateOpened;
     }
 }

@@ -53,4 +53,9 @@ public class SuperHeroe extends MetaHuman{
     public BinaryTree<Weapon> getwTree() {
         return wTree;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + wTree.StringInOrder();
+    }
 }

@@ -42,5 +42,8 @@ public abstract class MetaHuman {
         this.position = position;
     }
 
-
+    @Override
+    public String toString() {
+        return name + ": " +  position+ ": ";
+    }
 }

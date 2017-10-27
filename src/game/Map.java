@@ -19,6 +19,7 @@ public class Map {
     private int dailyPlanet;
 
     private LinkedList<MetaHuman> gameCharacters;
+
     private static Map singletonInstance = null;
 
     private Map(int rows, int columns, int dailyPlanet, int depth){
@@ -54,6 +55,18 @@ public class Map {
         return singletonInstance;
     }
 
+    public void simulate(){
+        int turn = 0;
+        while(!doorMan.isGateOpened() && turn<50) {
+            for (MetaHuman gc : gameCharacters) {
+                gc.useWeapon();
+            }
+        turn++;
+            for (MetaHuman gc : gameCharacters) {
+                System.out.println(gc.toString());
+            }
+        }
+    }
     /**
      * Method to add a character to the game
      */
@@ -186,6 +199,9 @@ public class Map {
          */
 
         SuperHeroe A = new SuperHeroe("Joe","D",35);
+        SuperHeroe B = new SuperHeroe("BB", "B", 35);
+        SuperHeroe C = new SuperHeroe("CECCCECECEC", "C", 35);
+
         Weapon[] weaponsSquares = {new Weapon("Mjolnir",29), new Weapon("Anillo",1),
                 new Weapon("Garra",27), new Weapon("Weapondura",3), new Weapon("Red",25),
                 new Weapon("Escudo",5), new Weapon("Lucille",23), new Weapon("Lawgiver",7),
@@ -216,6 +232,8 @@ public class Map {
                 new Weapon("4",4),new Weapon("5",5),new Weapon("6",6),new Weapon("7",7),new Weapon("8",8),new Weapon("9",9)};
         for (Weapon w: ws) {
             A.getwTree().insertData(w);
+            B.getwTree().insertData(w);
+            C.getwTree().insertData(w);
         }
 
         try {
@@ -252,7 +270,15 @@ public class Map {
         Parte 2:
         El árbol funciona de momento correctamente
          */
-
+        map.addCharacter(A);
+        map.addCharacter(B);
+        map.addCharacter(C);
+        for (Weapon w: weaponsSquares) {
+            A.getwTree().insertData(w);
+            B.getwTree().insertData(w);
+            C.getwTree().insertData(w);
+        }
+        map.simulate();
 
     }
 }
