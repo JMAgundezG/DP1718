@@ -3,7 +3,7 @@ import characters.doorInteractions.DoorInteraction;
 import characters.features.Feature;
 import characters.movements.Movement;
 import com.sun.org.apache.xalan.internal.utils.FeatureManager;
-import game.Game;
+import Map.Game;
 import map.Map;
 
 import java.util.*;
@@ -41,7 +41,7 @@ public abstract class Characters {
     private DoorInteraction doorInteraction= null;
 
     /**
-     * It saves the movement feature of the character
+     * It saves the Movement feature of the character
      */
     private Movement movement = null;
     /**
@@ -64,8 +64,8 @@ public abstract class Characters {
     }
 
     /**
-     * Setter of movement type
-     * @param movement a movement object
+     * Setter of Movement type
+     * @param movement a Movement object
      */
     public void setMovement(Movement movement) {
         this.movement = movement;
@@ -180,8 +180,8 @@ public abstract class Characters {
 
 
     /**
-     * getter of the movement object
-     * @return the movement object
+     * getter of the Movement object
+     * @return the Movement object
      */
     public Movement getMovement() {
         return movement;

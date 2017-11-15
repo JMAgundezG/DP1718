@@ -1,7 +1,8 @@
-package game;
+package Map;
 
-import GameCharacters.MetaHuman;
+import GameCharacters.GameCharacter;
 import GameCharacters.SuperHeroe;
+import Tools.Dir;
 import Tools.GenAleatorios;
 import datastructures.Grafo;
 
@@ -35,9 +36,9 @@ public class Map {
     private int dailyPlanet;
 
     /**
-     * List of the game characters
+     * List of the Map characters
      */
-    private LinkedList<MetaHuman> gameCharacters;
+    private LinkedList<GameCharacter> gameCharacters;
 
     /**
      * Singleton instance of the map
@@ -48,6 +49,11 @@ public class Map {
      * Graph of the map
      */
     private Grafo graph;
+
+    /**
+     * List of walls
+     */
+    private LinkedList<Walls> walls;
 
     /**
      * Map constructor
@@ -73,13 +79,16 @@ public class Map {
         }
 
         this.doorMan = new DoorMan(depth);
-
+        this.walls = new LinkedList<>();
         this.gameCharacters = new LinkedList<>();
 
         //Creating the maze
         createGraph();
+        createMaze();
         graph.warshall();
         graph.floyd();
+        erasePercentageOfWalls();
+
     }
 
 
@@ -115,20 +124,32 @@ public class Map {
     }
 
     /**
+     * Set the same mark to the rooms that has the dstValue mark
+     */
+    private void setAllMarks(int srcValue, int dstValue) {
+        Square square;
+        for (int i = 0; i < this.rows * this.columns ; i++) {
+            square = getSquare(i);
+            if (square.getNodeNumber() == dstValue) {
+                square.setNodeNumber(srcValue);
+            }
+        }
+    }
+    /**
      *  Set walls for the maze
      */
     private void setWalls() {
-        for (int node = 0; node < dimX * dimY; node++) {
-            if (node >= dimY) {         //N
-                walls.addLast(new Walls(node, node - dimY));
+        for (int node = 0; node < rows * columns ; node++) {
+            if (node >= columns ) {         //N
+                walls.addLast(new Walls(node, node - columns ));
             }
-            if (node % dimY < dimY - 1) {     //E
+            if (node % columns < columns - 1) {     //E
                 this.walls.addLast(new Walls(node, node + 1));
             }
-            if (node < (dimY * (dimX - 1))) { //S
-                walls.addLast(new Walls(node, node + dimY));
+            if (node < (columns * (rows - 1))) { //S
+                walls.addLast(new Walls(node, node + columns ));
             }
-            if (node % dimY > 0) {          //O
+            if (node % columns > 0) {          //O
                 walls.addLast(new Walls(node, node - 1));
             }
 
@@ -143,11 +164,11 @@ public class Map {
         while (!walls.isEmpty()) {
             int gen = GenAleatorios.generarNumero(walls.size());
             Walls wall = walls.get(gen);
-            square square1 = getSquare(wall.getSrc());
-            square square2 = getSquare(wall.getDst());
+            Square square1 = getSquare(wall.getSrc());
+            Square square2 = getSquare(wall.getDst());
             if (square1.getNodeNumber() != square2.getNodeNumber()) {
-                graph.nuevoArco(square1.getNumberOfsquare(), square2.getNumberOfsquare(), 1);
-                graph.nuevoArco(square2.getNumberOfsquare(), square1.getNumberOfsquare(), 1);
+                graph.nuevoArco(square1.getNumber(), square2.getNumber(), 1);
+                graph.nuevoArco(square2.getNumber(), square1.getNumber(), 1);
                 setAllMarks(square1.getNodeNumber(), square2.getNodeNumber());
             }
             walls.remove(wall);
@@ -155,22 +176,156 @@ public class Map {
         }
     }
 
+    /**
+     * Erase the 5% of walls of the maze
+     */
+    private void erasePercentageOfWalls() {
+        /* 5% of walls */
+        int percentage = (rows * columns * 5) / 100;
+        int i = 0;
+        while (i < percentage) {
+            int gen = GenAleatorios.generarNumero(rows * columns);
+            Square sq = getSquare(gen);
+            if (conditionForPercentage(sq, Dir.N)) {
+                graph.nuevoArco(gen, gen - columns, 1);
+                graph.nuevoArco(gen - columns, gen, 1);
+                i++;
+            } else {
+                if (conditionForPercentage(sq, Dir.S)) {
+                    graph.nuevoArco(gen, gen + columns, 1);
+                    graph.nuevoArco(gen + columns, gen, 1);
+                    i++;
+                } else {
+                    if (conditionForPercentage(sq, Dir.E)) {
+                        graph.nuevoArco(gen, gen + 1, 1);
+                        graph.nuevoArco(gen + 1, gen, 1);
+                        i++;
+                    } else {
+                        if (conditionForPercentage(sq, Dir.O)) {
+                            graph.nuevoArco(gen, gen - 1, 1);
+                            graph.nuevoArco(gen - 1, gen, 1);
+                            i++;
+                        }
+                    }
+                }
+            }
+        }
+        graph.floyd();
+        graph.warshall();
+    }
+
+    /**
+     * @param sq1 source sq
+     * @param sq2 destiny sq
+     * @return a boolean that says if there are a wall between two sqs( if you can move from sq1 to sq2)
+     */
+    private boolean wall(int sq1, int sq2) {
+        return !graph.adyacente(sq1, sq2);
+    }
+
+    /**
+     * Says if a character makes a Movement from a room in any dir
+     * @param square the square the character stays
+     * @param dir the direction of the Movement
+     * @return if it can be possible
+     */
+    public boolean availableMovement(int square, Dir dir) {
+        boolean available = false;
+        switch (dir) {
+            case N:
+                if (square >= columns  && !wall(square, square - columns )) {
+                    available = true;
+                }
+                break;
+            case S:
+                if (square < columns  * (rows  - 1) && !wall(square, square + columns )) {
+                    available = true;
+                }
+                break;
+            case O:
+                if (square % columns  > 0 && !wall(square, square - 1)) {
+                    available = true;
+                }
+                break;
+            case E:
+                if (square % columns  < (columns  - 1) && !wall(square, square + 1)) {
+                    available = true;
+                }
+                break;
+
+        }
+        return available;
+    }
+
+    /**
+     * Calls the "Path" method of the graph
+     *
+     * @param source  source room
+     * @param destiny destiny room
+     * @return A linkedList with the path
+     */
+    public LinkedList<Integer> getPath(int source, int destiny) {
+        return this.graph.path(source, destiny);
+    }
+    
+    /**
+     * Condition for the 5% algorythm
+     */
+    private boolean conditionForPercentage(Square sq, Dir dir) {
+        boolean solution = false;
+        int n = sq.getNumber();
+        if (!availableMovement(n, dir)) {
+            switch (dir) {
+                case N:
+                    if (n >= columns) {
+                        if (getPath(n, n - columns).size() > 3) {
+                            solution = true;
+                        }
+                    }
+                    break;
+
+                case S:
+                    if (getRowOfSquare(n) < rows  - 1) {
+                        if (getPath(n, n + columns).size() > 3) {
+                            solution = true;
+                        }
+                    }
+                    break;
+                case E:
+                    if (getColumnOfSquare(n) < columns - 1) {
+                        if (getPath(n, n + 1).size() > 3) {
+                            solution = true;
+                        }
+                    }
+                    break;
+                case O:
+                    if (getColumnOfSquare(n) > 0) {
+                        if (getPath(n, n - 1).size() > 3) {
+                            solution = true;
+                        }
+                    }
+                    break;
+            }
+        }
+        return solution;
+    }
+
     public void simulate(){
         int turn = 0;
         while(!doorMan.isGateOpened() && turn<50) {
-            for (MetaHuman gc : gameCharacters) {
+            for (GameCharacter gc : gameCharacters) {
                 gc.useWeapon();
             }
         turn++;
-            for (MetaHuman gc : gameCharacters) {
+            for (GameCharacter gc : gameCharacters) {
                 System.out.println(gc.toString());
             }
         }
     }
     /**
-     * Method to add a character to the game
+     * Method to add a character to the Map
      */
-    public void addCharacter(MetaHuman m){
+    public void addCharacter(GameCharacter m){
         this.gameCharacters.add(m);
     }
 
@@ -192,9 +347,17 @@ public class Map {
     }
 
 
+    public int getRowOfSquare(int nSquare){
+        return nSquare / columns;
+    }
+
+
+    public int getColumnOfSquare(int nSquare){
+        return nSquare % columns;
+    }
     /**
      * Getter of square matrix
-     * @return a [rows][columns] game.Square matrix
+     * @return a [rows][columns] Map.Square matrix
      */
     public Square[][] getMap() {
         return map;
@@ -286,6 +449,16 @@ public class Map {
             s = map[nSquare / columns][nSquare % columns];
         }catch (NullPointerException e){
             System.out.println("The square that you are searching doesn't exists");
+        }
+        return s;
+    }
+
+    public Square getSquare(int row, int col){
+        Square s = null;
+        try {
+            s = map[row][col];
+        }catch (NullPointerException e){
+            System.err.println("The square that you are searching doesn't exists");
         }
         return s;
     }

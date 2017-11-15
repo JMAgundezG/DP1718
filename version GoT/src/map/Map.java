@@ -31,7 +31,7 @@ public class Map {
     private String initialMap;
 
     /**
-     * game.Map constructor
+     * Map.Map constructor
      *
      * @param dimY it should be an integer bigger than 0
      * @param dimX it should be an integer bigger than 0
@@ -308,9 +308,9 @@ public class Map {
     }
 
     /**
-     * Says if a character makes a movement from a room in any dir
+     * Says if a character makes a Movement from a room in any dir
      * @param room the room the character stays
-     * @param dir the direction of the movement
+     * @param dir the direction of the Movement
      * @return if it can be possible
      */
     public boolean availableMovement(int room, Dir dir) {

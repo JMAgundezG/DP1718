@@ -1,4 +1,4 @@
-package game;
+package Map;
 
 import characters.Characters;
 import characters.Lannister;
@@ -57,7 +57,7 @@ public class Game {
     }
 
     /**
-     * Simulate a turn of the game
+     * Simulate a turn of the Map
      */
     public void simulateATurn() {
         addPlayersToMap();
@@ -87,7 +87,7 @@ public class Game {
     }
 
     /**
-     * Simulate the game
+     * Simulate the Map
      */
 
     public void simulateGame() {
@@ -118,7 +118,7 @@ public class Game {
 
     /**
      *
-     * @return the final message of the game
+     * @return the final message of the Map
      */
     public String winMessage() {
         String message = "(thronemembers)";
@@ -150,7 +150,7 @@ public class Game {
     }
 
     /**
-     * Method that makes a message with all the features of the game in that moment
+     * Method that makes a message with all the features of the Map in that moment
      *
      * @return
      */
@@ -177,7 +177,7 @@ public class Game {
 
 
     /**
-     * Put a character in the game
+     * Put a character in the Map
      *
      * @param character
      */
@@ -188,8 +188,8 @@ public class Game {
     }
 
     /**
-     * Verifies if the characters that isn't in the game should start playing and
-     * inserts in the game if it's necessary
+     * Verifies if the characters that isn't in the Map should start playing and
+     * inserts in the Map if it's necessary
      */
     private void addPlayersToMap() {
         for (Characters character : AllCharacters) {
@@ -201,7 +201,7 @@ public class Game {
     }
 
     /**
-     * Remove the dead players of the game
+     * Remove the dead players of the Map
      */
     private void removePlayersFromMap() {
         for (Characters c : DeadCharacters) {

@@ -1,7 +1,5 @@
 package datastructures;
 
-import game.Weapon;
-
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.Comparator;

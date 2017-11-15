@@ -1,4 +1,4 @@
-package dp.cargador;
+package Tools.cargador;
 /**
  * Clase creada para ser usada en la utilidad cargador
  * se utiliza para realizar el mapeo de los distintos tipos de datos que se utilizar�n en la aplicaci�n

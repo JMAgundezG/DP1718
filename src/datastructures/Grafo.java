@@ -1,5 +1,5 @@
 package datastructures;
-import game.Game;
+import Map.Game;
 import map.Map;
 
 import java.util.*;

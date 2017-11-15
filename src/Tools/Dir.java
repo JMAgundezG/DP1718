@@ -1,4 +1,4 @@
-package tools;
+package Tools;
 
 /**
  * Different dirs of the maze (South S, East E, North N, West O)

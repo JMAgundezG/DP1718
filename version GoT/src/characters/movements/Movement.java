@@ -1,6 +1,6 @@
 package characters.movements;
 import characters.Characters;
-import game.Game;
+import Map.Game;
 import map.Map;
 import map.Room;
 import tools.Dir;

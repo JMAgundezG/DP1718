@@ -1,14 +1,14 @@
 package GameCharacters;
 
 import datastructures.BinaryTree;
-import game.DoorMan;
-import game.Map;
-import game.Square;
-import game.Weapon;
+import Map.DoorMan;
+import Map.Map;
+import Map.Square;
+import Map.Weapon;
 
 import java.util.Comparator;
 
-public class SuperHeroe extends MetaHuman{
+public class SuperHeroe extends GameCharacter {
 
     private BinaryTree<Weapon> wTree;
 
@@ -25,9 +25,9 @@ public class SuperHeroe extends MetaHuman{
             wTree.insertData(new Weapon(w.getName(), w.getPower()+oldWeapon.getPower()));
         }
     }
-    public void takeWeapon(){
+    public void takeWeapon(){ // TODO MAKE TO 2nd D
 
-        Square s = Map.getSingleton().findSquare(this.getPosition());
+        Square s = Map.getSingleton().getSquare(this.getPosition());
         this.wTree.insertData(s.dropWeapon());
 
     }
@@ -35,6 +35,7 @@ public class SuperHeroe extends MetaHuman{
     public Weapon biggestWeapon(){
         return wTree.mostValuedNode(Comparator.comparingInt(Weapon::getPower));
     }
+
     public void useWeapon(){
 
         DoorMan d = Map.getSingleton().getDoorMan();

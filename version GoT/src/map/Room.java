@@ -3,7 +3,7 @@ package map;
 import characters.Characters;
 import characters.WhiteWalkers;
 import com.sun.org.apache.xpath.internal.operations.Bool;
-import game.Game;
+import Map.Game;
 
 import java.util.*;
 

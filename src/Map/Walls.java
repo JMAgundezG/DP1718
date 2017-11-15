@@ -1,4 +1,4 @@
-package map;
+package Map;
 
 /**
  * Walls' class

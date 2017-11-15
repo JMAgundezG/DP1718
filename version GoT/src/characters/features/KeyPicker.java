@@ -1,7 +1,7 @@
 package characters.features;
 
 import characters.Characters;
-import game.Game;
+import Map.Game;
 import map.Key;
 import map.Map;
 import map.Room;

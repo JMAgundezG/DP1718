@@ -1,6 +1,6 @@
 package tools;
 
-import game.Game;
+import Map.Game;
 import map.Map;
 
 import java.io.*;
@@ -10,7 +10,7 @@ import java.util.LinkedList;
 public class Tools {
 
     /**
-     * The maximum turns of the game
+     * The maximum turns of the Map
      */
     public static int MaxTurn = 100;
 

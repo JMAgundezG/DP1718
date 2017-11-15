@@ -2,7 +2,7 @@ package charger;
 
 import characters.*;
 import tools.Dir;
-import game.Game;
+import Map.Game;
 import tools.Path;
 
 import java.util.*;

@@ -1,24 +1,25 @@
-package characters.movements;
-import characters.Characters;
-import Map.Game;
-import map.Map;
-import map.Room;
-import tools.Dir;
-import java.util.LinkedList;
+package GameCharacters.Movement;
 
+
+import GameCharacters.GameCharacter;
+import Map.Map;
+import Tools.Dir;
+import Map.Square;
+
+import java.util.LinkedList;
 
 public abstract class Movement {
     /**
      * Character that will move
      */
-    private Characters character;
+    private GameCharacter character;
 
     /**
      * The list of movements of the character
      */
     private LinkedList<Dir> movements;
 
-    public Movement(Characters character, LinkedList<Dir> movements){
+    public Movement(GameCharacter character, LinkedList<Dir> movements){
 
         this.character = character;
         this.movements = movements;
@@ -30,46 +31,47 @@ public abstract class Movement {
      */
     protected void movement(){
 
-        Map map = Game.getSingletonInstance().getMap();
+        Map map = Map.getSingleton();
 
-        int roomNumber = this.character.getNumberOfRoom();
-        Room room  = map.findRoom(this.character.getNumberOfRoom());
+        int roomNumber = this.character.getPosition();
+        Square sq  = map.getSquare(this.character.getPosition());
         if(!movements.isEmpty()) {
             Dir aux = movements.removeFirst();
             switch (aux) {
                 case N:
                     if(map.availableMovement(roomNumber,Dir.N)) {
-                        room.getOutCharacter(this.character);
-                        room = map.findRoom(room.getPosX() - 1, room.getPosY());
-                        room.insertCharacter(this.character);
+                        sq.dropCharacter(this.character);
+                        sq = map.getSquare(map.getRowOfSquare(roomNumber) - 1, map.getColumnOfSquare(roomNumber));
+                        sq.saveCharacter(this.character);
                     }
                     break;
 
                 case S:
                     if (map.availableMovement(roomNumber,Dir.S)){
-                        room.getOutCharacter(this.character);
-                        room = map.findRoom(room.getPosX() + 1, room.getPosY());
-                        room.insertCharacter(this.character);
+                        sq.dropCharacter(this.character);
+                        sq = map.getSquare(map.getRowOfSquare(roomNumber) + 1, map.getColumnOfSquare(roomNumber));
+                        sq.saveCharacter(this.character);
+
                     }
                     break;
 
                 case E:
                     if(map.availableMovement(roomNumber,Dir.E)){
-                        room.getOutCharacter(this.character);
-                        room = map.findRoom(room.getPosX(), room.getPosY() + 1);
-                        room.insertCharacter(this.character);
+                        sq.dropCharacter(this.character);
+                        sq = map.getSquare(map.getRowOfSquare(roomNumber) + 1, map.getColumnOfSquare(roomNumber) + 1);
+                        sq.saveCharacter(this.character);
                     }
                     break;
 
                 case O:
                     if (map.availableMovement(roomNumber,Dir.O)){
-                        room.getOutCharacter(this.character);
-                        room = map.findRoom(room.getPosX(), room.getPosY() - 1);
-                        room.insertCharacter(this.character);
+                        sq.dropCharacter(this.character);
+                        sq = map.getSquare(map.getRowOfSquare(roomNumber) + 1, map.getColumnOfSquare(roomNumber) - 1);
+                        sq.saveCharacter(this.character);
                     }
                     break;
             }
-            this.character.setNumberOfRoom(room.getNumberOfRoom());
+            this.character.setPosition(sq.getNumber());
         }
     }
 
@@ -80,11 +82,11 @@ public abstract class Movement {
         movement();
     }
 
-    public Characters getCharacter() {
+    public GameCharacter getCharacter() {
         return character;
     }
 
-    public void setCharacter(Characters character) {
+    public void setCharacter(GameCharacter character) {
         this.character = character;
     }
 

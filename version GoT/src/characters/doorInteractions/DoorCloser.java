@@ -1,7 +1,7 @@
 package characters.doorInteractions;
 
 import characters.Characters;
-import game.Game;
+import Map.Game;
 import map.Door;
 
 

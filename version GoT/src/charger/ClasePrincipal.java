@@ -8,7 +8,7 @@ package charger;
  * @author Profesores DP
  */
 import characters.Lannister;
-import game.Game;
+import Map.Game;
 import sun.awt.image.ImageWatched;
 
 import java.io.FileNotFoundException;

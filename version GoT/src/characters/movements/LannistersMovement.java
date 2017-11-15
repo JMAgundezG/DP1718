@@ -6,7 +6,7 @@ import tools.Path;
 
 public class LannistersMovement extends Movement {
     /**
-     * Puts the Lannister's path to the character's movement
+     * Puts the Lannister's path to the character's Movement
      *
      */
     public LannistersMovement(Characters character){

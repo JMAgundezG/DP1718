@@ -1,9 +1,9 @@
 package GameCharacters;
 
-import game.Map;
-import game.Weapon;
+import Map.Map;
+import Map.Weapon;
 
-public class Villain extends MetaHuman{
+public class Villain extends GameCharacter {
 
     private Weapon weapon;
 

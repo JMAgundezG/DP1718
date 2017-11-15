@@ -1,10 +1,7 @@
-package game;
+package Map;
+// TODO CLASS DIAGRAM 2nd
+import GameCharacters.GameCharacter;
 
-import datastructures.List;
-import game.Weapon;
-
-import java.nio.file.Watchable;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Square {
@@ -15,15 +12,18 @@ public class Square {
 
     private LinkedList<Weapon> weaponList;
 
+    private LinkedList<GameCharacter> gameCharacters;
+
     public Square(int number){
 
         this.number = number;
         this.weaponList = new LinkedList<>();
+        this.gameCharacters = new LinkedList<>();
 
     }
 
     public void saveWeapon(Weapon w){
-
+        //TODO SAVE BY POWER
         this.weaponList.addLast(w);
 
     }
@@ -34,6 +34,13 @@ public class Square {
         return w;
     }
 
+    public void saveCharacter(GameCharacter gc){
+        gameCharacters.addLast(gc);
+    }
+
+    public void dropCharacter(GameCharacter gc){
+        gameCharacters.remove(gc);
+    }
 
     public int getNodeNumber() {
         return nodeNumber;
@@ -41,6 +48,14 @@ public class Square {
 
     public void setNodeNumber(int nodeNumber) {
         this.nodeNumber = nodeNumber;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package dp.cargador;
+package Tools.cargador;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class Cargador {
 	
 	/**
 	 *  constructor parametrizado 
-	 *  @param e referencia a la instancia del patrón Singleton
+	 * // @param e referencia a la instancia del patrón Singleton
 	 */
 	Cargador()  {
 		mapeo = new DatoMapeo[NUMELTOSCONF];
@@ -94,7 +94,7 @@ public class Cargador {
 	 */
 	private void crearMap(int numCampos, List<String> vCampos){
 	    System.out.println("Creado Map: " + vCampos.get(1) + "\n");
-	    //inicializar mapa
+	    //TODO inicializar mapa
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class Cargador {
 	 */
 	private void crearSHPhysical(int numCampos, List<String> vCampos){
 	    System.out.println("Creado SHPhysical: " + vCampos.get(1) + "\n");
-	    //Registrar SHPhysical en el mapa
+	    //TODO Registrar SHPhysical en el mapa
 	}
 
 	/**
@@ -114,7 +114,7 @@ public class Cargador {
 	 */
 	private void crearSHExtraSensorial(int numCampos, List<String> vCampos){
 	    System.out.println("Creado SHExtraSensorial: " + vCampos.get(1) + "\n");
-	    //Registrar SHExtraSensorial en el mapa
+	    //TODO Registrar SHExtraSensorial en el mapa
 	}	
 
 	/**
@@ -124,7 +124,7 @@ public class Cargador {
 	 */
 	private void crearSHFlight(int numCampos, List<String> vCampos){
 	    System.out.println("Creado SHFlight: " + vCampos.get(1) + "\n");
-	    //Registrar SHFlight en el mapa
+	    //TODO Registrar SHFlight en el mapa
 	}	
 
 	/**
@@ -134,7 +134,7 @@ public class Cargador {
 	 */
 	private void crearVillain(int numCampos, List<String> vCampos){
 	    System.out.println("Creado Villain: " + vCampos.get(1) + "\n");
-	    //Registrar Villain en el mapa
+	    //TODO Registrar Villain en el mapa
 	}
 
 }

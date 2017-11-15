@@ -1,4 +1,4 @@
-import game.Game;
+import Map.Game;
 import map.Key;
 import org.junit.Before;
 import org.junit.Test;

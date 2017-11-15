@@ -3,7 +3,7 @@ package characters;
 import characters.doorInteractions.DoorCloser;
 import characters.features.KeyDropper;
 import characters.movements.LannistersMovement;
-import game.Game;
+import Map.Game;
 import tools.Path;
 
 

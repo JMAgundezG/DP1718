@@ -4,7 +4,7 @@ import characters.doorInteractions.DoorOpener;
 import characters.features.KeyPicker;
 import characters.movements.StarksMovement;
 import characters.movements.TargaryensMovement;
-import game.Game;
+import Map.Game;
 import map.Map;
 
 

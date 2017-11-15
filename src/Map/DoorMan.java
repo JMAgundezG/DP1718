@@ -1,4 +1,4 @@
-package game;
+package Map;
 
 import datastructures.BinaryTree;
 

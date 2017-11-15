@@ -1,4 +1,4 @@
-package game;
+package Map;
 
 public class Weapon implements Comparable<Weapon>{
 

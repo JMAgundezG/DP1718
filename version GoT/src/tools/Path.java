@@ -1,7 +1,7 @@
 package tools;
 
 import datastructures.Grafo;
-import game.Game;
+import Map.Game;
 import map.Map;
 
 import java.util.LinkedList;
@@ -13,7 +13,7 @@ public interface Path {
 
     /**
      *
-     * @return the lannister's movement
+     * @return the lannister's Movement
      */
     static  LinkedList<Dir> LannisterMovement() {
 
@@ -31,7 +31,7 @@ public interface Path {
     }
 
     /**
-     * Creates the Targaryen's movement with the wallFollower algorithm
+     * Creates the Targaryen's Movement with the wallFollower algorithm
      */
     static LinkedList<Dir> TargaryenMovement(int initialPosition) {
         LinkedList<Dir> movements = new LinkedList<>();

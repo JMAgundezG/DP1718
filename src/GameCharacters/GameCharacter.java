@@ -1,7 +1,9 @@
 package GameCharacters;
 
 
-public abstract class MetaHuman {
+import GameCharacters.Movement.Movement;
+
+public abstract class GameCharacter {
 
     private String name;
 
@@ -9,11 +11,16 @@ public abstract class MetaHuman {
 
     private int position;
 
+    private Movement movement;
 
-    public MetaHuman(String name, String id, int pos){
+    private String type;
+
+    public GameCharacter(String name, String type, String id, int pos, Movement movement){
         this.name = name;
         this.id = id;
         this.position = pos;
+        this.movement = movement;
+        this.type = type;
     }
 
     public abstract void useWeapon();

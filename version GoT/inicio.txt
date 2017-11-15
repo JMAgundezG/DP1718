@@ -1,4 +1,4 @@
---game.Map
+--Map.Map
 MAP#10#10#99#5#
 --Characters in the simulation
 STARK#John#J#1#
