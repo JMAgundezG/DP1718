@@ -2,26 +2,60 @@ package game;
 
 import GameCharacters.MetaHuman;
 import GameCharacters.SuperHeroe;
+import Tools.GenAleatorios;
+import datastructures.Grafo;
 
-import javax.sound.midi.Soundbank;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Map {
 
+    /**
+     * Matrix of squares
+     */
     private Square[][] map;
 
+    /**
+     * number of columns
+     */
     private int columns;
+
+    /**
+     * Number of rows
+     */
     private int rows;
 
+    /**
+     * The doorman
+     */
     private DoorMan doorMan;
 
+    /**
+     * Daily planet's number of square
+     */
     private int dailyPlanet;
 
+    /**
+     * List of the game characters
+     */
     private LinkedList<MetaHuman> gameCharacters;
 
+    /**
+     * Singleton instance of the map
+     */
     private static Map singletonInstance = null;
 
+    /**
+     * Graph of the map
+     */
+    private Grafo graph;
+
+    /**
+     * Map constructor
+     * @param rows number of rows
+     * @param columns number of columns
+     * @param dailyPlanet number of the dailyPlanet's square
+     * @param depth number of depth
+     */
     private Map(int rows, int columns, int dailyPlanet, int depth){
 
         this.map = new Square[rows][columns];
@@ -41,8 +75,14 @@ public class Map {
         this.doorMan = new DoorMan(depth);
 
         this.gameCharacters = new LinkedList<>();
-        spendWeaponsD1();
+
+        //Creating the maze
+        createGraph();
+        graph.warshall();
+        graph.floyd();
     }
+
+
 
     public static Map getSingleton(){
         return singletonInstance;
@@ -53,6 +93,66 @@ public class Map {
             singletonInstance = new Map(rows, columns, dailyPlanet, depth);
         }
         return singletonInstance;
+    }
+
+    /**
+     * Creates all the nodes of the map
+     */
+    private void createGraph() {
+        for (int node = 0; node < columns * rows; node++) {
+            this.graph.nuevoNodo(node);
+        }
+    }
+
+    /**
+     * Set the marks for the initial algorythms
+     */
+    private void setNodeNumbersInicial() {
+        for (int i = 0; i < rows * columns; i++) {
+           Square s = getSquare(i);
+            s.setNodeNumber(i);
+        }
+    }
+
+    /**
+     *  Set walls for the maze
+     */
+    private void setWalls() {
+        for (int node = 0; node < dimX * dimY; node++) {
+            if (node >= dimY) {         //N
+                walls.addLast(new Walls(node, node - dimY));
+            }
+            if (node % dimY < dimY - 1) {     //E
+                this.walls.addLast(new Walls(node, node + 1));
+            }
+            if (node < (dimY * (dimX - 1))) { //S
+                walls.addLast(new Walls(node, node + dimY));
+            }
+            if (node % dimY > 0) {          //O
+                walls.addLast(new Walls(node, node - 1));
+            }
+
+        }
+    }
+    /**
+     * Create the maze on the map
+     */
+    private void createMaze() {
+        setNodeNumbersInicial();
+        setWalls();
+        while (!walls.isEmpty()) {
+            int gen = GenAleatorios.generarNumero(walls.size());
+            Walls wall = walls.get(gen);
+            square square1 = getSquare(wall.getSrc());
+            square square2 = getSquare(wall.getDst());
+            if (square1.getNodeNumber() != square2.getNodeNumber()) {
+                graph.nuevoArco(square1.getNumberOfsquare(), square2.getNumberOfsquare(), 1);
+                graph.nuevoArco(square2.getNumberOfsquare(), square1.getNumberOfsquare(), 1);
+                setAllMarks(square1.getNodeNumber(), square2.getNodeNumber());
+            }
+            walls.remove(wall);
+
+        }
     }
 
     public void simulate(){
@@ -158,7 +258,7 @@ public class Map {
 
         int[] squares = {1, 2, 8, 14, 15, 21, 27, 35, 28, 29, 33, 34};
         for (int i = 0; i < squares.length && k < numWeaponsSquares; i++) {
-            Square s = findSquare(squares[i]);
+            Square s = getSquare(squares[i]);
             for (int j = 0; j < 5; j++) {
                 s.saveWeapon(weaponsSquares[k]);
                 k++;
@@ -180,14 +280,14 @@ public class Map {
 
     }
 
-    public Square findSquare(int nSquare) {
-        Square r = null;
+    public Square getSquare(int nSquare) {
+        Square s = null;
         try{
-            r = map[nSquare / columns][nSquare % columns];
+            s = map[nSquare / columns][nSquare % columns];
         }catch (NullPointerException e){
-            System.out.println("The room that you are searching doesn't exists");
+            System.out.println("The square that you are searching doesn't exists");
         }
-        return r;
+        return s;
     }
 
     static public void main(String[] args){

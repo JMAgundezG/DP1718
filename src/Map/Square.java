@@ -11,6 +11,8 @@ public class Square {
 
     private int number;
 
+    private int nodeNumber;
+
     private LinkedList<Weapon> weaponList;
 
     public Square(int number){
@@ -30,6 +32,15 @@ public class Square {
         Weapon w = weaponList.getFirst();
         weaponList.removeFirst();
         return w;
+    }
+
+
+    public int getNodeNumber() {
+        return nodeNumber;
+    }
+
+    public void setNodeNumber(int nodeNumber) {
+        this.nodeNumber = nodeNumber;
     }
 
     @Override
