@@ -1,14 +1,15 @@
 package datastructures;
 
 /**
-* Implementation of the method for the datastructures.List class.
-*
-* @version 2.0
-* @author
-* <b> Profesores DP </b><br/x>
-* Program Development<br/>
-* 16/17 Course
-*/
+ * Implementation of the List.
+ *
+ * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * List class. <br/>
+ * Year: 2017/2018 <br/>
+ * Group: Rubber Duck <br/>
+ * Delivery: EC2 <br/>
+ */
 public class List<E extends Comparable<E>> {
 	/** Reference to the first element in the list*/
 	private Node first;

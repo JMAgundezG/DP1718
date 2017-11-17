@@ -1,24 +1,49 @@
 package Map;
 
 /**
- * Walls' class
+ * Implementation of the Walls.
+ *
+ * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * This is the class that will simulate the walls of the map. <br/>
+ * Year: 2017/2018 <br/>
+ * Group: Rubber Duck <br/>
+ * Delivery: EC2 <br/>
  */
 public class Walls {
+
     /**
-     * the two rooms that the wall separate
+     * The room that we will consider as source
      */
     private int src;
+
+    /**
+     * The room that we will consider as destiny.
+     */
     private int dst;
 
+    /**
+     * Public constructor of the class Walls.
+     * @param src the attribute src.
+     * @param dst the attribute dst.
+     */
     public Walls(int src, int dst){
         this.src = src;
         this.dst = dst;
     }
 
+    /**
+     * Getter of the attribute dst.
+     * @return the dst attribute.
+     */
     public int getDst() {
         return dst;
     }
 
+    /**
+     * Getter of the attribute src.
+     * @return the src attribute.
+     */
     public int getSrc() {
         return src;
     }

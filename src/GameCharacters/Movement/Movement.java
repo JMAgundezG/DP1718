@@ -8,17 +8,33 @@ import Map.Square;
 
 import java.util.LinkedList;
 
+/**
+ * Implementation of the Movement.
+ *
+ * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * This is the class that will recreate every movement of every character in the game <br/>
+ * Year: 2017/2018 <br/>
+ * Group: Rubber Duck <br/>
+ * Delivery: EC2 <br/>
+ */
 public abstract class Movement {
+
     /**
-     * Character that will move
+     * The character that will move through the map.
      */
     private GameCharacter character;
 
     /**
-     * The list of movements of the character
+     * The list of movements of the character.
      */
     private LinkedList<Dir> movements;
 
+    /**
+     * Public parametrized constructor of the class Movement.
+     * @param character the character attribute.
+     * @param movements the movements linked list attribute.
+     */
     public Movement(GameCharacter character, LinkedList<Dir> movements){
 
         this.character = character;
@@ -27,7 +43,7 @@ public abstract class Movement {
     }
 
     /**
-     * Method that make each character moves on the map
+     * Method that recreates the move of every character on the map.
      */
     protected void movement(){
 
@@ -58,7 +74,7 @@ public abstract class Movement {
                 case E:
                     if(map.availableMovement(roomNumber,Dir.E)){
                         sq.dropCharacter(this.character);
-                        sq = map.getSquare(map.getRowOfSquare(roomNumber) + 1, map.getColumnOfSquare(roomNumber) + 1);
+                        sq = map.getSquare(map.getRowOfSquare(roomNumber), map.getColumnOfSquare(roomNumber) + 1);
                         sq.saveCharacter(this.character);
                     }
                     break;
@@ -66,7 +82,7 @@ public abstract class Movement {
                 case O:
                     if (map.availableMovement(roomNumber,Dir.O)){
                         sq.dropCharacter(this.character);
-                        sq = map.getSquare(map.getRowOfSquare(roomNumber) + 1, map.getColumnOfSquare(roomNumber) - 1);
+                        sq = map.getSquare(map.getRowOfSquare(roomNumber), map.getColumnOfSquare(roomNumber) - 1);
                         sq.saveCharacter(this.character);
                     }
                     break;
@@ -82,10 +98,18 @@ public abstract class Movement {
         movement();
     }
 
+    /**
+     * Getter of the attribute character.
+     * @return the character attribute.
+     */
     public GameCharacter getCharacter() {
         return character;
     }
 
+    /**
+     * Setter of the attribute character.
+     * @param character the character attribute.
+     */
     public void setCharacter(GameCharacter character) {
         this.character = character;
     }

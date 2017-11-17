@@ -13,6 +13,7 @@ import java.util.Comparator;
  * the new methods that we had to use in order to complete the project and the translation of the ADS to English. <br/>
  * Year: 2017/2018 <br/>
  * Group: Rubber Duck <br/>
+ * Delivery: EC2 <br/>
  */
 public class BinaryTree<TYPE extends Comparable<TYPE>>{
 
@@ -408,6 +409,10 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
         return innersNumber;
     }
 
+    /**
+     * InOrder method used to show the elements as Strings.
+     * @return every node of the tree as a String.
+     */
     public String StringInOrder() {
         BinaryTree<TYPE> aux = null;
         String message = "";
