@@ -11,9 +11,9 @@ import java.util.Comparator;
  * @version 1.0
  * The original version was given to us by the professors of the subject, we made the necessary changes, including the template,
  * the new methods that we had to use in order to complete the project and the translation of the ADS to English. <br/>
- * Year: 2017/2018 <br/>
- * Group: Rubber Duck <br/>
- * Delivery: EC2 <br/>
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC2.
  */
 public class BinaryTree<TYPE extends Comparable<TYPE>>{
 

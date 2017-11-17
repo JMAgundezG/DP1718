@@ -1,6 +1,5 @@
 package datastructures;
-import Map.Game;
-import map.Map;
+
 
 import java.util.*;
 
@@ -8,9 +7,9 @@ import java.util.*;
 * @file grafo.h
 * Declaracion de la clase grafo
 * @author
-*   <b> Profesores DP </b><br>
-*   <b> Asignatura Desarrollo de Programas</b><br>
-*   <b> Curso 11/12 </b>
+* Profesores DP.
+* Asignatura Desarrollo de Programas.
+* Curso 11/12.
 */
 public class Grafo {
 	public static final int MAXVERT=115;

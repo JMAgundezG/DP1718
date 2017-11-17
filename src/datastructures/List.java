@@ -5,10 +5,10 @@ package datastructures;
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
  * @version 1.0
- * List class. <br/>
- * Year: 2017/2018 <br/>
- * Group: Rubber Duck <br/>
- * Delivery: EC2 <br/>
+ * List class.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC2.
  */
 public class List<E extends Comparable<E>> {
 	/** Reference to the first element in the list*/

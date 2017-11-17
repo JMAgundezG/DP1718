@@ -18,10 +18,10 @@ import java.util.LinkedList;
  * In the version 2.0, We have added the graph,
  * the walls and some methods that are needed
  * for the second delivery.
- * We have also modified the constructor. <br/>
- * Year: 2017/2018 <br/>
- * Group: Rubber Duck <br/>
- * Delivery: EC2 <br/>
+ * We have also modified the constructor.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC2.
  */
 public class Map {
 

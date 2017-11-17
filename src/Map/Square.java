@@ -11,10 +11,10 @@ import java.util.LinkedList;
  * @version 2.0
  * These are the squares that form the map.
  * In the version 2.0, we have added the graph related attributes with the
- * corresponding setters and getters. <br/>
- * Year: 2017/2018 <br/>
- * Group: Rubber Duck <br/>
- * Delivery: EC2 <br/>
+ * corresponding setters and getters.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC2.
  */
 public class Square {
 

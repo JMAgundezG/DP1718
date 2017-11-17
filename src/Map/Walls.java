@@ -5,10 +5,10 @@ package Map;
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
  * @version 1.0
- * This is the class that will simulate the walls of the map. <br/>
- * Year: 2017/2018 <br/>
- * Group: Rubber Duck <br/>
- * Delivery: EC2 <br/>
+ * This is the class that will simulate the walls of the map.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC2.
  */
 public class Walls {
 

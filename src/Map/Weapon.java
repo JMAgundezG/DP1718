@@ -6,10 +6,10 @@ package Map;
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
  * @version 1.0
  * This is the class that will contain the information of the weapons
- * used by the GameCharacters. <br/>
- * Year: 2017/2018 <br/>
- * Group: Rubber Duck <br/>
- * Delivery: EC2 <br/>
+ * used by the GameCharacters.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC2.
  */
 public class Weapon implements Comparable<Weapon>{
 

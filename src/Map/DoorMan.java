@@ -9,10 +9,10 @@ import java.util.Comparator;
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
  * @version 1.0
- * This is the class that controls the portal for the end-game.<br/>
- * Year: 2017/2018 <br/>
- * Group: Rubber Duck <br/>
- * Delivery: EC2 <br/>
+ * This is the class that controls the portal for the end-game.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC2.
  */
 public class DoorMan {
 

@@ -12,10 +12,10 @@ import GameCharacters.Movement.Movement;
  * Contains the needed abstract methods.
  * It will also have the main constructor and the main toString.
  * In version 2.0 we have introduced new attributes
- * and we have also modified the constructor. <br/>
- * Year: 2017/2018 <br/>
- * Group: Rubber Duck <br/>
- * Delivery: EC2 <br/>
+ * and we have also modified the constructor.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC2.
  */
 public abstract class GameCharacter {
 

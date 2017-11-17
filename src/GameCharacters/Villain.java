@@ -10,10 +10,10 @@ import Map.Weapon;
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
  * @version 2.0
  * Extends from the MetaHuman class and uses its methods.
- * In version 2.0, The constructor has been modified. <br/>
- * Year: 2017/2018 <br/>
- * Group: Rubber Duck <br/>
- * Delivery: EC2 <br/>
+ * In version 2.0, The constructor has been modified.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC2.
  */
 public class Villain extends GameCharacter {
 
