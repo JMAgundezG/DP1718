@@ -523,6 +523,7 @@ public class Map {
      * Main method of the map class. Simulates all the general functioning of the program.
      * @param args main parameters. Not used for now.
      */
+
     static public void main(String[] args){
         Map map = getSingletonInstance(6,6,35,4);
         map.show();
