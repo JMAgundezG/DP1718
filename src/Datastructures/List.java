@@ -1,4 +1,4 @@
-package datastructures;
+package Datastructures;
 
 /**
  * Implementation of the List.
@@ -17,7 +17,7 @@ public class List<E extends Comparable<E>> {
 	/** Reference to the last element in the list*/
 	private Node last;
 	
-	/** datastructures.List size*/
+	/** Datastructures.List size*/
 	private Integer size = 0;
 	
     public class Node {
@@ -65,7 +65,7 @@ public class List<E extends Comparable<E>> {
 
 		
 	/**
-	 * Default Constructor for the datastructures.List class
+	 * Default Constructor for the Datastructures.List class
 	 */
 	public List() {
 		first = last = null;
@@ -74,9 +74,9 @@ public class List<E extends Comparable<E>> {
 
 	
 	/**
-	 * Parametrized method for the datastructures.List class
+	 * Parametrized method for the Datastructures.List class
 	 *
-	 * @param data the data that the datastructures.List will store
+	 * @param data the data that the Datastructures.List will store
 	 */
 	public List(E data) {
 		addLast(data);

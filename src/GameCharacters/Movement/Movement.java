@@ -1,6 +1,7 @@
 package GameCharacters.Movement;
 
 
+import Game.Game;
 import GameCharacters.GameCharacter;
 import Map.Map;
 import Tools.Dir;
@@ -47,7 +48,7 @@ public abstract class Movement {
      */
     protected void movement(){
 
-        Map map = Map.getSingleton();
+        Map map = Game.getSingletonInstance().getMap();
 
         int roomNumber = this.character.getPosition();
         Square sq  = map.getSquare(this.character.getPosition());

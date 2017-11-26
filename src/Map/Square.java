@@ -118,6 +118,19 @@ public class Square {
         this.number = number;
     }
 
+    
+    public String stringOfCharacters(){
+            String CharacterIcon = "";
+            if (gameCharacters.isEmpty()) {
+                CharacterIcon += " ";
+            } else if (gameCharacters.size() >= 2) {
+                CharacterIcon = Integer.toString(gameCharacters.size());
+            } else {
+                CharacterIcon += gameCharacters.element().getId();
+            }
+            return CharacterIcon;
+        
+    }
     /**
      * Override toString method used to show the information of the square.
      * @return the String that contains the Square information.

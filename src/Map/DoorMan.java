@@ -1,6 +1,6 @@
 package Map;
 
-import datastructures.BinaryTree;
+import Datastructures.BinaryTree;
 
 import java.util.Comparator;
 
@@ -72,7 +72,7 @@ public class DoorMan {
     }
 
     /**
-     * Method that allows other Game Characters to interact with the portal and try to open the portal.
+     * Method that allows other Game.Game Characters to interact with the portal and try to open the portal.
      * @param w The weapon that the Characters are using to try and open the portal.
      * @return true if the portal has been opened. False on the opposite case.
      */

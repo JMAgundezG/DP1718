@@ -1,0 +1,1026 @@
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|  _  |
+|_ _ _ _ _|_|
+(path:D: E E S S E S S E E S)
+(path:P: E E S W W E S W E N E S E S W W W S E W N E E S N E S S W W W E E E E E)
+(path:W: E E S S E S S E E S)
+(path:A: S S N W S S W S E E N S S)
+(path:V: S S N W S S W S E E N S S)
+(path:E: E E E N E E S)
+(turn:0)
+(map:35)
+(doorman:closed:4:(Acido,1)(Anillo,11)(Antorcha,5)(Armadura,13)(Baston,22)(Bola,3)(CadenaFuego,11)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Cetro,20)(Escudo,3)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|3 _  |_ _ 2|
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|  _  |
+|E _ _ _ _ _|
+(square:1:(Mjolnir,29)(Garra,27)(Red,25)(Armadura,3)(Anillo,1))
+(square:2:(Lucille,23)(GuanteInfinito,21)(LazoVerdad,9)(Lawgiver,7)(Escudo,5))
+(square:8:(CadenaFuego,19)(Flecha,17)(Antorcha,15)(Tridente,13)(Capa,11))
+(square:14:(Baston,28)(MazaOro,26)(Tentaculo,24)(CampoMagnetico,4)(Latigo,2))
+(square:15:(Cetro,22)(Laser,20)(Bola,10)(RayoEnergia,8)(CampoEnergia,6))
+(square:21:(Nullifier,23)(Espada,18)(Acido,16)(Gema,14)(Sable,12))
+(square:27:(Anillo,29)(Armadura,27)(Red,5)(Garra,3)(Mjolnir,1))
+(square:28:(Antorcha,28)(Capa,19)(Tridente,17)(Flecha,13)(CadenaFuego,11))
+(square:29:(Latigo,26)(CampoMagnetico,24)(Baston,15)(Tentaculo,4)(MazaOro,2))
+(square:33:(CampoEnergia,22)(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(square:35:(Escudo,25)(Lawgiver,23)(LazoVerdad,21)(GuanteInfinito,9)(Lucille,7))
+(shphysical:D:0:1:)
+(shextrasensorial:P:0:1:)
+(shphysical:W:0:4:)
+(villain:A:5:1:)
+(villain:V:5:2:)
+(shflight:E:30:1:)
+(turn:1)
+(map:35)
+(doorman:closed:4:(Acido,1)(Anillo,11)(Antorcha,5)(Armadura,13)(Baston,22)(Bola,3)(CadenaFuego,11)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Cetro,20)(Escudo,3)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|W 2  |_ _ V|
+|_    |_   A|
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|  _  |
+|_ E _ _ _ _|
+(square:1:(Red,25)(Armadura,3)(Anillo,1))
+(square:2:(Lucille,23)(GuanteInfinito,21)(LazoVerdad,9)(Lawgiver,7)(Escudo,5))
+(square:8:(CadenaFuego,19)(Flecha,17)(Antorcha,15)(Tridente,13)(Capa,11))
+(square:14:(Baston,28)(MazaOro,26)(Tentaculo,24)(CampoMagnetico,4)(Latigo,2))
+(square:15:(Cetro,22)(Laser,20)(Bola,10)(RayoEnergia,8)(CampoEnergia,6))
+(square:21:(Nullifier,23)(Espada,18)(Acido,16)(Gema,14)(Sable,12))
+(square:27:(Anillo,29)(Armadura,27)(Red,5)(Garra,3)(Mjolnir,1))
+(square:28:(Antorcha,28)(Capa,19)(Tridente,17)(Flecha,13)(CadenaFuego,11))
+(square:29:(Latigo,26)(CampoMagnetico,24)(Baston,15)(Tentaculo,4)(MazaOro,2))
+(square:33:(CampoEnergia,22)(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(square:35:(Escudo,25)(Lawgiver,23)(LazoVerdad,21)(GuanteInfinito,9)(Lucille,7))
+(shphysical:W:0:4:)
+(shphysical:D:1:1:(Mjolnir,29))
+(shextrasensorial:P:1:1:(Garra,27))
+(villain:V:5:2:)
+(villain:A:11:1:)
+(shflight:E:31:1:)
+(turn:2)
+(map:35)
+(doorman:closed:4:(Acido,1)(Anillo,11)(Antorcha,5)(Armadura,13)(Baston,22)(Bola,3)(CadenaFuego,11)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Cetro,20)(Escudo,3)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|W _ 2|_ _  |
+|_    |_   V|
+|_ _|_  | |A|
+|  _     _| |
+|_ _|_|  _  |
+|_ _ E _ _ _|
+(square:1:(Red,25)(Armadura,3)(Anillo,1))
+(square:2:(LazoVerdad,9)(Lawgiver,7)(Escudo,5))
+(square:8:(CadenaFuego,19)(Flecha,17)(Antorcha,15)(Tridente,13)(Capa,11))
+(square:14:(Baston,28)(MazaOro,26)(Tentaculo,24)(CampoMagnetico,4)(Latigo,2))
+(square:15:(Cetro,22)(Laser,20)(Bola,10)(RayoEnergia,8)(CampoEnergia,6))
+(square:21:(Nullifier,23)(Espada,18)(Acido,16)(Gema,14)(Sable,12))
+(square:27:(Anillo,29)(Armadura,27)(Red,5)(Garra,3)(Mjolnir,1))
+(square:28:(Antorcha,28)(Capa,19)(Tridente,17)(Flecha,13)(CadenaFuego,11))
+(square:29:(Latigo,26)(CampoMagnetico,24)(Baston,15)(Tentaculo,4)(MazaOro,2))
+(square:33:(CampoEnergia,22)(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(square:35:(Escudo,25)(Lawgiver,23)(LazoVerdad,21)(GuanteInfinito,9)(Lucille,7))
+(shphysical:W:0:4:)
+(shphysical:D:2:2:(Lucille,23)(Mjolnir,29))
+(shextrasensorial:P:2:2:(Garra,27)(GuanteInfinito,21))
+(villain:V:11:2:)
+(villain:A:17:2:)
+(shflight:E:32:2:)
+(turn:3)
+(map:35)
+(doorman:closed:4:(Acido,1)(Anillo,11)(Antorcha,5)(Armadura,13)(Baston,22)(Bola,3)(CadenaFuego,11)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Cetro,20)(Escudo,3)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|W _  |_ _  |
+|_   2|_   A|
+|_ _|_  | |V|
+|  _     _| |
+|_ _|_|  _  |
+|_ _ _ E _ _|
+(square:1:(Red,25)(Armadura,3)(Anillo,1))
+(square:2:(LazoVerdad,9)(Lawgiver,7)(Escudo,5))
+(square:8:(Antorcha,15)(Tridente,13)(Capa,11))
+(square:14:(Baston,28)(MazaOro,26)(Tentaculo,24)(CampoMagnetico,4)(Latigo,2))
+(square:15:(Cetro,22)(Laser,20)(Bola,10)(RayoEnergia,8)(CampoEnergia,6))
+(square:21:(Nullifier,23)(Espada,18)(Acido,16)(Gema,14)(Sable,12))
+(square:27:(Anillo,29)(Armadura,27)(Red,5)(Garra,3)(Mjolnir,1))
+(square:28:(Antorcha,28)(Capa,19)(Tridente,17)(Flecha,13)(CadenaFuego,11))
+(square:29:(Latigo,26)(CampoMagnetico,24)(Baston,15)(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(square:35:(Escudo,25)(Lawgiver,23)(LazoVerdad,21)(GuanteInfinito,9)(Lucille,7))
+(shphysical:W:0:4:)
+(shphysical:D:8:3:(CadenaFuego,19)(Lucille,23)(Mjolnir,29))
+(shextrasensorial:P:8:3:(Flecha,17)(Garra,27)(GuanteInfinito,21))
+(villain:A:11:3:)
+(villain:V:17:3:)
+(shflight:E:33:3:(CampoEnergia,22))
+(turn:4)
+(map:35)
+(doorman:closed:4:(Acido,1)(Anillo,11)(Antorcha,5)(Armadura,13)(Baston,22)(Bola,3)(CadenaFuego,11)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Cetro,20)(Escudo,3)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ W  |_ _  |
+|_ P  |_ A V|
+|_ _|D  | |_|
+|  _     _| |
+|_ _|_|E _  |
+|_ _ _ _ _ _|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(LazoVerdad,9)(Lawgiver,7)(Escudo,5))
+(square:8:(Antorcha,15)(Tridente,13)(Capa,11))
+(square:14:(MazaOro,26)(Tentaculo,24)(CampoMagnetico,4)(Latigo,2))
+(square:15:(Cetro,22)(Laser,20)(Bola,10)(RayoEnergia,8)(CampoEnergia,6))
+(square:21:(Nullifier,23)(Espada,18)(Acido,16)(Gema,14)(Sable,12))
+(square:27:(Armadura,27)(Red,5)(Garra,3)(Mjolnir,1))
+(square:28:(Antorcha,28)(Capa,19)(Tridente,17)(Flecha,13)(CadenaFuego,11))
+(square:29:(Latigo,26)(CampoMagnetico,24)(Baston,15)(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(square:35:(Escudo,25)(Lawgiver,23)(LazoVerdad,21)(GuanteInfinito,9)(Lucille,7))
+(shphysical:W:1:4:(Red,25))
+(shextrasensorial:P:7:4:(Flecha,17)(Garra,27)(GuanteInfinito,21))
+(villain:A:10:4:)
+(villain:V:11:4:)
+(shphysical:D:14:4:(Baston,28)(CadenaFuego,19)(Lucille,23)(Mjolnir,29))
+(shflight:E:27:4:(Anillo,29)(CampoEnergia,22))
+(turn:5)
+(map:35)
+(doorman:closed:4:(Acido,1)(Anillo,11)(Antorcha,5)(Armadura,13)(Baston,22)(Bola,3)(CadenaFuego,11)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Cetro,20)(Escudo,3)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _ W|_ _  |
+|P    |_ V  |
+|_ _|_ D|A|_|
+|  _     _| |
+|_ _|_|  E  |
+|_ _ _ _ _ _|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Antorcha,15)(Tridente,13)(Capa,11))
+(square:14:(MazaOro,26)(Tentaculo,24)(CampoMagnetico,4)(Latigo,2))
+(square:15:(Laser,20)(Bola,10)(RayoEnergia,8)(CampoEnergia,6))
+(square:21:(Nullifier,23)(Espada,18)(Acido,16)(Gema,14)(Sable,12))
+(square:27:(Armadura,27)(Red,5)(Garra,3)(Mjolnir,1))
+(square:28:(Capa,19)(Tridente,17)(Flecha,13)(CadenaFuego,11))
+(square:29:(Latigo,26)(CampoMagnetico,24)(Baston,15)(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(square:35:(Escudo,25)(Lawgiver,23)(LazoVerdad,21)(GuanteInfinito,9)(Lucille,7))
+(shphysical:W:2:5:(LazoVerdad,9)(Red,25))
+(shextrasensorial:P:6:5:(Flecha,17)(Garra,27)(GuanteInfinito,21))
+(villain:V:10:5:)
+(shphysical:D:15:5:(Baston,28)(CadenaFuego,19)(Cetro,22)(Lucille,23)(Mjolnir,29))
+(villain:A:16:5:)
+(shflight:E:28:5:(Anillo,29)(Antorcha,28)(CampoEnergia,22))
+(turn:6)
+(map:35)
+(doorman:closed:4:(Acido,1)(Anillo,11)(Antorcha,5)(Armadura,13)(Baston,22)(Bola,3)(CadenaFuego,11)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Cetro,20)(Escudo,3)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_ P W|_    |
+|_ _|_  |V|_|
+|  _   D A| |
+|_ _|_|  _ E|
+|_ _ _ _ _ _|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Tridente,13)(Capa,11))
+(square:14:(MazaOro,26)(Tentaculo,24)(CampoMagnetico,4)(Latigo,2))
+(square:15:(Laser,20)(Bola,10)(RayoEnergia,8)(CampoEnergia,6))
+(square:21:(Espada,18)(Acido,16)(Gema,14)(Sable,12))
+(square:27:(Armadura,27)(Red,5)(Garra,3)(Mjolnir,1))
+(square:28:(Capa,19)(Tridente,17)(Flecha,13)(CadenaFuego,11))
+(square:29:(CampoMagnetico,24)(Baston,15)(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(square:35:(Escudo,25)(Lawgiver,23)(LazoVerdad,21)(GuanteInfinito,9)(Lucille,7))
+(shextrasensorial:P:7:6:(Flecha,17)(Garra,27)(GuanteInfinito,21))
+(shphysical:W:8:6:(Antorcha,15)(LazoVerdad,9)(Red,25))
+(villain:V:16:6:)
+(shphysical:D:21:6:(Baston,28)(CadenaFuego,19)(Cetro,22)(Lucille,23)(Mjolnir,29)(Nullifier,23))
+(villain:A:22:6:)
+(shflight:E:29:6:(Anillo,29)(Antorcha,28)(CampoEnergia,22)(Latigo,26))
+(turn:7)
+(map:35)
+(doorman:closed:4:(Acido,1)(Anillo,11)(Antorcha,5)(Armadura,13)(Baston,22)(Bola,3)(CadenaFuego,11)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Cetro,20)(Escudo,3)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ P|W  | |_|
+|  _   A V| |
+|_ _|_|D _  |
+|_ _ _ _ _ E|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Tridente,13)(Capa,11))
+(square:14:(Tentaculo,24)(CampoMagnetico,4)(Latigo,2))
+(square:15:(Laser,20)(Bola,10)(RayoEnergia,8)(CampoEnergia,6))
+(square:21:(Acido,16)(Gema,14)(Sable,12))
+(square:27:(Red,5)(Garra,3)(Mjolnir,1))
+(square:28:(Capa,19)(Tridente,17)(Flecha,13)(CadenaFuego,11))
+(square:29:(CampoMagnetico,24)(Baston,15)(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(square:35:(Lawgiver,23)(LazoVerdad,21)(GuanteInfinito,9)(Lucille,7))
+(shextrasensorial:P:13:7:(Flecha,17)(Garra,27)(GuanteInfinito,21))
+(shphysical:W:14:7:(Antorcha,15)(LazoVerdad,9)(MazaOro,26)(Red,25))
+(villain:A:21:7:(Espada,18))
+(villain:V:22:7:)
+(shphysical:D:27:7:(Armadura,27)(Baston,28)(CadenaFuego,19)(Cetro,22)(Lucille,23)(Mjolnir,29)(Nullifier,23))
+(shflight:E:35:7:(Anillo,29)(Antorcha,28)(CampoEnergia,22)(Escudo,25)(Latigo,26))
+(turn:8)
+(map:35)
+(doorman:closed:4:(Acido,1)(Antorcha,5)(Armadura,13)(Baston,22)(Bola,3)(CadenaFuego,11)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Cetro,20)(Escudo,3)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|P _|_ W| |_|
+|  _   V _| |
+|_ _|_|A D  |
+|_ _ _ _ _ E|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Tridente,13)(Capa,11))
+(square:14:(Tentaculo,24)(CampoMagnetico,4)(Latigo,2))
+(square:15:(Bola,10)(RayoEnergia,8)(CampoEnergia,6))
+(square:21:(Gema,14)(Sable,12))
+(square:27:(Red,5)(Garra,3)(Mjolnir,1))
+(square:28:(Tridente,17)(Flecha,13)(CadenaFuego,11))
+(square:29:(CampoMagnetico,24)(Baston,15)(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(square:35:(LazoVerdad,21)(GuanteInfinito,9)(Lucille,7))
+(shextrasensorial:P:12:8:(Flecha,17)(Garra,27)(GuanteInfinito,21))
+(shphysical:W:15:8:(Antorcha,15)(Laser,20)(LazoVerdad,9)(MazaOro,26)(Red,25))
+(villain:V:21:8:(Acido,16))
+(villain:A:27:8:(Espada,18))
+(shphysical:D:28:8:(Armadura,27)(Baston,28)(CadenaFuego,19)(Capa,19)(Cetro,22)(Lucille,23)(Mjolnir,29)(Nullifier,23))
+(shflight:E:35:8:(Antorcha,28)(CampoEnergia,22)(Escudo,25)(Latigo,26)(Lawgiver,23))
+(turn:9)
+(map:35)
+(doorman:closed:4:(Acido,1)(Armadura,13)(Baston,22)(Bola,3)(CadenaFuego,11)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Cetro,20)(Escudo,3)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ P|_  | |_|
+|  _   W _| |
+|_ _|_|V A D|
+|_ _ _ _ _ E|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Tridente,13)(Capa,11))
+(square:14:(Tentaculo,24)(CampoMagnetico,4)(Latigo,2))
+(square:15:(Bola,10)(RayoEnergia,8)(CampoEnergia,6))
+(square:21:(Sable,12))
+(square:27:(Red,5)(Garra,3)(Mjolnir,1))
+(square:28:(Tridente,17)(Flecha,13)(CadenaFuego,11))
+(square:29:(Baston,15)(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(square:35:(GuanteInfinito,9)(Lucille,7))
+(shextrasensorial:P:13:9:(Flecha,17)(Garra,27)(GuanteInfinito,21))
+(shphysical:W:21:9:(Antorcha,15)(Gema,14)(Laser,20)(LazoVerdad,9)(MazaOro,26)(Red,25))
+(villain:V:27:9:(Acido,16))
+(villain:A:28:9:(Espada,18))
+(shphysical:D:29:9:(Armadura,27)(Baston,28)(CadenaFuego,19)(CampoMagnetico,24)(Capa,19)(Cetro,22)(Lucille,23)(Mjolnir,29)(Nullifier,23))
+(shflight:E:35:9:(CampoEnergia,22)(Escudo,25)(Latigo,26)(Lawgiver,23)(LazoVerdad,21))
+(turn:10)
+(map:35)
+(doorman:closed:4:(Acido,1)(Armadura,13)(Baston,22)(Bola,3)(CadenaFuego,11)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Cetro,20)(Escudo,3)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_ P  |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|W V A|
+|_ _ _ _ _ 2|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Tridente,13)(Capa,11))
+(square:14:(Tentaculo,24)(CampoMagnetico,4)(Latigo,2))
+(square:15:(Bola,10)(RayoEnergia,8)(CampoEnergia,6))
+(square:21:(Sable,12))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Acido,16)(Flecha,13)(CadenaFuego,11))
+(square:29:(Baston,15)(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:7:10:(Flecha,17)(Garra,27)(GuanteInfinito,21))
+(shphysical:W:27:10:(Antorcha,15)(Gema,14)(Laser,20)(LazoVerdad,9)(MazaOro,26)(Red,30))
+(villain:V:28:10:(Tridente,17))
+(villain:A:29:10:(Espada,18))
+(shflight:E:35:10:(CampoEnergia,22)(Escudo,25)(Lawgiver,23)(LazoVerdad,21)(Lucille,7))
+(shphysical:D:35:10:(Armadura,27)(Baston,28)(CadenaFuego,19)(CampoMagnetico,24)(Capa,19)(Cetro,22)(GuanteInfinito,9)(Lucille,23)(Mjolnir,29)(Nullifier,23))
+(turn:11)
+(map:35)
+(doorman:closed:4:(Acido,1)(Armadura,13)(Baston,22)(Bola,3)(CadenaFuego,11)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Cetro,20)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_   P|_    |
+|_ _|_  | |_|
+|  _     _|A|
+|_ _|_|  W V|
+|_ _ _ _ _ 2|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(Tentaculo,24)(CampoMagnetico,4)(Latigo,2))
+(square:15:(Bola,10)(RayoEnergia,8)(CampoEnergia,6))
+(square:21:(Sable,12))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Baston,15)(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:8:11:(Flecha,17)(Garra,27)(GuanteInfinito,21)(Tridente,13))
+(villain:A:23:11:(Espada,18))
+(shphysical:W:28:11:(Acido,16)(Antorcha,15)(Gema,14)(Laser,20)(LazoVerdad,9)(MazaOro,26)(Red,30))
+(villain:V:29:11:(Tridente,17))
+(shflight:E:35:11:(CampoEnergia,22)(Lawgiver,23)(LazoVerdad,21)(Lucille,7))
+(shphysical:D:35:11:(Armadura,27)(Baston,28)(CadenaFuego,19)(CampoMagnetico,24)(Capa,19)(Cetro,22)(GuanteInfinito,9)(Lucille,23)(Nullifier,23))
+(turn:12)
+(map:35)
+(doorman:closed:4:(Acido,1)(Armadura,13)(Bola,3)(CadenaFuego,11)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Cetro,20)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|P  | |_|
+|  _     _|V|
+|_ _|_|  _ 2|
+|_ _ _ _ _ 2|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(Bola,10)(RayoEnergia,8)(CampoEnergia,6))
+(square:21:(Sable,12))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:14:12:(Flecha,17)(Garra,27)(GuanteInfinito,21)(Tentaculo,24)(Tridente,13))
+(villain:V:23:12:(Tridente,17))
+(villain:A:29:12:(Espada,18))
+(shphysical:W:29:12:(Acido,16)(Antorcha,15)(Baston,15)(Gema,14)(Laser,20)(LazoVerdad,9)(MazaOro,26)(Red,30))
+(shflight:E:35:12:(CampoEnergia,22)(LazoVerdad,21)(Lucille,7))
+(shphysical:D:35:12:(Armadura,27)(CadenaFuego,19)(CampoMagnetico,24)(Capa,19)(Cetro,22)(GuanteInfinito,9)(Lucille,23)(Nullifier,23))
+(turn:13)
+(map:35)
+(doorman:closed:4:(Acido,1)(Bola,3)(CadenaFuego,11)(CampoMagnetico,5)(Capa,10)(Cetro,20)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_ P| |_|
+|  _     _| |
+|_ _|_|  _ V|
+|_ _ _ _ _ 4|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:21:(Sable,12))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:15:13:(Bola,10)(Flecha,17)(Garra,27)(GuanteInfinito,21)(Tentaculo,24)(Tridente,13))
+(villain:V:29:13:(Tridente,17))
+(shflight:E:35:13:(LazoVerdad,21)(Lucille,7))
+(shphysical:D:35:13:(CadenaFuego,19)(CampoMagnetico,24)(Capa,19)(Cetro,22)(GuanteInfinito,9)(Lucille,23)(Nullifier,23))
+(villain:A:35:13:(Espada,18))
+(shphysical:W:35:13:(Acido,16)(Antorcha,15)(Baston,15)(Gema,14)(Laser,20)(LazoVerdad,9)(MazaOro,26)(Red,30))
+(turn:14)
+(map:35)
+(doorman:closed:4:(Acido,1)(Bola,3)(CadenaFuego,11)(Capa,10)(Cetro,20)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _   P _| |
+|_ _|_|  _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:21:14:(Bola,10)(Flecha,17)(Garra,27)(GuanteInfinito,21)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:14:(Lucille,7))
+(shphysical:D:35:14:(CadenaFuego,19)(Capa,19)(Cetro,22)(GuanteInfinito,9)(Lucille,23)(Nullifier,23))
+(villain:A:35:14:(Espada,18))
+(shphysical:W:35:14:(Acido,16)(Antorcha,15)(Baston,15)(Gema,14)(Laser,20)(LazoVerdad,9)(MazaOro,26))
+(villain:V:35:14:(Tridente,17))
+(turn:15)
+(map:35)
+(doorman:closed:4:(Acido,1)(Bola,3)(CadenaFuego,11)(Capa,10)(Cetro,20)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _ P   _| |
+|_ _|_|  _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:20:15:(Bola,10)(Flecha,17)(Garra,27)(GuanteInfinito,21)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:15:)
+(shphysical:D:35:15:(CadenaFuego,19)(Capa,19)(Cetro,22)(GuanteInfinito,9)(Nullifier,23))
+(villain:A:35:15:(Espada,18))
+(shphysical:W:35:15:(Acido,16)(Antorcha,15)(Baston,15)(Gema,14)(Laser,20)(LazoVerdad,9))
+(villain:V:35:15:(Tridente,17))
+(turn:16)
+(map:35)
+(doorman:closed:4:(Acido,1)(Bola,3)(CadenaFuego,11)(Capa,10)(Cetro,20)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  P     _| |
+|_ _|_|  _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:19:16:(Bola,10)(Flecha,17)(Garra,27)(GuanteInfinito,21)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:16:)
+(shphysical:D:35:16:(CadenaFuego,19)(Capa,19)(Cetro,22)(GuanteInfinito,9))
+(villain:A:35:16:(Espada,18))
+(shphysical:W:35:16:(Acido,16)(Antorcha,15)(Baston,15)(Gema,14)(LazoVerdad,9))
+(villain:V:35:16:(Tridente,17))
+(turn:17)
+(map:35)
+(doorman:closed:4:(Bola,3)(CadenaFuego,11)(Capa,10)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|P _     _| |
+|_ _|_|  _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:18:17:(Bola,10)(Flecha,17)(Garra,27)(GuanteInfinito,21)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:17:)
+(shphysical:D:35:17:(CadenaFuego,19)(Capa,19)(GuanteInfinito,9))
+(villain:A:35:17:(Espada,18))
+(shphysical:W:35:17:(Antorcha,15)(Baston,15)(Gema,14)(LazoVerdad,9))
+(villain:V:35:17:(Tridente,17))
+(turn:18)
+(map:35)
+(doorman:closed:4:(Bola,3)(Capa,10)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|P _|_|  _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:24:18:(Bola,10)(Flecha,17)(Garra,27)(GuanteInfinito,21)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:18:)
+(shphysical:D:35:18:(Capa,19)(GuanteInfinito,9))
+(villain:A:35:18:(Espada,18))
+(shphysical:W:35:18:(Baston,15)(Gema,14)(LazoVerdad,9))
+(villain:V:35:18:(Tridente,17))
+(turn:19)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22)(Gema,4))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ P|_|  _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:25:19:(Bola,10)(Flecha,17)(Garra,27)(GuanteInfinito,21)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:19:)
+(shphysical:D:35:19:(GuanteInfinito,9))
+(villain:A:35:19:(Espada,18))
+(shphysical:W:35:19:(Gema,14)(LazoVerdad,9))
+(villain:V:35:19:(Tridente,17))
+(turn:20)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|P _|_|  _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:24:20:(Bola,10)(Flecha,17)(Garra,27)(GuanteInfinito,21)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:20:)
+(shphysical:D:35:20:)
+(villain:A:35:20:(Espada,18))
+(shphysical:W:35:20:(LazoVerdad,9))
+(villain:V:35:20:(Tridente,17))
+(turn:21)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|P _     _| |
+|_ _|_|  _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:18:21:(Bola,10)(Flecha,17)(Garra,27)(GuanteInfinito,21)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:21:)
+(shphysical:D:35:21:)
+(villain:A:35:21:(Espada,18))
+(shphysical:W:35:21:)
+(villain:V:35:21:(Tridente,17))
+(turn:22)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  P     _| |
+|_ _|_|  _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:19:22:(Bola,10)(Flecha,17)(Garra,27)(GuanteInfinito,21)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:22:)
+(shphysical:D:35:22:)
+(villain:A:35:22:(Espada,18))
+(shphysical:W:35:22:)
+(villain:V:35:22:(Tridente,17))
+(turn:23)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _ P   _| |
+|_ _|_|  _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:20:23:(Bola,10)(Flecha,17)(Garra,27)(GuanteInfinito,21)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:23:)
+(shphysical:D:35:23:)
+(villain:A:35:23:(Espada,18))
+(shphysical:W:35:23:)
+(villain:V:35:23:(Tridente,17))
+(turn:24)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|P|  _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:26:24:(Bola,10)(Flecha,17)(Garra,27)(GuanteInfinito,21)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:24:)
+(shphysical:D:35:24:)
+(villain:A:35:24:(Espada,18))
+(shphysical:W:35:24:)
+(villain:V:35:24:(Tridente,17))
+(turn:25)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _ P   _| |
+|_ _|_|  _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:20:25:(Bola,10)(Flecha,17)(Garra,27)(GuanteInfinito,21)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:25:)
+(shphysical:D:35:25:)
+(villain:A:35:25:(Espada,18))
+(shphysical:W:35:25:)
+(villain:V:35:25:(Tridente,17))
+(turn:26)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _   P _| |
+|_ _|_|  _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Garra,3)(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:21:26:(Bola,10)(Flecha,17)(Garra,27)(GuanteInfinito,21)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:26:)
+(shphysical:D:35:26:)
+(villain:A:35:26:(Espada,18))
+(shphysical:W:35:26:)
+(villain:V:35:26:(Tridente,17))
+(turn:27)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|P _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:27:27:(Bola,10)(Flecha,17)(Garra,30)(GuanteInfinito,21)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:27:)
+(shphysical:D:35:27:)
+(villain:A:35:27:(Espada,18))
+(shphysical:W:35:27:)
+(villain:V:35:27:(Tridente,17))
+(turn:28)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|  _  |
+|_ _ _ P _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:33:28:(Bola,10)(Flecha,17)(Garra,30)(GuanteInfinito,21)(RayoEnergia,20)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:28:)
+(shphysical:D:35:28:)
+(villain:A:35:28:(Espada,18))
+(shphysical:W:35:28:)
+(villain:V:35:28:(Tridente,17))
+(turn:29)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|  _  |
+|_ _ P _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:32:29:(Bola,10)(Flecha,17)(Garra,30)(GuanteInfinito,21)(RayoEnergia,20)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:29:)
+(shphysical:D:35:29:)
+(villain:A:35:29:(Espada,18))
+(shphysical:W:35:29:)
+(villain:V:35:29:(Tridente,17))
+(turn:30)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|  _  |
+|_ P _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:31:30:(Bola,10)(Flecha,17)(Garra,30)(GuanteInfinito,21)(RayoEnergia,20)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:30:)
+(shphysical:D:35:30:)
+(villain:A:35:30:(Espada,18))
+(shphysical:W:35:30:)
+(villain:V:35:30:(Tridente,17))
+(turn:31)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|  _  |
+|P _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:30:31:(Bola,10)(Flecha,17)(Garra,30)(GuanteInfinito,21)(RayoEnergia,20)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:31:)
+(shphysical:D:35:31:)
+(villain:A:35:31:(Espada,18))
+(shphysical:W:35:31:)
+(villain:V:35:31:(Tridente,17))
+(turn:32)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|  _  |
+|_ P _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:31:32:(Bola,10)(Flecha,17)(Garra,30)(GuanteInfinito,21)(RayoEnergia,20)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:32:)
+(shphysical:D:35:32:)
+(villain:A:35:32:(Espada,18))
+(shphysical:W:35:32:)
+(villain:V:35:32:(Tridente,17))
+(turn:33)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|  _  |
+|_ _ P _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(Bola,18)(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:32:33:(Bola,10)(Flecha,17)(Garra,30)(GuanteInfinito,21)(RayoEnergia,20)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:33:)
+(shphysical:D:35:33:)
+(villain:A:35:33:(Espada,18))
+(shphysical:W:35:33:)
+(villain:V:35:33:(Tridente,17))
+(turn:34)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|  _  |
+|_ _ _ P _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(Laser,8)(Cetro,6))
+(square:34:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:33:34:(Bola,28)(Flecha,17)(Garra,30)(GuanteInfinito,21)(RayoEnergia,20)(Sable,12)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:34:)
+(shphysical:D:35:34:)
+(villain:A:35:34:(Espada,18))
+(shphysical:W:35:34:)
+(villain:V:35:34:(Tridente,17))
+(turn:35)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|  _  |
+|_ _ _ _ P 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(Laser,8)(Cetro,6))
+(square:34:(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shextrasensorial:P:34:35:(Bola,28)(Flecha,17)(Garra,30)(GuanteInfinito,21)(RayoEnergia,20)(Sable,28)(Tentaculo,24)(Tridente,13))
+(shflight:E:35:35:)
+(shphysical:D:35:35:)
+(villain:A:35:35:(Espada,18))
+(shphysical:W:35:35:)
+(villain:V:35:35:(Tridente,17))
+(turn:36)
+(map:35)
+(doorman:closed:4:(Bola,3)(Espada,11)(Flecha,12)(Garra,22))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|  _  |
+|_ _ _ _ _ 6|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(Laser,8)(Cetro,6))
+(square:34:(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shflight:E:35:36:)
+(shphysical:D:35:36:)
+(villain:A:35:36:(Espada,18))
+(shphysical:W:35:36:)
+(villain:V:35:36:(Tridente,17))
+(shextrasensorial:P:35:36:(Bola,28)(Flecha,17)(Garra,30)(GuanteInfinito,21)(RayoEnergia,20)(Sable,28)(Tentaculo,24))
+(turn:37)
+(map:35)
+(doorman:open:4:(Bola,3)(Espada,11)(Flecha,12))
+ _ _ _ _ _ _
+|_ _  |_ _  |
+|_    |_    |
+|_ _|_  | |_|
+|  _     _| |
+|_ _|_|  _  |
+|_ _ _ _ _ 5|
+(square:1:(Armadura,3)(Anillo,1))
+(square:2:(Lawgiver,7)(Escudo,5))
+(square:8:(Capa,11))
+(square:14:(CampoMagnetico,4)(Latigo,2))
+(square:15:(RayoEnergia,8)(CampoEnergia,6))
+(square:27:(Mjolnir,1))
+(square:28:(Flecha,13)(CadenaFuego,11))
+(square:29:(Tentaculo,4)(MazaOro,2))
+(square:33:(Laser,8)(Cetro,6))
+(square:34:(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shflight:E:35:37:)
+(shphysical:D:35:37:)
+(villain:A:35:37:(Espada,18))
+(shphysical:W:35:37:)
+(villain:V:35:37:(Tridente,17))
+(teseractomembers)
+(owneroftheworld:shextrasensorial:P:1111:37:(Bola,28)(Flecha,17)(GuanteInfinito,21)(RayoEnergia,20)(Sable,28)(Tentaculo,24))

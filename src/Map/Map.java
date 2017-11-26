@@ -1,10 +1,9 @@
 package Map;
 
 import GameCharacters.GameCharacter;
-import GameCharacters.SuperHero;
 import Tools.Dir;
 import Tools.GenAleatorios;
-import datastructures.Grafo;
+import Datastructures.Grafo;
 
 import java.util.LinkedList;
 
@@ -73,12 +72,13 @@ public class Map {
     /**
      * Private constructor according to the singleton design pattern.
      * It creates the map, all the squares and the corresponding maze using some graph methods.
-     * @param rows The number of rows of the matrix.
-     * @param columns The number of columns of the matrix.
+     *
+     * @param rows        The number of rows of the matrix.
+     * @param columns     The number of columns of the matrix.
      * @param dailyPlanet The last room of the matrix.
-     * @param depth The depth the tree requires for the portal to be opened.
+     * @param depth       The depth the tree requires for the portal to be opened.
      */
-    private Map(int rows, int columns, int dailyPlanet, int depth){
+    public Map(int rows, int columns, int dailyPlanet, int depth) {
 
         this.map = new Square[rows][columns];
         this.rows = rows;
@@ -97,7 +97,7 @@ public class Map {
         this.doorMan = new DoorMan(depth);
         this.walls = new LinkedList<>();
         this.gameCharacters = new LinkedList<>();
-
+        this.graph = new Grafo();
         //Creating the maze
         createGraph();
         createMaze();
@@ -105,29 +105,6 @@ public class Map {
         graph.floyd();
         erasePercentageOfWalls();
 
-    }
-
-    /**
-     * Public singleton design pattern getter.
-     * @return the instance of the map. Null if it is not created.
-     */
-    public static Map getSingleton(){
-        return singletonInstance;
-    }
-
-    /**
-     * Public parametrized getter of the singleton instance. If the map does not exist, it is created.
-     * @param rows Number of rows of the matrix.
-     * @param columns Number of columns of the matrix.
-     * @param dailyPlanet Last room of the matrix.
-     * @param depth Depth of the tree required to open the portal.
-     * @return The instance of the map.
-     */
-    public static Map getSingletonInstance(int rows, int columns, int dailyPlanet, int depth){
-        if(singletonInstance == null){
-            singletonInstance = new Map(rows, columns, dailyPlanet, depth);
-        }
-        return singletonInstance;
     }
 
     /**
@@ -144,7 +121,7 @@ public class Map {
      */
     private void setNodeNumbersInicial() {
         for (int i = 0; i < rows * columns; i++) {
-           Square s = getSquare(i);
+            Square s = getSquare(i);
             s.setNodeNumber(i);
         }
     }
@@ -154,26 +131,27 @@ public class Map {
      */
     private void setAllMarks(int srcValue, int dstValue) {
         Square square;
-        for (int i = 0; i < this.rows * this.columns ; i++) {
+        for (int i = 0; i < this.rows * this.columns; i++) {
             square = getSquare(i);
             if (square.getNodeNumber() == dstValue) {
                 square.setNodeNumber(srcValue);
             }
         }
     }
+
     /**
      * Creates the walls of the map.
      */
     private void setWalls() {
-        for (int node = 0; node < rows * columns ; node++) {
-            if (node >= columns ) {         //N
-                walls.addLast(new Walls(node, node - columns ));
+        for (int node = 0; node < rows * columns; node++) {
+            if (node >= columns) {         //N
+                walls.addLast(new Walls(node, node - columns));
             }
             if (node % columns < columns - 1) {     //E
                 this.walls.addLast(new Walls(node, node + 1));
             }
             if (node < (columns * (rows - 1))) { //S
-                walls.addLast(new Walls(node, node + columns ));
+                walls.addLast(new Walls(node, node + columns));
             }
             if (node % columns > 0) {          //O
                 walls.addLast(new Walls(node, node - 1));
@@ -181,6 +159,7 @@ public class Map {
 
         }
     }
+
     /**
      * Creates the maze of the map.
      */
@@ -242,6 +221,7 @@ public class Map {
 
     /**
      * Method that determines whether you can go from sq1 to sq2 or not.
+     *
      * @param sq1 source square
      * @param sq2 destiny square
      * @return a boolean that says if there is a wall between two given squares.
@@ -252,30 +232,31 @@ public class Map {
 
     /**
      * Method that determines if a character can move to the desired direction.
+     *
      * @param square the square where the character is currently at.
-     * @param dir the direction where we want to move.
+     * @param dir    the direction where we want to move.
      * @return a boolean that says if the character can move or not.
      */
     public boolean availableMovement(int square, Dir dir) {
         boolean available = false;
         switch (dir) {
             case N:
-                if (square >= columns  && !wall(square, square - columns )) {
+                if (square >= columns && !wall(square, square - columns)) {
                     available = true;
                 }
                 break;
             case S:
-                if (square < columns  * (rows  - 1) && !wall(square, square + columns )) {
+                if (square < columns * (rows - 1) && !wall(square, square + columns)) {
                     available = true;
                 }
                 break;
             case O:
-                if (square % columns  > 0 && !wall(square, square - 1)) {
+                if (square % columns > 0 && !wall(square, square - 1)) {
                     available = true;
                 }
                 break;
             case E:
-                if (square % columns  < (columns  - 1) && !wall(square, square + 1)) {
+                if (square % columns < (columns - 1) && !wall(square, square + 1)) {
                     available = true;
                 }
                 break;
@@ -286,6 +267,7 @@ public class Map {
 
     /**
      * Calls the "Path" method of the graph.
+     *
      * @param source  source room.
      * @param destiny destiny room.
      * @return a LinkedList that contains the path that makes the character go from source to destiny.
@@ -293,7 +275,7 @@ public class Map {
     public LinkedList<Integer> getPath(int source, int destiny) {
         return this.graph.path(source, destiny);
     }
-    
+
     /**
      * Condition for the 5% algorithm.
      */
@@ -311,7 +293,7 @@ public class Map {
                     break;
 
                 case S:
-                    if (getRowOfSquare(n) < rows  - 1) {
+                    if (getRowOfSquare(n) < rows - 1) {
                         if (getPath(n, n + columns).size() > 3) {
                             solution = true;
                         }
@@ -339,13 +321,13 @@ public class Map {
     /**
      * Simulates the turns.
      */
-    public void simulate(){
+    public void simulate() {
         int turn = 0;
-        while(!doorMan.isGateOpened() && turn<50) {
+        while (!doorMan.isGateOpened() && turn < 50) {
             for (GameCharacter gc : gameCharacters) {
                 gc.useWeapon();
             }
-        turn++;
+            turn++;
             for (GameCharacter gc : gameCharacters) {
                 System.out.println(gc.toString());
             }
@@ -355,12 +337,13 @@ public class Map {
     /**
      * Method to add a character to the game.
      */
-    public void addCharacter(GameCharacter m){
+    public void addCharacter(GameCharacter m) {
         this.gameCharacters.add(m);
     }
 
     /**
      * Getter of the columns attribute.
+     *
      * @return the columns of the matrix.
      */
     public int getColumns() {
@@ -369,6 +352,7 @@ public class Map {
 
     /**
      * Getter of the rows attribute.
+     *
      * @return the rows of the matrix.
      */
     public int getRows() {
@@ -377,24 +361,27 @@ public class Map {
 
     /**
      * Method that returns the row of the square.
+     *
      * @param nSquare the square we are using.
      * @return the row that square belongs to.
      */
-    public int getRowOfSquare(int nSquare){
+    public int getRowOfSquare(int nSquare) {
         return nSquare / columns;
     }
 
     /**
      * Method that returns the column of the square.
+     *
      * @param nSquare the square we are using.
      * @return the column the square belongs to.
      */
-    public int getColumnOfSquare(int nSquare){
+    public int getColumnOfSquare(int nSquare) {
         return nSquare % columns;
     }
 
     /**
      * Getter of the squares's matrix.
+     *
      * @return a [rows][columns] game.Square matrix.
      */
     public Square[][] getMap() {
@@ -403,6 +390,7 @@ public class Map {
 
     /**
      * Setter of the columns attribute.
+     *
      * @param columns number of columns of the matrix.
      */
     public void setColumns(int columns) {
@@ -411,6 +399,7 @@ public class Map {
 
     /**
      * Setter of the rows attribute.
+     *
      * @param rows number of rows of the matrix.
      */
     public void setRows(int rows) {
@@ -419,6 +408,7 @@ public class Map {
 
     /**
      * Method that returns the attribute doorMan.
+     *
      * @return the instance of the doorMan.
      */
     public DoorMan getDoorMan() {
@@ -427,6 +417,7 @@ public class Map {
 
     /**
      * Method that returns the attribute dailyPlanet.
+     *
      * @return the last square of the map.
      */
     public int getDailyPlanet() {
@@ -436,33 +427,33 @@ public class Map {
     /**
      * Method that places every weapon into the corresponding squares.
      */
-    public void spendWeaponsD1(){
+    public void spendWeaponsD1() {
         int k = 0;
         int numWeaponsSquares = 60;
-        Weapon[] weaponsSquares = {new Weapon("Mjolnir",29), new Weapon("Anillo",1),
-                new Weapon("Garra",27), new Weapon("Armadura",3), new Weapon("Red",25),
-                new Weapon("Escudo",5), new Weapon("Lucille",23), new Weapon("Lawgiver",7),
-                new Weapon("GuanteInfinito",21), new Weapon("LazoVerdad",9),
-                new Weapon("CadenaFuego",19), new Weapon("Capa",11),
-                new Weapon("Flecha",17), new Weapon("Tridente",13),
-                new Weapon("Antorcha",15), new Weapon("Baston",28),
-                new Weapon("Latigo",2), new  Weapon("MazaOro",26),
-                new Weapon("CampoMagnetico",4), new Weapon("Tentaculo",24),
-                new Weapon("CampoEnergia",6), new Weapon("Cetro",22),
-                new Weapon("RayoEnergia",8), new Weapon("Laser",20), new Weapon("Bola",10),
-                new Weapon("Espada",18),  new Weapon("Sable",12),  new Weapon("Acido",16),
-                new Weapon("Gema",14), new Weapon("Nullifier",23), new Weapon("Mjolnir",1),
-                new Weapon("Anillo",29), new Weapon("Garra",3), new Weapon("Armadura",27),
-                new Weapon("Red",5),  new Weapon("Escudo",25), new Weapon("Lucille",7),
-                new Weapon("Lawgiver",23), new Weapon("GuanteInfinito",9),
-                new Weapon("LazoVerdad",21), new Weapon("CadenaFuego",11),
-                new Weapon("Capa",19), new Weapon("Flecha",13), new Weapon("Tridente",17),
-                new Weapon("Antorcha",28), new Weapon("Baston",15), new Weapon("Latigo",26),
-                new Weapon("MazaOro",2), new Weapon("CampoMagnetico",24),
-                new Weapon("Tentaculo",4), new Weapon("CampoEnergia",22),
-                new Weapon("Cetro",6), new Weapon("RayoEnergia",20), new Weapon("Laser",8),
-                new Weapon("Bola",18), new Weapon("Espada",10), new Weapon("Sable",16),
-                new Weapon("Acido",12), new Weapon("Gema",1), new Weapon("Nullifier",3)};
+        Weapon[] weaponsSquares = {new Weapon("Mjolnir", 29), new Weapon("Anillo", 1),
+                new Weapon("Garra", 27), new Weapon("Armadura", 3), new Weapon("Red", 25),
+                new Weapon("Escudo", 5), new Weapon("Lucille", 23), new Weapon("Lawgiver", 7),
+                new Weapon("GuanteInfinito", 21), new Weapon("LazoVerdad", 9),
+                new Weapon("CadenaFuego", 19), new Weapon("Capa", 11),
+                new Weapon("Flecha", 17), new Weapon("Tridente", 13),
+                new Weapon("Antorcha", 15), new Weapon("Baston", 28),
+                new Weapon("Latigo", 2), new Weapon("MazaOro", 26),
+                new Weapon("CampoMagnetico", 4), new Weapon("Tentaculo", 24),
+                new Weapon("CampoEnergia", 6), new Weapon("Cetro", 22),
+                new Weapon("RayoEnergia", 8), new Weapon("Laser", 20), new Weapon("Bola", 10),
+                new Weapon("Espada", 18), new Weapon("Sable", 12), new Weapon("Acido", 16),
+                new Weapon("Gema", 14), new Weapon("Nullifier", 23), new Weapon("Mjolnir", 1),
+                new Weapon("Anillo", 29), new Weapon("Garra", 3), new Weapon("Armadura", 27),
+                new Weapon("Red", 5), new Weapon("Escudo", 25), new Weapon("Lucille", 7),
+                new Weapon("Lawgiver", 23), new Weapon("GuanteInfinito", 9),
+                new Weapon("LazoVerdad", 21), new Weapon("CadenaFuego", 11),
+                new Weapon("Capa", 19), new Weapon("Flecha", 13), new Weapon("Tridente", 17),
+                new Weapon("Antorcha", 28), new Weapon("Baston", 15), new Weapon("Latigo", 26),
+                new Weapon("MazaOro", 2), new Weapon("CampoMagnetico", 24),
+                new Weapon("Tentaculo", 4), new Weapon("CampoEnergia", 22),
+                new Weapon("Cetro", 6), new Weapon("RayoEnergia", 20), new Weapon("Laser", 8),
+                new Weapon("Bola", 18), new Weapon("Espada", 10), new Weapon("Sable", 16),
+                new Weapon("Acido", 12), new Weapon("Gema", 1), new Weapon("Nullifier", 3)};
 
         int[] squares = {1, 2, 8, 14, 15, 21, 27, 35, 28, 29, 33, 34};
         for (int i = 0; i < squares.length && k < numWeaponsSquares; i++) {
@@ -477,8 +468,8 @@ public class Map {
     /**
      * Method to show the map information on screen.
      */
-    public void show(){
-        System.out.printf("(Mapa:" + Integer.toString(dailyPlanet)+")");
+    public void show() {
+        System.out.printf("(Mapa:" + Integer.toString(dailyPlanet) + ")");
         System.out.println(doorMan.toString());
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
@@ -490,6 +481,7 @@ public class Map {
 
     /**
      * Method used to find any square of the map given the id.
+     *
      * @param nSquare the square that we are looking for.
      * @return the ID of the square that we were looking for.
      */
@@ -505,6 +497,7 @@ public class Map {
 
     /**
      * Method used to find any square of the map given its row and column.
+     *
      * @param row the row where the square is placed.
      * @param col the column where the square is placed.
      * @return the ID of the square that we were looking for.
@@ -513,7 +506,7 @@ public class Map {
         Square s = null;
         try {
             s = map[row][col];
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.err.println("The square that you are searching doesn't exists");
         }
         return s;
@@ -521,98 +514,58 @@ public class Map {
 
     /**
      * Main method of the map class. Simulates all the general functioning of the program.
+     *
      * @param args main parameters. Not used for now.
      */
 
-    static public void main(String[] args){
-        Map map = getSingletonInstance(6,6,35,4);
-        map.show();
-        /*
-        Parte 1:
-        Funciona el reparto de llaves y la creación de salas
-         */
+    /**
+     * Saves in a string the room features
+     *
+     * @param nSquare number of the room we want to paint
+     * @return an string with the room in it
+     */
+    private String paintSquare(int nSquare) {
+        Square s = getSquare(nSquare);
+        String message = s.stringOfCharacters();
+        if (message.equals(" ") && wall(nSquare, nSquare + columns)) {
+            message = "_";
+        }
+        if (wall(nSquare, nSquare + 1) || nSquare % columns == columns - 1) {
+            message += "|";
+        } else
+            message += " ";
+        return message;
+    }
 
-        SuperHero A = new SuperHero("Joe","D",35);
-        SuperHero B = new SuperHero("BB", "B", 35);
-        SuperHero C = new SuperHero("Captain", "C", 35);
+    /**
+     * It Saves the message in a string
+     *
+     * @return the message
+     */
+    public String toString() {
+        String result = "";
+        for (int i = 0; i < columns; i++) {
+            result += " _";
+        }
+        result += "\n";
+        for (int x = 0; x < rows; x++) {
+            result += "|";
+            for (int y = 0; y < columns; y++) {
+                result += paintSquare((columns * x) + y);
 
-        Weapon[] weaponsSquares = {new Weapon("Mjolnir",29), new Weapon("Anillo",1),
-                new Weapon("Garra",27), new Weapon("Armadura",3), new Weapon("Red",25),
-                new Weapon("Escudo",5), new Weapon("Lucille",23), new Weapon("Lawgiver",7),
-                new Weapon("GuanteInfinito",21), new Weapon("LazoVerdad",9),
-                new Weapon("CadenaFuego",19), new Weapon("Capa",11),
-                new Weapon("Flecha",17), new Weapon("Tridente",13),
-                new Weapon("Antorcha",15), new Weapon("Baston",28),
-                new Weapon("Latigo",2), new  Weapon("MazaOro",26),
-                new Weapon("CampoMagnetico",4), new Weapon("Tentaculo",24),
-                new Weapon("CampoEnergia",6), new Weapon("Cetro",22),
-                new Weapon("RayoEnergia",8), new Weapon("Laser",20), new Weapon("Bola",10),
-                new Weapon("Espada",18),  new Weapon("Sable",12),  new Weapon("Acido",16),
-                new Weapon("Gema",14), new Weapon("Nullifier",23), new Weapon("Mjolnir",1),
-                new Weapon("Anillo",29), new Weapon("Garra",3), new Weapon("Armadura",27),
-                new Weapon("Red",5),  new Weapon("Escudo",25), new Weapon("Lucille",7),
-                new Weapon("Lawgiver",23), new Weapon("GuanteInfinito",9),
-                new Weapon("LazoVerdad",21), new Weapon("CadenaFuego",11),
-                new Weapon("Capa",19), new Weapon("Flecha",13), new Weapon("Tridente",17),
-                new Weapon("Antorcha",28), new Weapon("Baston",15), new Weapon("Latigo",26),
-                new Weapon("MazaOro",2), new Weapon("CampoMagnetico",24),
-                new Weapon("Tentaculo",4), new Weapon("CampoEnergia",22),
-                new Weapon("Cetro",6), new Weapon("RayoEnergia",20), new Weapon("Laser",8),
-                new Weapon("Bola",18), new Weapon("Espada",10), new Weapon("Sable",16),
-                new Weapon("Acido",12), new Weapon("Gema",1), new Weapon("Nullifier",3)};
-        Weapon aux = weaponsSquares[0];
-
-        Weapon[] ws = {new Weapon("La más baja",1),new Weapon("2",2),new Weapon("3",3),
-                new Weapon("4",4),new Weapon("5",5),new Weapon("6",6),new Weapon("7",7),new Weapon("8",8),new Weapon("9",9)};
-        for (Weapon w: ws) {
-            A.getwTree().insertData(w);
-            B.getwTree().insertData(w);
-            C.getwTree().insertData(w);
+            }
+            result += "\n";
         }
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.err.println("PROBANDO A BUSCAR EL ARMA MÁS GRANDE");
-        System.err.println("PROBANDO A BUSCAR EL ARMA MÁS GRANDE");
-        System.err.println("PROBANDO A BUSCAR EL ARMA MÁS GRANDE");
-        System.err.println("PROBANDO A BUSCAR EL ARMA MÁS GRANDE");
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        A.getwTree().showInOrder();
-
-        System.out.println("\n\n\n\n");
-        System.out.println("TODAS LAS ARMAS DEL HÉROE");
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        A.getwTree().insertData(new Weapon("Test weapon",999));
-        System.out.println(A.biggestWeapon());
-        A.getwTree().delete(new Weapon("Test weapon",999));
-        System.out.println(A.biggestWeapon());
-
-        /*
-        Parte 2:
-        El árbol funciona de momento correctamente
-         */
-        map.addCharacter(A);
-        map.addCharacter(B);
-        map.addCharacter(C);
-        for (Weapon w: weaponsSquares) {
-            A.getwTree().insertData(w);
-            B.getwTree().insertData(w);
-            C.getwTree().insertData(w);
-        }
-        map.simulate();
-
+//        for(int x = 0; x < rows;x++){
+//            for(int y = 0; y < columns;y++){
+//                if(!this.map[x][y].showKeys().equals("")) {
+//                    result += "(" + this.rooms[x][y].showKeys() + ")\n";
+//                }
+//            }
+//        }
+        return result;
+    }
+    static public void main(String[] args) {
     }
 }

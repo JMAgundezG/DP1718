@@ -1,7 +1,7 @@
 package GameCharacters;
 
 import GameCharacters.Movement.Movement;
-import Map.Map;
+import Game.Game;
 import Map.Weapon;
 
 /**
@@ -53,8 +53,8 @@ public class Villain extends GameCharacter {
      * Implementation of the abstract method useWeapon of the MetaHuman class.
      */
     public void useWeapon(){
-        if(this.getPosition() == Map.getSingleton().getDailyPlanet()) {
-            Map.getSingleton().getDoorMan().tryWeapon(weapon);
+        if(this.getPosition() == Game.getSingletonInstance().getMap().getDailyPlanet()) {
+           Game.getSingletonInstance().getMap().getDoorMan().tryWeapon(weapon);
         }
     }
 }

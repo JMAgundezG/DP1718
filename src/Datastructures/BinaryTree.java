@@ -1,4 +1,4 @@
-package datastructures;
+package Datastructures;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -331,7 +331,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
         }
     }
     /**
-     * Method that returns the depth of the DataStructures.datastructures.BinaryTree.
+     * Method that returns the depth of the DataStructures.Datastructures.BinaryTree.
      *
      * @return the depth of the tree.
      */

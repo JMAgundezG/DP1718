@@ -1,9 +1,9 @@
 package GameCharacters;
 
 import GameCharacters.Movement.Movement;
-import datastructures.BinaryTree;
+import Datastructures.BinaryTree;
 import Map.DoorMan;
-import Map.Map;
+import Game.Game;
 import Map.Square;
 import Map.Weapon;
 
@@ -58,7 +58,7 @@ public class SuperHero extends GameCharacter {
      */
     public void takeWeapon(){ // TODO MAKE TO 2nd D
 
-        Square s = Map.getSingleton().getSquare(this.getPosition());
+        Square s =Game.getSingletonInstance().getMap().getSquare(this.getPosition());
         this.wTree.insertData(s.dropWeapon());
 
     }
@@ -76,8 +76,8 @@ public class SuperHero extends GameCharacter {
      */
     public void useWeapon(){
 
-        DoorMan d = Map.getSingleton().getDoorMan();
-        if(this.getPosition() == Map.getSingleton().getDailyPlanet()) {
+        DoorMan d =Game.getSingletonInstance().getMap().getDoorMan();
+        if(this.getPosition() ==Game.getSingletonInstance().getMap().getDailyPlanet()) {
             Weapon bestWeapon = wTree.mostValuedNode(Comparator.comparingInt(Weapon::getPower));
             if (!d.tryWeapon(bestWeapon)){
                 wTree.delete(bestWeapon);

@@ -1,0 +1,9 @@
+--Map of the game
+MAP#6#6#35#2#
+--Characters in the simulation
+SHPHYSICAL#Daredevil#D#1#
+SHEXTRASENSORIAL#ProfessorX#P#1#
+SHFLIGHT#Eternity#E#1#
+VILLAIN#Abomination#A#1#
+VILLAIN#Viper#V#2#
+SHPHYSICAL#Wolverine#W#4#
