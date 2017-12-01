@@ -104,6 +104,7 @@ public class Map {
         graph.warshall();
         graph.floyd();
         System.out.print(matrixString());
+        spendWeaponsD1();
         erasePercentageOfWalls();
 
     }

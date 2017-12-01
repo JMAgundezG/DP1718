@@ -4,6 +4,9 @@ import java.util.Collections;
 import java.util.LinkedList;
 public class Tools {
 
+
+    public static int MAX_TURN= 50;
+
     public static LinkedList<Dir> D2Movements(){
         Dir[] a = new Dir[]{Dir.S, Dir.E, Dir.N, Dir.E, Dir.W};
         LinkedList<Dir> b = new LinkedList<Dir>();
@@ -61,6 +64,12 @@ public class Tools {
         return b;
     }
 
-    public static int MAX_TURN= 50;
 
+    public static String showPath(LinkedList<Dir> dirs){
+        String message = "";
+        for(Dir dir : dirs){
+            message+=" "+dir.toString();
+        }
+        return message;
+    }
 }

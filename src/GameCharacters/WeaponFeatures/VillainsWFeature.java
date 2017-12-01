@@ -20,7 +20,7 @@ public class VillainsWFeature extends WeaponFeature {
     public void takeWeapon() {
         Square s = Game.getSI().getMap().getSquare(getGc().getPosition());
         Weapon sqWeapon = s.dropWeapon();
-        if(sqWeapon != null) {
+        if(sqWeapon != null && weapon != null) {
             if (sqWeapon.getPower() > weapon.getPower()) {
                 s.saveWeapon(weapon);
                 weapon = sqWeapon;
@@ -32,17 +32,19 @@ public class VillainsWFeature extends WeaponFeature {
 
     @Override
     public void interact() {
-        Square sq = Game.getSI().getMap().getSquare(getGc().getPosition());
-        for (int i = 0; i < sq.getGameCharacters().size(); i++) {
-            GameCharacter gc = sq.getGameCharacters().get(i);
-            if (!(gc instanceof Villain)) {
-                BinaryTree<Weapon> wTree = ((HeroesWFeature) gc.getWeaponFeature()).getwTree();
-                if (wTree.belongs(weapon)) {
-                    if (wTree.extract(weapon).getPower() < weapon.getPower()) {
-                        wTree.delete(weapon);
+        if(weapon != null) {
+            Square sq = Game.getSI().getMap().getSquare(getGc().getPosition());
+            for (int i = 0; i < sq.getGameCharacters().size(); i++) {
+                GameCharacter gc = sq.getGameCharacters().get(i);
+                if (!(gc instanceof Villain)) {
+                    BinaryTree<Weapon> wTree = ((HeroesWFeature) gc.getWeaponFeature()).getwTree();
+                    if (wTree.belongs(weapon)) {
+                        if (wTree.extract(weapon).getPower() < weapon.getPower()) {
+                            wTree.delete(weapon);
+                        }
                     }
+                    break;
                 }
-                break;
             }
         }
     }
@@ -60,5 +62,12 @@ public class VillainsWFeature extends WeaponFeature {
 
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
+    }
+
+    public String toString(){
+        if(weapon != null) {
+            return weapon.toString();
+        }
+        return "";
     }
 }

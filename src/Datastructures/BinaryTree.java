@@ -421,7 +421,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
                 message += aux.StringInOrder();
             }
 
-            message += " " + getRoot().toString();
+            message += getRoot().toString();
 
             if (getRightChild() != null) {
                 message += getRightChild().StringInOrder();

@@ -15,9 +15,12 @@ public class HeroesWFeature extends WeaponFeature{
 
     private BinaryTree<Weapon> wTree;
 
+    private int catchedVillains;
+
     public HeroesWFeature(GameCharacter gc){
         super(gc);
         wTree = new BinaryTree<>();
+        catchedVillains = 0;
     }
 
 
@@ -38,17 +41,18 @@ public class HeroesWFeature extends WeaponFeature{
             GameCharacter gc = sq.getGameCharacters().get(i);
             if (gc instanceof Villain) {
                 Weapon villainWeapon = ((VillainsWFeature) gc.getWeaponFeature()).getWeapon();
-                if (wTree.belongs(villainWeapon)) {
-                    if (wTree.extract(villainWeapon).getPower() > villainWeapon.getPower()) {
-                        Game.getSI().capture(gc);
+                if (villainWeapon == null || wTree.belongs(villainWeapon)) {
+                    if(!wTree.empty()) {
+                        if (villainWeapon == null || wTree.extract(villainWeapon).getPower() > villainWeapon.getPower()) {
+                            Game.getSI().capture(gc);
+                            catchedVillains++;
+                        }
                     }
                 }
             break;
             }
         }
     }
-
-    //TODO Revisar método, es de la D1
     public void takeWeapon(){
 
         Square s =Game.getSI().getMap().getSquare(getGc().getPosition());
@@ -63,5 +67,10 @@ public class HeroesWFeature extends WeaponFeature{
 
     public BinaryTree<Weapon> getwTree() {
         return wTree;
+    }
+
+    @Override
+    public String toString() {
+        return wTree.StringInOrder();
     }
 }

@@ -50,6 +50,8 @@ public abstract class GameCharacter {
 
     private int turn;
 
+    private boolean action;
+
     private WeaponFeature weaponFeature;
     /**
      * Public constructor of the class GameCharacter.
@@ -65,6 +67,7 @@ public abstract class GameCharacter {
         this.position = pos;
         this.type = type;
         this.turn = turn;
+        this.action = true;
     }
 
 
@@ -158,6 +161,13 @@ public abstract class GameCharacter {
         this.weaponFeature = weaponFeature;
     }
 
+    public void setAction(boolean action) {
+        this.action = action;
+    }
+
+    public boolean isAction() {
+        return action;
+    }
 
     /**
      * Override toString method used to show the information of the MetaHuman.
@@ -165,19 +175,23 @@ public abstract class GameCharacter {
      */
     @Override
     public String toString() {
-        return name + ": " +  position+ ": " + weaponFeature.toString() + ")";
+        return "(" + type.toLowerCase() + ":" + id +":" +position+ ":"  + Integer.toString(turn-1) + ":" + weaponFeature.toString() + ")";
     }
 
     /**
      *NEED COMMENTS
      */
     public void actions(){
-        if(Game.getSI().getTurn() >= turn && !Game.getSI().getCapturedCharacters().contains(this)) {
+        if(Game.getSI().getTurn() >= turn && !Game.getSI().getCapturedCharacters().contains(this) && action) {
             weaponFeature.weaponAction();
             movement.movementAction();
             weaponFeature.takeWeapon();
             weaponFeature.interact();
+            action = false;
+            turn++;
         }
     }
+
+
 
 }

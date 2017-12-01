@@ -155,9 +155,9 @@ public class Square {
         } else {
             message = getWeaponList().getFirst().toString();
             for (int i = 1; i < getWeaponList().size();i++) {
-                message += " " + getWeaponList().get(i).toString();
+                message += getWeaponList().get(i).toString();
             }
-            return ("square:" + number + ": " + message);
+            return ("square:" + number + ":" + message);
         }
     }
 

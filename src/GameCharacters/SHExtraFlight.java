@@ -19,4 +19,5 @@ public class SHExtraFlight extends GameCharacter {
         setMovement(new SHFMovement(this));
         setWeaponFeature(new HeroesWFeature(this));
     }
+
 }

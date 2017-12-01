@@ -48,8 +48,8 @@ public class DoorMan {
 
         tree = new BinaryTree();
 
-        doorManWeapons = new Weapon[]{new Weapon("CampoEnergia", 5), new Weapon("Weapondura", 13),
-                new Weapon("Anillo", 11), new Weapon("Acido", 1), new Weapon("Antorcha", 5),
+        doorManWeapons = new Weapon[]{new Weapon("CampoEnergia", 5),
+                new Weapon("Anillo", 11), new Weapon("Acido", 1), new Weapon("Antorcha", 5),new Weapon("Armadura", 13),
                 new Weapon("Bola", 3), new Weapon("Baston", 22),
                 new Weapon("CadenaFuego", 11), new Weapon("Espada", 11),
                 new Weapon("Cetro", 20), new Weapon("Capa", 10),
@@ -127,13 +127,13 @@ public class DoorMan {
      * @return a String containing all the information about the portal.
      */
     public String toString(){
-        String message = "(Doorman:";
+        String message = "(doorman:";
         if (gateOpened)
             message += "open:";
         else
             message += "closed:";
-        message += Integer.toString(depth);
-        message += tree.StringInOrder();
+        message += Integer.toString(depth)+":";
+        message += tree.StringInOrder() + ")";
         return message;
     }
 

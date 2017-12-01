@@ -58,7 +58,7 @@ public class Game {
     }
 
     public void capture(GameCharacter gc){
-        this.capturedCharacters.add(gc); // TODO comprobar si hay que quitar al personaje en este momento del juego o antes de mostrar por pantalla
+        this.capturedCharacters.add(gc);
     }
     /**
      * Simulate a turn of the Map
@@ -101,21 +101,28 @@ public class Game {
 
     //TODO
     public void simulateGame() {
-        String message = "";// = map.getInitialMap();
+        String message = "";
         for (int i = 0; i < map.getColumns() * map.getRows(); i++) {
             Square s = map.getSquare(i);
             if (s.getGameCharacters().size() > 0) {
                 for (GameCharacter c : s.getGameCharacters()) {
-                    //message += showCreatedCharacter(c) + "\n";
-                    //System.out.println(showCreatedCharacter(c));
+                    message += showCreatedCharacter(c) + "\n";
+                    System.out.println(showCreatedCharacter(c));
                 }
             }
         }
         while (turn < Tools.MAX_TURN) {
+            setActionsTrue();
             simulateATurn();
             message.concat(toString());
             System.out.print(toString());
             turn++;
+        }
+    }
+
+    public void setActionsTrue(){
+        for (GameCharacter c: this.characters) {
+            c.setAction(true);
         }
     }
 
@@ -184,66 +191,16 @@ public class Game {
     }
 
 
-//    /**
-//     * Put a character in the Map
-//     *
-//     * @param character
-//     */
-//    public void putACharacterInTheGame(Characters character) {
-//        AllCharacters.addLast(character);
-//        Room room = this.getMap().findRoom(character.getNumberOfRoom());
-//        room.insertCharacter(character);
-//    }
-//
-//    /**
-//     * Verifies if the characters that isn't in the Map should start playing and
-//     * inserts in the Map if it's necessary
-//     */
-//    private void addPlayersToMap() {
-//        for (Characters character : AllCharacters) {
-//
-//            if (character.getTurn() == this.turn && !CharactersInGame.contains(character)) {
-//                addCharacter(character);
-//            }
-//        }
-//    }
-//
-//    /**
-//     * Remove the dead players of the Map
-//     */
-//    private void removePlayersFromMap() {
-//        for (Characters c : DeadCharacters) {
-//            if (this.CharactersInGame.contains(c)) {
-//                this.CharactersInGame.remove(c);
-//                this.map.findRoom(c.getNumberOfRoom()).getCharactersList().remove(c);
-//                this.map.killHuman(c);
-//                this.AllCharacters.remove(c);
-//            }
-//            if (this.AllCharacters.contains(c)) {
-//                this.AllCharacters.remove(c);
-//            }
-//        }
-//    }
-//
-//    /**
-//     *Kills a human
-//     */
-//    public void killHuman(Characters human) {
-//        this.DeadCharacters.add(human);
-//    }
-//
-//    /**
-//     * Show the initial message of a character
-//     */
-//    private String showCreatedCharacter(Characters c) {
-//        String message = "(path:" + c.getId() + ":";
-//        message += Path.showPath(c.getMovement().getMovements()) + ")";
-//        return message;
-//    }
-//
-//    public boolean isFinished() {
-//        return finished;
-//    }
+
+    /**
+     * Show the initial message of a character
+     */
+    private String showCreatedCharacter(GameCharacter c) {
+        String message = "(path:" + c.getId() + ":";
+        message += Tools.showPath(c.getMovement().getMovements()) + ")";
+        return message;
+    }
+
 
 
     public LinkedList<GameCharacter> getCapturedCharacters() {
