@@ -175,7 +175,7 @@ public abstract class GameCharacter {
      */
     @Override
     public String toString() {
-        return "(" + type.toLowerCase() + ":" + id +":" +position+ ":"  + Integer.toString(turn-1) + ":" + weaponFeature.toString() + ")";
+        return "(" + type.toLowerCase() + ":" + id +":" +position+ ":"  + turn + ":" + weaponFeature.toString() + ")";
     }
 
     /**
@@ -188,7 +188,6 @@ public abstract class GameCharacter {
             weaponFeature.takeWeapon();
             weaponFeature.interact();
             action = false;
-            turn++;
         }
     }
 

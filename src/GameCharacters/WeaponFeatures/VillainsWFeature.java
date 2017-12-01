@@ -20,11 +20,15 @@ public class VillainsWFeature extends WeaponFeature {
     public void takeWeapon() {
         Square s = Game.getSI().getMap().getSquare(getGc().getPosition());
         Weapon sqWeapon = s.dropWeapon();
-        if(sqWeapon != null && weapon != null) {
+        if(sqWeapon != null) {
+            if(weapon != null)
             if (sqWeapon.getPower() > weapon.getPower()) {
                 s.saveWeapon(weapon);
                 weapon = sqWeapon;
             } else {
+                s.saveWeapon(sqWeapon);
+            }
+            else {
                 s.saveWeapon(sqWeapon);
             }
         }

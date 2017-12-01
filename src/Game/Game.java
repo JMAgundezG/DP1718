@@ -122,7 +122,10 @@ public class Game {
 
     public void setActionsTrue(){
         for (GameCharacter c: this.characters) {
-            c.setAction(true);
+            if(!c.isAction()) {
+                c.setAction(true);
+                c.setTurn((c.getTurn() + 1));
+            }
         }
     }
 
