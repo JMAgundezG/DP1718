@@ -1,7 +1,11 @@
 package Map;
 // TODO CLASS DIAGRAM 2nd
+import Game.Game;
 import GameCharacters.GameCharacter;
+import sun.awt.image.ImageWatched;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 /**
@@ -55,9 +59,9 @@ public class Square {
      * @param w weapon to store.
      */
     public void saveWeapon(Weapon w){
-        //TODO SAVE BY POWER
-        this.weaponList.addLast(w);
-
+        ArrayList a = new ArrayList();
+        this.weaponList.add(w);
+        this.weaponList.sort(Comparator.comparingInt(x -> -x.getPower()));
     }
 
     /**
@@ -65,8 +69,11 @@ public class Square {
      * @return the value that the square has dropped.
      */
     public Weapon dropWeapon(){
-        Weapon w = weaponList.getFirst();
-        weaponList.removeFirst();
+        Weapon w = null;
+        if(weaponList.size() > 0) {
+            w = weaponList.getFirst();
+            weaponList.removeFirst();
+        }
         return w;
     }
 
@@ -131,6 +138,37 @@ public class Square {
             return CharacterIcon;
         
     }
+
+    public LinkedList<Weapon> getWeaponList() {
+        return weaponList;
+    }
+
+    public LinkedList<GameCharacter> getGameCharacters() {
+        return gameCharacters;
+    }
+
+
+    public String showWeapons() {
+        String message = "";
+        if (weaponList.size() == 0) {
+            return message;
+        } else {
+            message = getWeaponList().getFirst().toString();
+            for (int i = 1; i < getWeaponList().size();i++) {
+                message += " " + getWeaponList().get(i).toString();
+            }
+            return ("square:" + number + ": " + message);
+        }
+    }
+
+    public void simulate(){
+        LinkedList<GameCharacter> gcs = (LinkedList<GameCharacter>) gameCharacters.clone();
+        for (GameCharacter c : gcs) {
+            if (!Game.getSI().getCapturedCharacters().contains(c)) {
+                c.actions();
+            }
+        }
+    }
     /**
      * Override toString method used to show the information of the square.
      * @return the String that contains the Square information.
@@ -143,4 +181,5 @@ public class Square {
         }
         return message+")";
     }
+
 }

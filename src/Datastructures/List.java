@@ -194,7 +194,7 @@ public class List<E extends Comparable<E>> {
 	 *
 	 */
 	public void removeFirst() {
-		//TODO: Implement this method
+
 		first = first().next;
 		size--;
 	}
@@ -254,7 +254,7 @@ public class List<E extends Comparable<E>> {
 
 
 	/**
-	 * It adds an elmement to the list in a sorted way but inversed TODO revisar
+	 * It adds an elmement to the list in a sorted way but inversed
 	 *
 	 */
 	public void sortedAddInversed(E Data) {
@@ -285,7 +285,6 @@ public class List<E extends Comparable<E>> {
 	 */
 	public void addFirst(E Data) {
 		/**
-		 * TODO no hace nada con el anterior primero
 		 */
 		Node newNode = new Node(null, Data, first);
 		first = newNode;
@@ -315,39 +314,34 @@ public class List<E extends Comparable<E>> {
 	 * @param searchedValue valor delante del cual se insertará el nuevo dato
 	 */
 	public void addBefore(Integer Data, Integer searchedValue ) {
-		//TODO: Implement the method 
-	}
+			}
 
 	/**
 	 * It adds a data into the list after the value passed as parameter (searchedValue) 
 	 *
 	 */
 	public void addAfter(Integer Data, Integer searchedValue ) {
-		//TODO: Implement the method 
-	}
+		}
 	
 	/**
 	 * It adds a data into the list before the position passed as parameter (index) 
 	 *
 	 */
 	public void addBeforeIndex(Integer Data, int index) {
-		//TODO: Implement the method 
-	}
+		}
    
 	/**
 	 * It adds a data into the list after the position passed as parameter (index)
 	 *
 	 */
 	public void addAfterIndex(Integer Data, int index ) {
-		//TODO: Implement the method 
-	}
+		}
 
 	/**
 	 * It adds a data into the list in the position passed as parameter (index)
 	 *
 	 */
 	public void addIndex(Integer Data, int index ) {
-		//TODO: Implement the method 
 
 	}
 
@@ -373,7 +367,6 @@ public class List<E extends Comparable<E>> {
 	* Change the value stored in the index position by the data passed as parameter
 	*/
 	public void set(int index, Integer Data) {
-		//TODO: Implement the method 
 
 	}
   

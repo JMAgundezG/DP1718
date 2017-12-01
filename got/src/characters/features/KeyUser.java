@@ -1,6 +1,5 @@
 package characters.features;
 
-//TODO VER LAS INTERFACES PARA MEJORAR LAS FEATURES DE KEYS
 
 import characters.Characters;
 import map.Key;

@@ -103,6 +103,7 @@ public class Map {
         createMaze();
         graph.warshall();
         graph.floyd();
+        System.out.print(matrixString());
         erasePercentageOfWalls();
 
     }
@@ -153,7 +154,7 @@ public class Map {
             if (node < (columns * (rows - 1))) { //S
                 walls.addLast(new Walls(node, node + columns));
             }
-            if (node % columns > 0) {          //O
+            if (node % columns > 0) {          //W
                 walls.addLast(new Walls(node, node - 1));
             }
 
@@ -206,7 +207,7 @@ public class Map {
                         graph.nuevoArco(gen + 1, gen, 1);
                         i++;
                     } else {
-                        if (conditionForPercentage(sq, Dir.O)) {
+                        if (conditionForPercentage(sq, Dir.W)) {
                             graph.nuevoArco(gen, gen - 1, 1);
                             graph.nuevoArco(gen - 1, gen, 1);
                             i++;
@@ -250,7 +251,7 @@ public class Map {
                     available = true;
                 }
                 break;
-            case O:
+            case W:
                 if (square % columns > 0 && !wall(square, square - 1)) {
                     available = true;
                 }
@@ -306,7 +307,7 @@ public class Map {
                         }
                     }
                     break;
-                case O:
+                case W:
                     if (getColumnOfSquare(n) > 0) {
                         if (getPath(n, n - 1).size() > 3) {
                             solution = true;
@@ -319,13 +320,13 @@ public class Map {
     }
 
     /**
-     * Simulates the turns.
+     * Simulates the turns. TODO
      */
     public void simulate() {
         int turn = 0;
         while (!doorMan.isGateOpened() && turn < 50) {
-            for (GameCharacter gc : gameCharacters) {
-                gc.useWeapon();
+            for (int i = 0; i < gameCharacters.size(); i++) {
+                gameCharacters.get(i).actions();
             }
             turn++;
             for (GameCharacter gc : gameCharacters) {
@@ -479,6 +480,7 @@ public class Map {
 
     }
 
+
     /**
      * Method used to find any square of the map given the id.
      *
@@ -512,6 +514,25 @@ public class Map {
         return s;
     }
 
+
+    public int getNW(){
+        return 0;
+    }
+
+    public int getNE(){
+        return columns - 1 ;
+    }
+
+    public int getSE(){
+        return columns * rows - 1;
+    }
+
+    public int getSW(){
+        return columns * rows - columns;
+    }
+
+    public int getSize(){ return columns * rows;}
+
     /**
      * Main method of the map class. Simulates all the general functioning of the program.
      *
@@ -542,7 +563,8 @@ public class Map {
      *
      * @return the message
      */
-    public String toString() {
+
+    public String matrixString(){
         String result = "";
         for (int i = 0; i < columns; i++) {
             result += " _";
@@ -556,16 +578,18 @@ public class Map {
             }
             result += "\n";
         }
-
-//        for(int x = 0; x < rows;x++){
-//            for(int y = 0; y < columns;y++){
-//                if(!this.map[x][y].showKeys().equals("")) {
-//                    result += "(" + this.rooms[x][y].showKeys() + ")\n";
-//                }
-//            }
-//        }
         return result;
     }
-    static public void main(String[] args) {
+    public String toString() {
+        String result = matrixString();
+        for(int x = 0; x < rows;x++){
+            for(int y = 0; y < columns;y++){
+                if(this.map[x][y].getWeaponList().size() > 0) {
+                    result += "(" + this.map[x][y].showWeapons() + ")\n";
+                }
+            }
+        }
+        return result;
     }
+
 }

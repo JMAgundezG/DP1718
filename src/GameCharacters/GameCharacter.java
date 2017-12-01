@@ -1,7 +1,9 @@
 package GameCharacters;
 
 
+import Game.Game;
 import GameCharacters.Movement.Movement;
+import GameCharacters.WeaponFeatures.WeaponFeature;
 
 /**
  * Implementation of the GameCharacter.
@@ -39,32 +41,32 @@ public abstract class GameCharacter {
      */
     private Movement movement;
 
+
     /**
      * Attribute that contains the type of the GameCharacter.
      * In this case, it is either a SuperHero or a Villain.
      */
     private String type;
 
+    private int turn;
+
+    private WeaponFeature weaponFeature;
     /**
      * Public constructor of the class GameCharacter.
      * @param name the attribute name of the GameCharacter.
      * @param type the attribute type of the GameCharacter.
      * @param id the attribute id of the GameCharacter.
      * @param pos the attribute position of the GameCharacter.
-     * @param movement the attribute movement of the GameCharacter.
+     * @param turn the attribute turn of the GameCharacter.
      */
-    public GameCharacter(String name, String type, String id, int pos, Movement movement){
+    public GameCharacter(String name, String type, String id, int pos, int turn){
         this.name = name;
         this.id = id;
         this.position = pos;
-        this.movement = movement;
         this.type = type;
+        this.turn = turn;
     }
 
-    /**
-     * Abstract method that will enable the actions of using a weapon.
-     */
-    public abstract void useWeapon();
 
 
     /**
@@ -103,6 +105,15 @@ public abstract class GameCharacter {
      */
     public String getType() { return type; }
 
+    public int getTurn() {
+        return turn;
+    }
+
+    public WeaponFeature getWeaponFeature() {
+        return weaponFeature;
+    }
+
+
     /**
      * Setter method of the attribute id.
      * @param id the attribute id of the GameCharacter.
@@ -139,12 +150,34 @@ public abstract class GameCharacter {
      */
     public void setType(String type) { this.type = type; }
 
+    public void setTurn(int turn) {
+        this.turn = turn;
+    }
+
+    public void setWeaponFeature(WeaponFeature weaponFeature) {
+        this.weaponFeature = weaponFeature;
+    }
+
+
     /**
      * Override toString method used to show the information of the MetaHuman.
      * @return the String that contains the MetaHuman information.
      */
     @Override
     public String toString() {
-        return name + ": " +  position+ ": ";
+        return name + ": " +  position+ ": " + weaponFeature.toString() + ")";
     }
+
+    /**
+     *NEED COMMENTS
+     */
+    public void actions(){
+        if(Game.getSI().getTurn() >= turn && !Game.getSI().getCapturedCharacters().contains(this)) {
+            weaponFeature.weaponAction();
+            movement.movementAction();
+            weaponFeature.takeWeapon();
+            weaponFeature.interact();
+        }
+    }
+
 }

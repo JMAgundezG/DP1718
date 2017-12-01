@@ -1,5 +1,8 @@
 package Tools.cargador;
 
+import Game.Game;
+import GameCharacters.*;
+
 import java.util.List;
 
 /**
@@ -93,8 +96,20 @@ public class Cargador {
 	 *  @param vCampos array que contiene los valores de cada atributo
 	 */
 	private void crearMap(int numCampos, List<String> vCampos){
-	    System.out.println("Creado Map: " + vCampos.get(1) + "\n");
-	    //TODO inicializar mapa
+	 //   System.out.println("Creado Map: " + vCampos.get(1) + "\n");
+		int row = Integer.parseInt(vCampos.get(1));
+		int col = Integer.parseInt(vCampos.get(2));
+		int doorManSq = Integer.parseInt(vCampos.get(3));
+		int depth = Integer.parseInt(vCampos.get(4));
+		if(row < 1 || col < 1 || doorManSq < 0 || doorManSq > row * col || depth < 0){
+			System.err.println("[ERROR] THE MAP HAS INVALID VARIABLES");
+			System.err.println("[ERROR] Charging a default map");
+			row = col = 6;
+			doorManSq = row*col;
+			depth = 4;
+		}
+		Game.getSI(row, col, doorManSq, depth);
+
 	}
 
 	/**
@@ -103,8 +118,10 @@ public class Cargador {
 	 *  @param vCampos array que contiene los valores de cada atributo
 	 */
 	private void crearSHPhysical(int numCampos, List<String> vCampos){
-	    System.out.println("Creado SHPhysical: " + vCampos.get(1) + "\n");
-	    //TODO Registrar SHPhysical en el mapa
+	  //  System.out.println("Creado SHPhysical: " + vCampos.get(1) + "\n");
+		SHPhysical s = new SHPhysical(vCampos.get(1), vCampos.get(2), Integer.parseInt(vCampos.get(3)));
+	 	Game.getSI().insertCharacter(s);
+	       //TODO Registrar SHPhysical en el mapa
 	}
 
 	/**
@@ -113,8 +130,11 @@ public class Cargador {
 	 *  @param vCampos array que contiene los valores de cada atributo
 	 */
 	private void crearSHExtraSensorial(int numCampos, List<String> vCampos){
-	    System.out.println("Creado SHExtraSensorial: " + vCampos.get(1) + "\n");
-	    //TODO Registrar SHExtraSensorial en el mapa
+	//    System.out.println("Creado SHExtraSensorial: " + vCampos.get(1) + "\n");
+		SHExtraSensorial s = new SHExtraSensorial(vCampos.get(1), vCampos.get(2), Integer.parseInt(vCampos.get(3)));
+		Game.getSI().insertCharacter(s);
+
+		//TODO Registrar SHExtraSensorial en el mapa
 	}	
 
 	/**
@@ -123,8 +143,11 @@ public class Cargador {
 	 *  @param vCampos array que contiene los valores de cada atributo
 	 */
 	private void crearSHFlight(int numCampos, List<String> vCampos){
-	    System.out.println("Creado SHFlight: " + vCampos.get(1) + "\n");
-	    //TODO Registrar SHFlight en el mapa
+	    //System.out.println("Creado SHFlight: " + vCampos.get(1) + "\n");
+		SHExtraFlight s = new SHExtraFlight(vCampos.get(1), vCampos.get(2), Integer.parseInt(vCampos.get(3)));
+		Game.getSI().insertCharacter(s);
+
+		//TODO Registrar SHFlight en el mapa
 	}	
 
 	/**
@@ -133,7 +156,9 @@ public class Cargador {
 	 *  @param vCampos array que contiene los valores de cada atributo
 	 */
 	private void crearVillain(int numCampos, List<String> vCampos){
-	    System.out.println("Creado Villain: " + vCampos.get(1) + "\n");
+	    //System.out.println("Creado Villain: " + vCampos.get(1) + "\n");
+		Villain s = new Villain(vCampos.get(1), vCampos.get(2), Integer.parseInt(vCampos.get(3)));
+		Game.getSI().insertCharacter(s);
 	    //TODO Registrar Villain en el mapa
 	}
 

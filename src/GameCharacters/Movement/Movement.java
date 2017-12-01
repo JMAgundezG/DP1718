@@ -48,7 +48,7 @@ public abstract class Movement {
      */
     protected void movement(){
 
-        Map map = Game.getSingletonInstance().getMap();
+        Map map = Game.getSI().getMap();
 
         int roomNumber = this.character.getPosition();
         Square sq  = map.getSquare(this.character.getPosition());
@@ -80,8 +80,8 @@ public abstract class Movement {
                     }
                     break;
 
-                case O:
-                    if (map.availableMovement(roomNumber,Dir.O)){
+                case W:
+                    if (map.availableMovement(roomNumber,Dir.W)){
                         sq.dropCharacter(this.character);
                         sq = map.getSquare(map.getRowOfSquare(roomNumber), map.getColumnOfSquare(roomNumber) - 1);
                         sq.saveCharacter(this.character);

@@ -12,7 +12,6 @@ import java.util.*;
 
 import static tools.Dir.*;
 
-//TODO cosas importantes ∇
 
 
 public class Map {
@@ -507,7 +506,7 @@ public class Map {
             if (node < (dimY * (dimX - 1))) { //S
                 walls.addLast(new Walls(node, node + dimY));
             }
-            if (node % dimY > 0) {          //O
+            if (node % dimY > 0) {          //W
                 walls.addLast(new Walls(node, node - 1));
             }
 
@@ -586,6 +585,7 @@ public class Map {
     public int getThroneRoom() {
         return throneRoom;
     }
+
 
     public LinkedList<LinkedList<Integer>> getPosiblePaths() {
         return posiblePaths;

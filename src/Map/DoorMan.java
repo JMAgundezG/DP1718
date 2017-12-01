@@ -78,12 +78,14 @@ public class DoorMan {
      */
     public boolean tryWeapon(Weapon w){
         boolean done = false;
-        Weapon bw = (Weapon) this.tree.mostValuedNode(Comparator.comparingInt(Weapon::getPower));
-        if (bw.getPower() < w.getPower()){
-            tree.delete(bw);
-            done = true;
-            if(tree.depth()<depth){
-                gateOpened = true;
+        if(tree.countLeaves() > 0) {
+            Weapon bw = (Weapon) this.tree.mostValuedNode(Comparator.comparingInt(Weapon::getPower));
+            if (bw.getPower() < w.getPower()) {
+                tree.delete(bw);
+                done = true;
+                if (tree.depth() < depth) {
+                    gateOpened = true;
+                }
             }
         }
         return done;
@@ -125,11 +127,11 @@ public class DoorMan {
      * @return a String containing all the information about the portal.
      */
     public String toString(){
-        String message = "(hombrepuerta:";
+        String message = "(Doorman:";
         if (gateOpened)
-            message += "abierta:";
+            message += "open:";
         else
-            message += "cerrada:";
+            message += "closed:";
         message += Integer.toString(depth);
         message += tree.StringInOrder();
         return message;

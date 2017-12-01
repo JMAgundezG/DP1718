@@ -7,6 +7,8 @@ package Tools.cargador;
  * @version 4.0 -  15/10/2014 
  * @author Profesores DP
  */
+import Game.Game;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -24,9 +26,13 @@ public class ClasePrincipal {
 		}
 		catch (FileNotFoundException valor)  {
 			System.err.println ("Excepción capturada al procesar fichero: "+valor.getMessage());
+
+
 		}
 		catch (IOException valor)  {
 			System.err.println ("Excepción capturada al procesar fichero: "+valor.getMessage());
+
 		}
+		Game.getSI().simulateGame();
 	}
 }

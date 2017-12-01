@@ -245,7 +245,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
                             leftC = candidato.getLeftChild();
                         else
                             antecesor.rightC = candidato.getLeftChild();
-                    } //Eliminar solo ese nodo, no todo el subarbol
+                    } //Eliminar solo ese nodo, no to-do el subarbol
                     aborrar.leftC = null;
                     aborrar.rightC = null;
                 }

@@ -30,11 +30,11 @@ public class FicheroCarga {
 	     String S=new String();
 	     int numCampos=0;
 
-	     System.out.println( "Procensando el fichero..." );
+	     //System.out.println( "Procensando el fichero..." );
 	     bufferIn = new BufferedReader(new FileReader(nombreFichero));//creación del filtro asociado al flujo de datos
 
          while((S=bufferIn.readLine())!= null) {
-	     	 System.out.println( "S: "+S );
+	     	 //System.out.println( "S: "+S );
   	 		 if (!S.startsWith("--"))  {
   	 			 vCampos.clear();
   	 			 numCampos = trocearLinea(S, vCampos);

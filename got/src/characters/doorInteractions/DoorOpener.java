@@ -30,7 +30,7 @@ public class DoorOpener extends DoorInteraction {
             if(!door.isLocked()){
                 Game.getSingletonInstance().getMap().moveToWinRoom();
             }
-            //TODO Ver como se sabe si alguien ha ganado.
+
         }
     }
 }

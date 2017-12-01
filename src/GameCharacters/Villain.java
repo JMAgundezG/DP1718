@@ -1,7 +1,10 @@
 package GameCharacters;
 
+import GameCharacters.Movement.Deliverable2Movement;
 import GameCharacters.Movement.Movement;
 import Game.Game;
+import GameCharacters.Movement.VillainMovement;
+import GameCharacters.WeaponFeatures.VillainsWFeature;
 import Map.Weapon;
 
 /**
@@ -17,44 +20,17 @@ import Map.Weapon;
  */
 public class Villain extends GameCharacter {
 
-    /**
-     * Attribute that contains the weapon of the villain.
-     */
-    private Weapon weapon;
 
     /**
      * Public parametrized constructor of the class Villain.
      * @param name the attribute name of the Villain.
-     * @param type the attribute type of the Villain.
      * @param id the attribute id of the Villain.
-     * @param pos the attribute position of the Villain.
-     * @param movement the attribute movement of the Villain.
+     * @param turn the attribute turn of the Villain.
      */
-    public Villain(String name, String type, String id, int pos, Movement movement) {
-        super(name, type, id, pos, movement);
-        this.weapon = null;
+    public Villain(String name, String id, int turn) {
+        super(name, "Villain", id, Game.getSI().getMap().getNE(), turn);
+        setWeaponFeature(new VillainsWFeature(this));
+        setMovement(new VillainMovement(this));
     }
 
-    /**
-     * Public parametrized constructor of the class Villain.
-     * @param name the attribute name of the Villain.
-     * @param type the type of GameCharacter. In this case, Villain.
-     * @param id the attribute id of the Villain.
-     * @param pos the attribute position of the Villain.
-     * @param movement the Movement pattern of the Villain.
-     * @param w the attribute weapon of the Villain.
-     */
-    public Villain(String name, String type, String id, int pos, Movement movement, Weapon w) {
-        super(name, type, id, pos, movement);
-        this.weapon = w;
-    }
-
-    /**
-     * Implementation of the abstract method useWeapon of the MetaHuman class.
-     */
-    public void useWeapon(){
-        if(this.getPosition() == Game.getSingletonInstance().getMap().getDailyPlanet()) {
-           Game.getSingletonInstance().getMap().getDoorMan().tryWeapon(weapon);
-        }
-    }
 }

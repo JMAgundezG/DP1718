@@ -1,30 +1,46 @@
 package Game;
 
+import GameCharacters.GameCharacter;
+
 import Map.Map;
+import Map.Square;
 
 import java.util.LinkedList;
 
+import Tools.Tools;
 
 public class Game {
-    private Map map;
-    private int turn;
-    private static Game game = null;
-    private boolean finished = false;
 
-    private Game(int dimX, int dimY, int throneRoom, int depth) {
-        this.map = new Map(dimX, dimY, throneRoom, depth);
-       this.turn = 0;
+    private Map map;
+
+    private int turn;
+
+    private static Game game = null;
+
+    private boolean finished;
+
+    private LinkedList<GameCharacter> characters;
+
+    private LinkedList<GameCharacter> capturedCharacters;
+
+
+    private Game(int row, int col, int doorManSquare, int depth) {
+        this.map = new Map(row, col, doorManSquare, depth);
+        this.turn = 0;
+        this.characters = new LinkedList<>();
+        this.capturedCharacters = new LinkedList<>();
+        this.finished = false;
     }
 
 
-    public static Game getSingletonInstance(int dimX, int dimY, int throneRoom, int depth) {
+    public static Game getSI(int row, int col, int doorManSquare, int depth) {
         if (game == null) {
-            game = new Game(dimX, dimY, throneRoom, depth);
+            game = new Game(row, col, doorManSquare, depth);
         }
         return game;
     }
 
-    public static Game getSingletonInstance() {
+    public static Game getSI() {
         return game;
     }
 
@@ -32,33 +48,40 @@ public class Game {
         return map;
     }
 
-    /**
-     * Add a character to the map
-     *
-     * @param character the character we will add
-     */
-//    public void addCharacter(Characters character) {
-//        CharactersInGame.addLast(character);
-//    }
 
+    public void insertCharacter(GameCharacter gc){
+        characters.addLast(gc);
+        map.getSquare(gc.getPosition()).saveCharacter(gc);
+
+
+
+    }
+
+    public void capture(GameCharacter gc){
+        this.capturedCharacters.add(gc); // TODO comprobar si hay que quitar al personaje en este momento del juego o antes de mostrar por pantalla
+    }
     /**
      * Simulate a turn of the Map
      */
-//    public void simulateATurn() {
-//        addPlayersToMap();
-//        for (int i = 0; i < map.getNumberOfRooms(); i++) {
-//            Room room = map.findRoom(i);
-//            if (!room.isEmpty()) {
-//                LinkedList<Characters> players = (LinkedList) room.getCharactersList().clone();
-//                for (Characters c : players) {
-//                    if (CharactersInGame.contains(c)) {
-//                        c.actions();
-//                    }
-//                }
-//            }
-//        }
-//        removePlayersFromMap();
-//    }
+    public void simulateATurn() {
+
+        for (int i = 0; i < map.getColumns()*map.getRows(); i++) {
+            Square sq = map.getSquare(i);
+            if (sq.getGameCharacters().size()>0) {
+                sq.simulate();
+            }
+        }
+        removePlayersFromMap();
+    }
+
+    public void removePlayersFromMap(){
+        for (GameCharacter gc : capturedCharacters) {
+            if(gc.getPosition() != -1){
+                map.getSquare(gc.getPosition()).dropCharacter(gc);
+                gc.setPosition(-1);
+            }
+        }
+    }
 //
 //
 //    /**
@@ -71,36 +94,37 @@ public class Game {
 //        }
 //    }
 //
-//    /**
-//     * Simulate the Map
-//     */
-//
-//    public void simulateGame() {
-//        String message = map.getInitialMap();
-//        for (int i = 0; i < map.getNumberOfRooms(); i++) {
-//            Room r = map.findRoom(i);
-//            if (!r.isEmpty()) {
-//                for (Characters c : r.getCharactersList()) {
-//                    message += showCreatedCharacter(c) + "\n";
-//                    System.out.println(showCreatedCharacter(c));
-//                }
-//            }
-//        }
-//        while (turn < Tools.MaxTurn && map.getWinRoom().isEmpty()) {
-//            simulateATurn();
-//            message += showGame();
-//            System.out.print(showGame());
-//            turn++;
-//            setActionFlagTrue();
-//
-//        }
-//
+    /**
+     * Simulate the Map
+     */
+
+
+    //TODO
+    public void simulateGame() {
+        String message = "";// = map.getInitialMap();
+        for (int i = 0; i < map.getColumns() * map.getRows(); i++) {
+            Square s = map.getSquare(i);
+            if (s.getGameCharacters().size() > 0) {
+                for (GameCharacter c : s.getGameCharacters()) {
+                    //message += showCreatedCharacter(c) + "\n";
+                    //System.out.println(showCreatedCharacter(c));
+                }
+            }
+        }
+        while (turn < Tools.MAX_TURN) {
+            simulateATurn();
+            message.concat(toString());
+            System.out.print(toString());
+            turn++;
+        }
+    }
+
 //        message += winMessage();
 //        System.out.println(winMessage());
 //        Tools.writeGame(message);
 //        finished = true;
 //    }
-//
+
 //    /**
 //     *
 //     * @return the final message of the Map
@@ -139,28 +163,27 @@ public class Game {
 //     *
 //     * @return
 //     */
-//    private String showGame() {
-//
-//        String message = "";
-//        message += "(turn:" + Integer.toString(getTurn()) + ")\n";
-//        message += "(map:" + Integer.toString(map.getThroneDoor().getNumberOfRoom()) + ")\n";
-//        message += this.map.getThroneDoor().showDoor() + "\n";
-//        message += this.map.showMap();
-//
-//        Room r;
-//        for (int i = 0; i < this.map.getNumberOfRooms(); i++) {
-//            r = this.map.findRoom(i);
-//            if (!r.isEmpty()) {
-//                for (Characters ch : r.getCharactersList()) {
-//                    message += ch.showCharacter() + "\n";
-//                }
-//            }
-//        }
-//
-//        return message;
-//    }
-//
-//
+    public String toString() {
+
+        String message = "";
+        message += "(turn:" + Integer.toString(getTurn()) + ")\n";
+        message += "(map:" + Integer.toString(map.getDailyPlanet())+ ")\n";
+        message += this.map.getDoorMan().toString() + "\n";
+        message += this.map.toString();
+
+        for (int i = 0; i < this.map.getSize(); i++) {
+            Square s = this.map.getSquare(i);
+            if (s.getGameCharacters().size() > 0) {
+                for (GameCharacter ch : s.getGameCharacters()) {
+                    message += ch.toString() + "\n";
+                }
+            }
+        }
+
+        return message;
+    }
+
+
 //    /**
 //     * Put a character in the Map
 //     *
@@ -221,8 +244,13 @@ public class Game {
 //    public boolean isFinished() {
 //        return finished;
 //    }
+
+
+    public LinkedList<GameCharacter> getCapturedCharacters() {
+        return capturedCharacters;
+    }
+
     static public void main(String[] args){
-        Map map = new Map(6,6,35,5);
-        System.out.println(map.toString());
+
     }
 }

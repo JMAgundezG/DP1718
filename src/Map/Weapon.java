@@ -74,7 +74,7 @@ public class Weapon implements Comparable<Weapon>{
      */
     @Override
     public String toString() {
-        return "{" + name + ", "+ Integer.toString(power) + "}";
+        return "(" + name + ", "+ Integer.toString(power) + ")";
     }
 
     /**

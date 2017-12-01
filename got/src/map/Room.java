@@ -85,7 +85,7 @@ public class Room {
             LinkedList<Characters> cl = (LinkedList<Characters>) CharactersList.clone();
             Characters Char;
             for (int i = 0; i < cl.size(); i++) {
-                Char = getCharactersList().getFirst();//TODO SIGUE AQUI
+                Char = getCharactersList().getFirst();
                 if (Char.getActionFlag()) {
                     Char.actions();
                     Char.setActionFlag(false);
