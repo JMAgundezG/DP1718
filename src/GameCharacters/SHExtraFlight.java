@@ -15,7 +15,7 @@ public class SHExtraFlight extends GameCharacter {
      * @param turn     the attribute turn of the GameCharacter.
      */
     public SHExtraFlight(String name, String id, int turn) {
-        super(name, "SHExtraFlight", id,Game.getSI().getMap().getSW(), turn);
+        super(name, "SHFlight", id,Game.getSI().getMap().getSW(), turn);
         setMovement(new SHFMovement(this));
         setWeaponFeature(new HeroesWFeature(this));
     }
