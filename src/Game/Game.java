@@ -9,21 +9,55 @@ import java.util.LinkedList;
 
 import Tools.Tools;
 
+/**
+ * Implementation of the Game Class.
+ *
+ * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * Class used to simulate the game.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC2.
+ */
 public class Game {
 
+    /**
+     * Attribute that contains the map
+     */
     private Map map;
 
+    /**
+     * Attribute that contains the current turn
+     */
     private int turn;
 
+    /**
+     * Attribute that contains the singleton static instance of the game.
+     */
     private static Game game = null;
 
+    /**
+     * Boolean that contains the information of the game, whether it's finished or not.
+     */
     private boolean finished;
 
+    /**
+     * Attribute that contains all the information of the characters.
+     */
     private LinkedList<GameCharacter> characters;
 
+    /**
+     * Attribute that contains all the information of the characters that have been captured.
+     */
     private LinkedList<GameCharacter> capturedCharacters;
 
-
+    /**
+     * Public parametrized constructor of the game class
+     * @param row the attribute row of the map.
+     * @param col the attribute column of the map.
+     * @param doorManSquare the last room of the map.
+     * @param depth the depth of the doorman's tree.
+     */
     private Game(int row, int col, int doorManSquare, int depth) {
         this.map = new Map(row, col, doorManSquare, depth);
         this.turn = 0;
@@ -32,7 +66,14 @@ public class Game {
         this.finished = false;
     }
 
-
+    /**
+     * Getter of the singleton instance.
+     * @param row the row attribute of the map.
+     * @param col the column attribute of the map.
+     * @param doorManSquare the last room of the map.
+     * @param depth the depth of the doorman's tree.
+     * @return the singleton instance of the game.
+     */
     public static Game getSI(int row, int col, int doorManSquare, int depth) {
         if (game == null) {
             game = new Game(row, col, doorManSquare, depth);
@@ -40,28 +81,42 @@ public class Game {
         return game;
     }
 
+    /**
+     * Getter of the game attribute.
+     * @return the game attribute.
+     */
     public static Game getSI() {
         return game;
     }
 
+    /**
+     * Getter of the map attribute.
+     * @return the map attribute.
+     */
     public Map getMap() {
         return map;
     }
 
-
+    /**
+     * Method that inserts a character in the map.
+     * @param gc the game character.
+     */
     public void insertCharacter(GameCharacter gc){
         characters.addLast(gc);
         map.getSquare(gc.getPosition()).saveCharacter(gc);
 
-
-
     }
 
+    /**
+     * Method that introduces a new captured character.
+     * @param gc the game character that has been captured.
+     */
     public void capture(GameCharacter gc){
         this.capturedCharacters.add(gc);
     }
+
     /**
-     * Simulate a turn of the Map
+     * Simulates a turn of the Map
      */
     public void simulateATurn() {
 
@@ -74,6 +129,9 @@ public class Game {
         removePlayersFromMap();
     }
 
+    /**
+     * Removes all the captured characters of the map.
+     */
     public void removePlayersFromMap(){
         for (GameCharacter gc : capturedCharacters) {
             if(gc.getPosition() != -1){
@@ -99,7 +157,9 @@ public class Game {
      */
 
 
-    //TODO
+    /**
+     * Simulates the whole game.
+     */
     public void simulateGame() {
         String message = "";
         for (int i = 0; i < map.getColumns() * map.getRows(); i++) {
@@ -120,9 +180,12 @@ public class Game {
         }
     }
 
+    /**
+     * The characters have already performed an action this turn.
+     */
     public void setActionsTrue(){
         for (GameCharacter c: this.characters) {
-            if(!c.isAction()) {
+            if (!c.isAction()) {
                 c.setAction(true);
                 c.setTurn((c.getTurn() + 1));
             }
@@ -204,13 +267,13 @@ public class Game {
         return message;
     }
 
-
-
+    /**
+     * Getter of the capturedCharacters attribute
+     * @return the capturedCharacters attribute.
+     */
     public LinkedList<GameCharacter> getCapturedCharacters() {
         return capturedCharacters;
     }
 
-    static public void main(String[] args){
 
-    }
 }

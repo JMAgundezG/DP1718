@@ -12,7 +12,7 @@ import Map.Weapon;
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
  * @version 2.0
- * Extends from the MetaHuman class and uses its methods.
+ * Inherits from the GameCharacter class and provides the constructor for the villains.
  * In version 2.0, The constructor has been modified.
  * Year: 2017/2018.
  * Group: Rubber Duck.

@@ -12,10 +12,12 @@ import java.util.LinkedList;
  * Implementation of the Square.
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
- * @version 2.0
+ * @version 3.0
  * These are the squares that form the map.
  * In the version 2.0, we have added the graph related attributes with the
  * corresponding setters and getters.
+ * In the version 3.0, we have added some getters and the needed methods to print the information
+ * of the characters and the weapons.
  * Year: 2017/2018.
  * Group: Rubber Duck.
  * Delivery: EC2.
@@ -125,7 +127,10 @@ public class Square {
         this.number = number;
     }
 
-    
+    /**
+     * If a room has 2 or more characters, prints the number instead of the Chars.
+     * @return the string containing the number of characters or a char if it is only one.
+     */
     public String stringOfCharacters(){
             String CharacterIcon = "";
             if (gameCharacters.isEmpty()) {
@@ -139,15 +144,26 @@ public class Square {
         
     }
 
+    /**
+     * Getter of the weaponList attribute.
+     * @return the weaponList attribute.
+     */
     public LinkedList<Weapon> getWeaponList() {
         return weaponList;
     }
 
+    /**
+     * Getter of the gameCharacters attribute.
+     * @return the gameCharacters attribute.
+     */
     public LinkedList<GameCharacter> getGameCharacters() {
         return gameCharacters;
     }
 
-
+    /**
+     * Method that turns the weapons of the square into strings.
+     * @return the string that contains the information of the weapons.
+     */
     public String showWeapons() {
         String message = "";
         if (weaponList.size() == 0) {
@@ -161,6 +177,9 @@ public class Square {
         }
     }
 
+    /**
+     * Method that simulates the turns of every character.
+     */
     public void simulate(){
         LinkedList<GameCharacter> gcs = (LinkedList<GameCharacter>) gameCharacters.clone();
         for (GameCharacter c : gcs) {

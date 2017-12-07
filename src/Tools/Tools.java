@@ -2,11 +2,28 @@ package Tools;
 
 import java.util.Collections;
 import java.util.LinkedList;
+
+/**
+ * Implementation of the Tools Class.
+ *
+ * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * Auxiliar class used to simulate movements, generate paths and to contain constants..
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC2.
+ */
 public class Tools {
 
-
+    /**
+     * The maximum of turns of the game.
+     */
     public static int MAX_TURN= 50;
 
+    /**
+     * Method that generates the possible movements in the Delivery 2.
+     * @return the list containing the movements.
+     */
     public static LinkedList<Dir> D2Movements(){
         Dir[] a = new Dir[]{Dir.S, Dir.E, Dir.N, Dir.E, Dir.W};
         LinkedList<Dir> b = new LinkedList<Dir>();
@@ -17,7 +34,7 @@ public class Tools {
 
     /**
      * ExtraFlight movements
-     * @return b
+     * @return the list containing the path.
      */
     public static LinkedList<Dir> SHFMovements(){
         Dir[] a = new Dir[]{Dir.E,Dir.E,Dir.E,Dir.N,Dir.E,Dir.E,Dir.S};
@@ -29,7 +46,7 @@ public class Tools {
 
     /**
      * ExtraSensorial movements
-     * @return b
+     * @return the list containing the path.
      */
     public static LinkedList<Dir> SHESMovements(){
         Dir[] a = new Dir[]{Dir.E,Dir.E,Dir.S,Dir.W,Dir.W,Dir.E,Dir.S,Dir.W,
@@ -44,7 +61,7 @@ public class Tools {
 
     /**
      * Extraphysical movements
-     * @return b
+     * @return the list containing the path.
      */
     public static LinkedList<Dir> SHEPMovements(){
         Dir[] a = new Dir[]{Dir.E,Dir.E,Dir.S,Dir.S,Dir.E,Dir.S,Dir.S,Dir.E,Dir.E,Dir.S};
@@ -55,7 +72,7 @@ public class Tools {
 
     /**
      * Villain movements
-     * @return b
+     * @return the list containing the path.
      */
     public static LinkedList<Dir> VillainMovements(){
         Dir[] a = new Dir[]{Dir.S,Dir.S,Dir.N,Dir.W,Dir.S,Dir.S,Dir.W,Dir.S,Dir.E,Dir.E,Dir.N,Dir.S,Dir.S};
@@ -64,7 +81,11 @@ public class Tools {
         return b;
     }
 
-
+    /**
+     * Method that shows the path. The list of directions.
+     * @param dirs the path we want to show.
+     * @return the String containing the path.
+     */
     public static String showPath(LinkedList<Dir> dirs){
         String message = "";
         for(Dir dir : dirs){

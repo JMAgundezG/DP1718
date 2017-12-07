@@ -12,7 +12,6 @@ import java.util.LinkedList;
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
  * @version 2.0
- * This class is the "main" class of the project.
  * This is where all the action happens.
  * In the version 2.0, We have added the graph,
  * the walls and some methods that are needed
@@ -515,23 +514,42 @@ public class Map {
         return s;
     }
 
-
+    /**
+     * Returns the north west room
+     * @return 0
+     */
     public int getNW(){
         return 0;
     }
 
+    /**
+     * Returns the north east room
+     * @return columns - 1
+     */
     public int getNE(){
         return columns - 1 ;
     }
 
+    /**
+     * Returns the south east room
+     * @return columns * rows - 1
+     */
     public int getSE(){
         return columns * rows - 1;
     }
 
+    /**
+     * Returns the south west room
+     * @return columns * rows - columns
+     */
     public int getSW(){
         return columns * rows - columns;
     }
 
+    /**
+     * Returns the size of the map
+     * @return columns * rows
+     */
     public int getSize(){ return columns * rows;}
 
     /**

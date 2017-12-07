@@ -72,7 +72,7 @@ public class DoorMan {
     }
 
     /**
-     * Method that allows other Game.Game Characters to interact with the portal and try to open the portal.
+     * Method that allows other GameCharacters to interact with the portal and try to open the portal.
      * @param w The weapon that the Characters are using to try and open the portal.
      * @return true if the portal has been opened. False on the opposite case.
      */

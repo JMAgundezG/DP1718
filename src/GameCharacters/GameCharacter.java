@@ -41,17 +41,25 @@ public abstract class GameCharacter {
      */
     private Movement movement;
 
-
     /**
      * Attribute that contains the type of the GameCharacter.
      * In this case, it is either a SuperHero or a Villain.
      */
     private String type;
 
+    /**
+     * Attribute that contains the information of the current turn of the GameCharacter
+     */
     private int turn;
 
+    /**
+     * Boolean that contains the information about the character. If he has performed an action the current turn or not.
+     */
     private boolean action;
 
+    /**
+     * Auxiliar attribute able to perform every weapon feature.
+     */
     private WeaponFeature weaponFeature;
     /**
      * Public constructor of the class GameCharacter.
@@ -170,13 +178,12 @@ public abstract class GameCharacter {
     }
 
     /**
-     * Override toString method used to show the information of the MetaHuman.
-     * @return the String that contains the MetaHuman information.
+     * Override toString method used to show the information of the GameCharacter.
+     * @return the String that contains the GameCharacter information.
      */
     @Override
     public String toString() {
-        return "(" + type.toLowerCase() + ":" + id +":" +position+ ":"  + turn + ":" + weaponFeature.toString() + ")";
-    }
+        return "(" + type.toLowerCase() + ":" + id +":" +position+ ":"  + turn + ":" + weaponFeature.toString() + ")";    }
 
     /**
      *NEED COMMENTS

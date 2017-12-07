@@ -6,6 +6,16 @@ import GameCharacters.Movement.SHFMovement;
 import GameCharacters.WeaponFeatures.HeroesWFeature;
 import GameCharacters.WeaponFeatures.WeaponFeature;
 
+/**
+ * Implementation of the SHExtraFlight class.
+ *
+ * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * This class inherits from the GameCharacter one. Provides the constructor for the flying heroes.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC2.
+ */
 public class SHExtraFlight extends GameCharacter {
     /**
      * Public constructor of the class GameCharacter.
