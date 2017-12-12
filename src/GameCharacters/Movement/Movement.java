@@ -93,7 +93,7 @@ public abstract class Movement {
     }
 
     /**
-     * That method will be useful when the character will have a cyclic path.
+     * Useful method when the character has a cyclic path.
      */
     public void movementAction(){
         movement();
@@ -116,18 +116,17 @@ public abstract class Movement {
     }
 
     /**
-     * Setter of path
-     * @param movements list of movements of each character
+     * Setter of the attribute movements
+     * @param movements the movements attribute
      */
     public void setMovements(LinkedList<Dir> movements) {
         this.movements = movements;
     }
 
     /**
-     * Getter of movements
-     * @return the movements list
+     * Getter of the attribute movements
+     * @return the movements attribute
      */
-
     public LinkedList<Dir> getMovements() {
         return movements;
     }

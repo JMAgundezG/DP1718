@@ -12,7 +12,7 @@ import Map.Weapon;
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
  * @version 2.0
- * Extends from the MetaHuman class and uses its methods.
+ * Inherits from the GameCharacter class and provides the constructor for the villains.
  * In version 2.0, The constructor has been modified.
  * Year: 2017/2018.
  * Group: Rubber Duck.
@@ -28,7 +28,7 @@ public class Villain extends GameCharacter {
      * @param turn the attribute turn of the Villain.
      */
     public Villain(String name, String id, int turn) {
-        super(name, "Villain", id, Game.getSI().getMap().getNE(), turn);
+        super(name, "villain", id, Game.getSI().getMap().getNE(), turn);
         setWeaponFeature(new VillainsWFeature(this));
         setMovement(new VillainMovement(this));
     }

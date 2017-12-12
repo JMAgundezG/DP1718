@@ -2,8 +2,6 @@ package Map;
 
 import Datastructures.BinaryTree;
 
-import java.util.Comparator;
-
 /**
  * Implementation of the DoorMan.
  *
@@ -72,23 +70,25 @@ public class DoorMan {
     }
 
     /**
-     * Method that allows other Game.Game Characters to interact with the portal and try to open the portal.
+     * Method that allows other GameCharacters to interact with the portal and try to open the portal.
      * @param w The weapon that the Characters are using to try and open the portal.
      * @return true if the portal has been opened. False on the opposite case.
      */
     public boolean tryWeapon(Weapon w){
-        boolean done = false;
         if(tree.countLeaves() > 0) {
-            Weapon bw = (Weapon) this.tree.mostValuedNode(Comparator.comparingInt(Weapon::getPower));
-            if (bw.getPower() < w.getPower()) {
-                tree.delete(bw);
-                done = true;
-                if (tree.depth() < depth) {
-                    gateOpened = true;
+            if (tree.belongs(w)) {
+                Weapon bw = (Weapon) tree.extract(w);
+                if (bw.getPower() < w.getPower()) {
+                    tree.delete(w);
+                    //System.out.println(tree.depth());
+                    if (tree.depth() + 1 < depth) {
+                        gateOpened = true;
+                        //tree = new BinaryTree();
+                    }
                 }
             }
         }
-        return done;
+        return gateOpened;
     }
 
     /**
@@ -142,6 +142,24 @@ public class DoorMan {
      * @return true if it is open. False on the opposite case.
      */
     public boolean isGateOpened() {
+        if (tree.depth() <  depth - 1)
+            gateOpened = true;
         return gateOpened;
+    }
+
+    static public void main(String[] args){
+        BinaryTree<Integer> b = new BinaryTree<>();
+        b.insertData(5);
+        b.insertData(4);
+        b.insertData(3);
+        b.insertData(2);
+        b.insertData(1);
+        b.insertData(0);
+        b.insertData(-1);
+        b.insertData(6);
+        b.insertData(8);
+        b.insertData(7);
+        System.out.println(b.depth());
+
     }
 }
