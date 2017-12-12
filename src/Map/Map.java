@@ -442,7 +442,7 @@ public class Map {
 
     }
 
-    /**TODO ESTÄ MAL HECHO, NO BORRA CUANDO PASA POR ENCIMA
+    /**
      * Make a first-depth's algorithm to take all posible paths and say which are the
      * most frequented rooms
      *
@@ -516,6 +516,7 @@ public class Map {
                 k++;
             }
         }
+
     }
 
     /**
@@ -619,6 +620,9 @@ public class Map {
         return posiblePaths;
     }
 
+    public Grafo getGraph() {
+        return graph;
+    }
 
     /**
      * Main method of the map class. Simulates all the general functioning of the program.

@@ -1,6 +1,12 @@
 package GameCharacters.Movement;
 
+import Game.Game;
 import GameCharacters.GameCharacter;
+import Map.Path;
+import Tools.Tools;
+import sun.awt.image.ImageWatched;
+
+import java.util.LinkedList;
 
 /**
  * Implementation of the SHFMovement class.
@@ -18,6 +24,9 @@ public class SHFMovement extends Movement{
      * @param character the character attribute.
      */
     public SHFMovement(GameCharacter character) {
-        super(character, Tools.Tools.SHFMovements());
+        super(character, null);
+        LinkedList<Integer> a = (LinkedList<Integer>) Path.paths(character.getPosition(),Game.getSI().getMap().getDailyPlanet()).get(0);
+        a.addFirst(character.getPosition());
+        setMovements(Path.RoomsToDirections(a));
     }
 }

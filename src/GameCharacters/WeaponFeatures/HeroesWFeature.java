@@ -120,11 +120,4 @@ public class HeroesWFeature extends WeaponFeature{
         return wTree.StringInOrder();
     }
 
-    static public void main(String[] args){
-        BinaryTree<Weapon> w = new BinaryTree<>();
-        w.insertData(new Weapon("a",1));
-        System.out.printf(w.StringInOrder());
-        w.insertData(new Weapon("a",33));
-        System.out.printf(w.StringInOrder());
-    }
 }

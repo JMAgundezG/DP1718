@@ -1,9 +1,12 @@
 package Map;
 
+import Datastructures.Grafo;
 import Game.Game;
 import Tools.Dir;
 
+
 import java.util.LinkedList;
+import java.util.TreeSet;
 
 public class Path {
 
@@ -39,7 +42,37 @@ public class Path {
         return movements;
     }
 
+    static public LinkedList<Dir> wallFollowerLeftHanded(int initialPosition) {
+        LinkedList<Dir> movements = new LinkedList<>();
+        int nRoom = initialPosition;
+        Map map = Game.getSI().getMap();
+        Dir lastDir = Dir.S;
+        boolean flag = false;
+        /*
+         *Starting the WallFollower Algorithm
+         */
+        while (nRoom != map.getDailyPlanet()) {
 
+            while (!flag) {
+                if (!map.availableMovement(nRoom, LeftHand(lastDir))) {
+                    if (map.availableMovement(nRoom, lastDir)) {
+                        nRoom = neighbourRoomNumber(nRoom, lastDir);
+                        flag = true;
+                    } else {
+                        lastDir = RightHand(lastDir);
+
+                    }
+                } else {
+                    lastDir = LeftHand(lastDir);
+                    nRoom = neighbourRoomNumber(nRoom, lastDir);
+                    flag = true;
+                }
+            }
+            movements.addLast(lastDir);
+            flag = false;
+        }
+        return movements;
+    }
 
     /**
      * Says the right hand of a direction
@@ -125,7 +158,7 @@ public class Path {
         return RoomsToDirections(rooms);
     }
 
-    static LinkedList<Dir> RoomsToDirections(LinkedList<Integer> rooms) {
+    public static LinkedList<Dir> RoomsToDirections(LinkedList<Integer> rooms) {
 
         Map map = Game.getSI().getMap();
         LinkedList<Dir> directions = new LinkedList<>();
@@ -148,5 +181,31 @@ public class Path {
             previousRoom = rooms.get(i);
         }
         return directions;
+    }
+
+
+    static public LinkedList paths(int start, int finish){
+        LinkedList<LinkedList<Integer>> solutions = new LinkedList<>();
+        path(start, finish, new LinkedList<Integer>(), solutions);
+        return solutions;
+    }
+    private static void path(int start, int finish, LinkedList<Integer> partialSolution, LinkedList<LinkedList<Integer>> solutions) {
+        Integer nextRoom;
+        TreeSet<Integer> adySet = new TreeSet<>();
+        Game.getSI().getMap().getGraph().adyacentes(start, adySet);
+        if (start == finish) {
+            LinkedList<Integer> solution = (LinkedList<Integer>) partialSolution.clone();
+            solutions.addLast(solution);
+        }
+        while (!adySet.isEmpty()) {
+            nextRoom = adySet.first();
+            adySet.remove(nextRoom);
+            if (!partialSolution.contains(nextRoom)) {
+                partialSolution.add(nextRoom);
+                path(nextRoom, finish, partialSolution, solutions);
+                partialSolution.remove(nextRoom);
+            }
+
+        }
     }
 }

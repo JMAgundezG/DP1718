@@ -1,6 +1,7 @@
 package GameCharacters.Movement;
 
 import GameCharacters.GameCharacter;
+import Map.Path;
 import Tools.Dir;
 
 import java.util.LinkedList;
@@ -22,6 +23,6 @@ public class VillainMovement extends Movement{
      * @param character the character attribute.
      */
     public VillainMovement(GameCharacter character) {
-        super(character, Tools.Tools.VillainMovements());
+        super(character, Path.wallFollowerLeftHanded(character.getPosition()));
     }
 }
