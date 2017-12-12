@@ -1,6 +1,7 @@
 package GameCharacters.Movement;
 
 import GameCharacters.GameCharacter;
+import Map.Path;
 
 /**
  * Implementation of the SHEPMovement class.
@@ -18,6 +19,6 @@ public class SHEPMovement extends Movement{
      * @param character the character attribute.
      */
     public SHEPMovement(GameCharacter character) {
-        super(character, Tools.Tools.SHEPMovements() );
+        super(character, Path.firstPosiblePath());
     }
 }

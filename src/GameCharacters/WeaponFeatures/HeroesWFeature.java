@@ -46,13 +46,16 @@ public class HeroesWFeature extends WeaponFeature{
      * Implementation of the weaponAction method.
      * If the character using the weapon is in the last room, he uses it.
      */
-    public void weaponAction() {
+    public void dailyPlanetAction() {
 
         DoorMan d = Game.getSI().getMap().getDoorMan();
         if (getGc().getPosition() == Game.getSI().getMap().getDailyPlanet()) {
             Weapon bestWeapon = wTree.mostValuedNode(Comparator.comparingInt(Weapon::getPower));
-            if (bestWeapon != null && !d.tryWeapon(bestWeapon)) {
+            if (bestWeapon != null) {
                 wTree.delete(bestWeapon);
+                if(d.tryWeapon(bestWeapon)){
+                    this.getGc().insertIntoWinningRoom();
+                }
             }
         }
     }
@@ -63,20 +66,21 @@ public class HeroesWFeature extends WeaponFeature{
      * one has bigger power, he catches the villain.
      */
     public void interact(){
+        boolean firstVillain = false;
         Square sq = Game.getSI().getMap().getSquare(getGc().getPosition());
-        for (int i = 0; i < sq.getGameCharacters().size(); i++) {
+        for (int i = 0; i < sq.getGameCharacters().size() && !firstVillain; i++) {
             GameCharacter gc = sq.getGameCharacters().get(i);
             if (gc instanceof Villain) {
+                firstVillain = true;
                 Weapon villainWeapon = ((VillainsWFeature) gc.getWeaponFeature()).getWeapon();
-                if (villainWeapon == null || wTree.belongs(villainWeapon)) {
+                if (villainWeapon != null && wTree.belongs(villainWeapon)) {
                     if(!wTree.empty()) {
-                        if (villainWeapon == null || wTree.extract(villainWeapon).getPower() > villainWeapon.getPower()) {
+                        if (wTree.extract(villainWeapon).getPower() > villainWeapon.getPower()) {
                             Game.getSI().capture(gc);
                             caughtVillains++;
                         }
                     }
                 }
-            break;
             }
         }
     }
@@ -91,7 +95,9 @@ public class HeroesWFeature extends WeaponFeature{
         Weapon newWeapon = s.dropWeapon();
         if( newWeapon != null) {
             if (wTree.belongs(newWeapon)) {
-                newWeapon = new Weapon(newWeapon.getName(), wTree.extract(newWeapon).getPower() + newWeapon.getPower());
+                Weapon previous = wTree.extract(newWeapon);
+                newWeapon.setPower(previous.getPower() + newWeapon.getPower());
+                wTree.delete(previous);
             }
             this.wTree.insertData(newWeapon);
         }
@@ -101,7 +107,7 @@ public class HeroesWFeature extends WeaponFeature{
      * Getter of the wTree attribute.
      * @return the wTree attribute.
      */
-    public BinaryTree<Weapon> getwTree() {
+    public BinaryTree<Weapon> getWTree() {
         return wTree;
     }
 
@@ -112,5 +118,13 @@ public class HeroesWFeature extends WeaponFeature{
     @Override
     public String toString() {
         return wTree.StringInOrder();
+    }
+
+    static public void main(String[] args){
+        BinaryTree<Weapon> w = new BinaryTree<>();
+        w.insertData(new Weapon("a",1));
+        System.out.printf(w.StringInOrder());
+        w.insertData(new Weapon("a",33));
+        System.out.printf(w.StringInOrder());
     }
 }

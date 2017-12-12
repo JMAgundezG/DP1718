@@ -113,6 +113,7 @@ public class Game {
      */
     public void capture(GameCharacter gc){
         this.capturedCharacters.add(gc);
+        gc.setAction(false);
     }
 
     /**
@@ -171,13 +172,18 @@ public class Game {
                 }
             }
         }
-        while (turn < Tools.MAX_TURN) {
+        boolean winningCharacters = false;
+        while (turn < Tools.MAX_TURN && !winningCharacters) {
             setActionsTrue();
             simulateATurn();
-            message.concat(toString());
+            message += toString();
             System.out.print(toString());
             turn++;
+            winningCharacters = map.getWinnersSquare().getGameCharacters().size() > 0;
         }
+        message += winMessage();
+        System.out.println(winMessage());
+        Tools.writeGame(message);
     }
 
     /**
@@ -192,35 +198,27 @@ public class Game {
         }
     }
 
-//        message += winMessage();
-//        System.out.println(winMessage());
-//        Tools.writeGame(message);
-//        finished = true;
-//    }
 
-//    /**
-//     *
-//     * @return the final message of the Map
-//     */
-//    public String winMessage() {
-//        String message = "(thronemembers)";
-//        if (!map.getWinRoom().getCharactersList().isEmpty()) {
-//            Characters newking = map.getWinRoom().getCharactersList().getFirst();
-//            message += "\n(newking:" + newking.getFamily() + ":" + newking.getId() +
-//                    ":" + "1111:" + (newking.getTurn() - 1);
-//            KeyPicker kingF = (KeyPicker) newking.getFeature();
-//            message += ":" + kingF.showInfo() + ")";
-//            for (int i = 1; i < map.getWinRoom().getCharactersList().size(); i++) {
-//                Characters c = map.getWinRoom().getCharactersList().get(i);
-//
-//                message += "\n" + "(" + c.getFamily() + ":" + c.getId() +
-//                        ":" + "1111:" + (c.getTurn() - 1) + ":" +
-//                        c.getFeature().showInfo() + ")";
-//
-//            }
-//        }
-//        return message;
-//    }
+    public String winMessage() {
+        String message = "(teseractomembers)";
+        if (!map.getWinnersSquare().getGameCharacters().isEmpty()) {
+            GameCharacter owner = map.getWinnersSquare().getGameCharacters().getFirst();
+
+            message += "\n(owneroftheworld:" + owner.getType() + ":" + owner.getId() +
+                    ":" + owner.getPosition() +":" + owner.getTurn() + ":" +
+                    owner.getWeaponFeature().toString() + ")";
+
+            for (int i = 1; i < map.getWinnersSquare().getGameCharacters().size(); i++) {
+                GameCharacter gc = map.getWinnersSquare().getGameCharacters().get(i);
+
+                message +="\n(" + gc.getType() + ":" + gc.getId() +
+                        ":" + gc.getPosition() +":" + gc.getTurn() +
+                        ":" + gc.getWeaponFeature().toString() + ")";
+
+            }
+        }
+        return message;
+    }
 
     /**
      * Getter of the turn

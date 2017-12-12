@@ -1,5 +1,7 @@
 package Tools;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -42,6 +44,7 @@ public class Tools {
         Collections.addAll(b, a);
         return b;
     }
+
 
 
     /**
@@ -92,5 +95,20 @@ public class Tools {
             message+=" "+dir.toString();
         }
         return message;
+    }
+
+
+
+    /**
+     * Method to create the .log file
+     */
+    static public void writeGame(String message) {
+        try {
+            PrintWriter writer = new PrintWriter("record.log", "UTF-8");
+            writer.println(message);
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("There was an error making the log file");
+        }
     }
 }

@@ -267,16 +267,18 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
     public TYPE mostValuedNode(Comparator<TYPE> cmp){
         TYPE bigger = rootData;
         TYPE leftBigger, rightBigger;
-        if(leftC != null){
-            leftBigger = (TYPE) leftC.mostValuedNode(cmp);
-            if (cmp.compare(rootData, leftBigger)<0) {
+        if(!empty()) {
+            if (leftC != null) {
+                leftBigger = (TYPE) leftC.mostValuedNode(cmp);
+                if (cmp.compare(bigger, leftBigger) < 0) {
                     bigger = leftBigger;
                 }
             }
-        if (rightC != null){
-            rightBigger = (TYPE) rightC.mostValuedNode(cmp);
-            if(cmp.compare(rootData, rightBigger)<0){
-                bigger = rightBigger;
+            if (rightC != null) {
+                rightBigger = (TYPE) rightC.mostValuedNode(cmp);
+                if (cmp.compare(bigger, rightBigger) < 0) {
+                    bigger = rightBigger;
+                }
             }
         }
         return bigger;
@@ -428,5 +430,10 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
             }
         }
         return message;
+    }
+
+    static public void main (String[] args){
+        BinaryTree b = new BinaryTree();
+        System.out.println(b.depth());
     }
 }

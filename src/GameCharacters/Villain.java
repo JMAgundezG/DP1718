@@ -28,7 +28,7 @@ public class Villain extends GameCharacter {
      * @param turn the attribute turn of the Villain.
      */
     public Villain(String name, String id, int turn) {
-        super(name, "Villain", id, Game.getSI().getMap().getNE(), turn);
+        super(name, "villain", id, Game.getSI().getMap().getNE(), turn);
         setWeaponFeature(new VillainsWFeature(this));
         setMovement(new VillainMovement(this));
     }

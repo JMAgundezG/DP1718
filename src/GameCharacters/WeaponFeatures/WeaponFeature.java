@@ -30,7 +30,7 @@ public abstract class WeaponFeature {
     /**
      * Abstract method implemented in the subclasses. Performs the action of the weapon.
      */
-    public abstract void weaponAction();
+    public abstract void dailyPlanetAction();
 
     /**
      * Abstract method implemented in the subclasses. Performs the action of taking a weapon from the square.

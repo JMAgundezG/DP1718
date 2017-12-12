@@ -1,16 +1,18 @@
 package Map;
 
+import Game.Game;
 import GameCharacters.GameCharacter;
 import Tools.Dir;
 import Tools.GenAleatorios;
 import Datastructures.Grafo;
 
 import java.util.LinkedList;
+import java.util.TreeSet;
 
 /**
  * Implementation of the Map.
  *
- * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @author José Manuel Agúndez García && Daniel Sagrado Iglesias
  * @version 2.0
  * This is where all the action happens.
  * In the version 2.0, We have added the graph,
@@ -24,40 +26,33 @@ import java.util.LinkedList;
 public class Map {
 
     /**
+     * Singleton design pattern instance of the map.
+     */
+    private static Map singletonInstance = null;
+    /**
      * The squares's matrix that forms the map.
      */
     private Square[][] map;
-
     /**
      * The columns of the matrix.
      */
     private int columns;
-
     /**
      * The rows of the matrix.
      */
     private int rows;
-
     /**
      * The last room of the map.
      */
     private DoorMan doorMan;
-
     /**
      * The last room of the map.
      */
     private int dailyPlanet;
-
     /**
      * List that contains all the characters of the game.
      */
     private LinkedList<GameCharacter> gameCharacters;
-
-    /**
-     * Singleton design pattern instance of the map.
-     */
-    private static Map singletonInstance = null;
-
     /**
      * Map's graph.
      */
@@ -67,6 +62,10 @@ public class Map {
      * The list of walls.
      */
     private LinkedList<Walls> walls;
+
+    private Square winnersSquare;
+    private LinkedList<LinkedList<Integer>> posiblePaths;
+    private int[] mostFreqRooms;
 
     /**
      * Private constructor according to the singleton design pattern.
@@ -97,14 +96,18 @@ public class Map {
         this.walls = new LinkedList<>();
         this.gameCharacters = new LinkedList<>();
         this.graph = new Grafo();
-        //Creating the maze
         createGraph();
         createMaze();
         graph.warshall();
         graph.floyd();
         System.out.print(matrixString());
-        spendWeaponsD1();
         erasePercentageOfWalls();
+        this.winnersSquare = new Square(1111);
+        this.posiblePaths = new LinkedList<>();
+        this.mostFreqRooms = new int[this.dailyPlanet + 1];
+        LinkedList<Integer> partialSolution = new LinkedList<>();
+        mostFrequentedRooms(0, dailyPlanet, partialSolution);
+        spendWeapons();
 
     }
 
@@ -318,23 +321,6 @@ public class Map {
         }
         return solution;
     }
-
-    /**
-     * Simulates the turns. TODO
-     */
-    public void simulate() {
-        int turn = 0;
-        while (!doorMan.isGateOpened() && turn < 50) {
-            for (int i = 0; i < gameCharacters.size(); i++) {
-                gameCharacters.get(i).actions();
-            }
-            turn++;
-            for (GameCharacter gc : gameCharacters) {
-                System.out.println(gc.toString());
-            }
-        }
-    }
-
     /**
      * Method to add a character to the game.
      */
@@ -352,12 +338,30 @@ public class Map {
     }
 
     /**
+     * Setter of the columns attribute.
+     *
+     * @param columns number of columns of the matrix.
+     */
+    public void setColumns(int columns) {
+        this.columns = columns;
+    }
+
+    /**
      * Getter of the rows attribute.
      *
      * @return the rows of the matrix.
      */
     public int getRows() {
         return rows;
+    }
+
+    /**
+     * Setter of the rows attribute.
+     *
+     * @param rows number of rows of the matrix.
+     */
+    public void setRows(int rows) {
+        this.rows = rows;
     }
 
     /**
@@ -390,24 +394,6 @@ public class Map {
     }
 
     /**
-     * Setter of the columns attribute.
-     *
-     * @param columns number of columns of the matrix.
-     */
-    public void setColumns(int columns) {
-        this.columns = columns;
-    }
-
-    /**
-     * Setter of the rows attribute.
-     *
-     * @param rows number of rows of the matrix.
-     */
-    public void setRows(int rows) {
-        this.rows = rows;
-    }
-
-    /**
      * Method that returns the attribute doorMan.
      *
      * @return the instance of the doorMan.
@@ -428,10 +414,8 @@ public class Map {
     /**
      * Method that places every weapon into the corresponding squares.
      */
-    public void spendWeaponsD1() {
-        int k = 0;
-        int numWeaponsSquares = 60;
-        Weapon[] weaponsSquares = {new Weapon("Mjolnir", 29), new Weapon("Anillo", 1),
+    public Weapon[] spendWeaponsD1() {
+        return new Weapon[]{new Weapon("Mjolnir", 29), new Weapon("Anillo", 1),
                 new Weapon("Garra", 27), new Weapon("Armadura", 3), new Weapon("Red", 25),
                 new Weapon("Escudo", 5), new Weapon("Lucille", 23), new Weapon("Lawgiver", 7),
                 new Weapon("GuanteInfinito", 21), new Weapon("LazoVerdad", 9),
@@ -456,11 +440,79 @@ public class Map {
                 new Weapon("Bola", 18), new Weapon("Espada", 10), new Weapon("Sable", 16),
                 new Weapon("Acido", 12), new Weapon("Gema", 1), new Weapon("Nullifier", 3)};
 
-        int[] squares = {1, 2, 8, 14, 15, 21, 27, 35, 28, 29, 33, 34};
-        for (int i = 0; i < squares.length && k < numWeaponsSquares; i++) {
-            Square s = getSquare(squares[i]);
-            for (int j = 0; j < 5; j++) {
-                s.saveWeapon(weaponsSquares[k]);
+    }
+
+    /**TODO ESTÄ MAL HECHO, NO BORRA CUANDO PASA POR ENCIMA
+     * Make a first-depth's algorithm to take all posible paths and say which are the
+     * most frequented rooms
+     *
+     * @param start           initial room
+     * @param finish          final room
+     * @param partialSolution list to save the partial Path
+     */
+    private void mostFrequentedRooms(int start, int finish, LinkedList<Integer> partialSolution) {
+        Integer nextRoom;
+        TreeSet<Integer> adySet = new TreeSet<>();
+        this.graph.adyacentes(start, adySet);
+        if (start == finish) {
+            LinkedList<Integer> solution = (LinkedList<Integer>) partialSolution.clone();
+            addSolution(solution);
+        }
+        while (!adySet.isEmpty()) {
+            nextRoom = adySet.first();
+            adySet.remove(nextRoom);
+            if (!partialSolution.contains(nextRoom)) {
+                partialSolution.add(nextRoom);
+                mostFrequentedRooms(nextRoom, finish, partialSolution);
+                partialSolution.remove(nextRoom);
+            }
+
+        }
+    }
+
+
+    /**
+     * increases the most frequented rooms vector and saves the possible path
+     *
+     * @param solution the path that the method will use
+     */
+    private void addSolution(LinkedList<Integer> solution) {
+        this.posiblePaths.add(solution);
+        for (int i = 0; i < solution.size(); i++) {
+            this.mostFreqRooms[solution.get(i)] += 1;
+        }
+    }
+
+
+    private void spendWeapons() {
+        int max = 0;
+        Weapon[] wps = spendWeaponsD1();
+        LinkedList<Square> squares = new LinkedList<>();
+        int cont = 12;
+        while (cont > 0) {
+            for (int i = 0; i < this.mostFreqRooms.length; i++) {
+                if (this.mostFreqRooms[i] > this.mostFreqRooms[max]) {
+                    max = i;
+                }
+            }
+            if (mostFreqRooms[max] == 0) {
+                for (int i = 0; i < mostFreqRooms.length && squares.size() < 9; i++) {
+                    if (!squares.contains(getSquare(i))) {
+                        squares.add(getSquare(i));
+                        cont--;
+                    }
+                }
+            } else {
+                squares.addLast(getSquare(max));
+                cont--;
+                mostFreqRooms[max] = 0;
+                max = 0;
+            }
+        }
+        int k = 0;
+        for (Square s : squares) {
+            for (int i = 0; i < 5; i++) {
+                s.saveWeapon(wps[k]);
                 k++;
             }
         }
@@ -516,41 +568,57 @@ public class Map {
 
     /**
      * Returns the north west room
+     *
      * @return 0
      */
-    public int getNW(){
+    public int getNW() {
         return 0;
     }
 
     /**
      * Returns the north east room
+     *
      * @return columns - 1
      */
-    public int getNE(){
-        return columns - 1 ;
+    public int getNE() {
+        return columns - 1;
     }
 
     /**
      * Returns the south east room
+     *
      * @return columns * rows - 1
      */
-    public int getSE(){
+    public int getSE() {
         return columns * rows - 1;
     }
 
     /**
      * Returns the south west room
+     *
      * @return columns * rows - columns
      */
-    public int getSW(){
+    public int getSW() {
         return columns * rows - columns;
     }
 
     /**
      * Returns the size of the map
+     *
      * @return columns * rows
      */
-    public int getSize(){ return columns * rows;}
+    public int getSize() {
+        return columns * rows;
+    }
+
+    public Square getWinnersSquare() {
+        return winnersSquare;
+    }
+
+    public LinkedList<LinkedList<Integer>> getPosiblePaths() {
+        return posiblePaths;
+    }
+
 
     /**
      * Main method of the map class. Simulates all the general functioning of the program.
@@ -583,7 +651,7 @@ public class Map {
      * @return the message
      */
 
-    public String matrixString(){
+    public String matrixString() {
         String result = "";
         for (int i = 0; i < columns; i++) {
             result += " _";
@@ -599,16 +667,28 @@ public class Map {
         }
         return result;
     }
+
     public String toString() {
         String result = matrixString();
-        for(int x = 0; x < rows;x++){
-            for(int y = 0; y < columns;y++){
-                if(this.map[x][y].getWeaponList().size() > 0) {
+        for (int x = 0; x < rows; x++) {
+            for (int y = 0; y < columns; y++) {
+                if (this.map[x][y].getWeaponList().size() > 0) {
                     result += "(" + this.map[x][y].showWeapons() + ")\n";
                 }
             }
         }
         return result;
+    }
+
+    static public void main(String[] args){
+        Game.getSI(6,6,35,4);
+        for (LinkedList<Integer> a:Game.getSI().getMap().getPosiblePaths()){
+            for (Integer j: a) {
+                System.out.print(j);
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
     }
 
 }

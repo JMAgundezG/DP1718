@@ -1,5 +1,5 @@
 package GameCharacters.Movement;
-
+import Map.Path;
 import GameCharacters.GameCharacter;
 
 /**
@@ -19,6 +19,6 @@ public class SHESMovement extends Movement{
      * @param character the character attribute.
      */
     public SHESMovement(GameCharacter character) {
-        super(character, Tools.Tools.SHESMovements());
+        super(character, Path.wallFollower(character.getPosition()));
     }
 }

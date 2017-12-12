@@ -24,7 +24,7 @@ public class SHPhysical extends GameCharacter{
      * @param turn     the attribute turn of the GameCharacter.
      */
     public SHPhysical(String name, String id, int turn) {
-        super(name, "SHPhysical", id, 0, turn);
+        super(name, "shphysical", id, 0, turn);
         super.setMovement(new SHEPMovement(this));
         setWeaponFeature(new HeroesWFeature(this));
     }

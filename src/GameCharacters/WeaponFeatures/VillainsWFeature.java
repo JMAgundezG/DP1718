@@ -4,13 +4,16 @@ import Datastructures.BinaryTree;
 import Game.Game;
 import GameCharacters.GameCharacter;
 import GameCharacters.Villain;
+import Map.DoorMan;
 import Map.Square;
 import Map.Weapon;
+
+import java.util.Comparator;
 
 /**
  * Implementation of the VillainsWFeature class.
  *
- * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @author José Manuel Agúndez García && Daniel Sagrado Iglesias
  * @version 1.0
  * This class inherits from the WeaponFeature class. Implements all the abstract methods.
  * Year: 2017/2018.
@@ -26,6 +29,7 @@ public class VillainsWFeature extends WeaponFeature {
 
     /**
      * Public parametrized constructor of the class VillainsWFeature.
+     *
      * @param gc
      */
     public VillainsWFeature(GameCharacter gc) {
@@ -43,14 +47,14 @@ public class VillainsWFeature extends WeaponFeature {
     public void takeWeapon() {
         Square s = Game.getSI().getMap().getSquare(getGc().getPosition());
         Weapon sqWeapon = s.dropWeapon();
-        if(sqWeapon != null) {
-            if(weapon != null)
+        if (sqWeapon != null) {
+            if (weapon != null)
                 if (sqWeapon.getPower() > weapon.getPower()) {
-                   s.saveWeapon(weapon);
-                   weapon = sqWeapon;
+                    s.saveWeapon(weapon);
+                    weapon = sqWeapon;
                 } else {
-                s.saveWeapon(sqWeapon);
-            }
+                    s.saveWeapon(sqWeapon);
+                }
             else {
                 weapon = sqWeapon;
             }
@@ -64,18 +68,20 @@ public class VillainsWFeature extends WeaponFeature {
      */
     @Override
     public void interact() {
-        if(weapon != null) {
+        if (weapon != null) {
+            boolean heroFound = false;
             Square sq = Game.getSI().getMap().getSquare(getGc().getPosition());
-            for (int i = 0; i < sq.getGameCharacters().size(); i++) {
+            for (int i = sq.getGameCharacters().size() - 1; i >= 0 && !heroFound; i--) {
                 GameCharacter gc = sq.getGameCharacters().get(i);
                 if (!(gc instanceof Villain)) {
-                    BinaryTree<Weapon> wTree = ((HeroesWFeature) gc.getWeaponFeature()).getwTree();
+                    heroFound = true;
+                    BinaryTree<Weapon> wTree = ((HeroesWFeature) gc.getWeaponFeature()).getWTree();
                     if (wTree.belongs(weapon)) {
-                        if (wTree.extract(weapon).getPower() < weapon.getPower()) {
-                            wTree.delete(weapon);
+                        Weapon hw = wTree.extract(weapon);
+                        if (hw.getPower() < weapon.getPower()) {
+                            wTree.delete(hw);
                         }
                     }
-                    break;
                 }
             }
         }
@@ -86,14 +92,29 @@ public class VillainsWFeature extends WeaponFeature {
      * If the character using the weapon is in the last room, he uses it.
      */
     @Override
-    public void weaponAction() {
-        if (this.getGc().getPosition() == Game.getSI().getMap().getDailyPlanet() && weapon != null) {
-            Game.getSI().getMap().getDoorMan().tryWeapon(weapon);
+    public void dailyPlanetAction() {
+        DoorMan d = Game.getSI().getMap().getDoorMan();
+        if (this.getGc().getPosition() == Game.getSI().getMap().getDailyPlanet()) {
+            if (d.isGateOpened()) {
+                this.getGc().insertIntoWinningRoom();
+            } else {
+                Weapon w = (Weapon) d.getTree().
+                        mostValuedNode(Comparator.comparingInt(Weapon::getPower));
+                if (w == null) {
+                    this.getGc().insertIntoWinningRoom();
+                } else {
+                    if (w.getPower() < weapon.getPower()) {
+                        d.getTree().delete(w);
+                        if(d.isGateOpened())
+                            this.getGc().insertIntoWinningRoom();
+                        }
+                    }
+                }
+            }
         }
-    }
-
     /**
      * Getter of the weapon attribute.
+     *
      * @return the weapon attribute.
      */
     public Weapon getWeapon() {
@@ -102,6 +123,7 @@ public class VillainsWFeature extends WeaponFeature {
 
     /**
      * Setter of the weapon attribute.
+     *
      * @param weapon the weapon attribute.
      */
     public void setWeapon(Weapon weapon) {
@@ -110,10 +132,11 @@ public class VillainsWFeature extends WeaponFeature {
 
     /**
      * Override toString method used to show the information of the VillainsWFeature.
+     *
      * @return the String that contains the VillainsWFeature information.
      */
-    public String toString(){
-        if(weapon != null) {
+    public String toString() {
+        if (weapon != null) {
             return weapon.toString();
         }
         return "";

@@ -58,6 +58,14 @@ public class Weapon implements Comparable<Weapon>{
         return name;
     }
 
+    public void setPower(int power) {
+        this.power = power;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     /**
      * Override method used to compare if two weapons are equal or not according to our criterion.
      * @param o the second weapon to compare. The first one is the "this." instance.

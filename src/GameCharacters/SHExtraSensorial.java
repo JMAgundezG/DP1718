@@ -24,7 +24,7 @@ public class SHExtraSensorial extends GameCharacter{
      * @param turn     the attribute turn of the GameCharacter
      * */
     public SHExtraSensorial(String name, String id, int turn) {
-        super(name, "SHEXtraSensorial", id, 0, turn);
+        super(name, "shextrasensorial", id, 0, turn);
         super.setMovement(new SHESMovement(this));
         setWeaponFeature(new HeroesWFeature(this));
     }
