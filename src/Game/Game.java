@@ -4,7 +4,7 @@ import GameCharacters.GameCharacter;
 
 import Map.Map;
 import Map.Square;
-
+import Map.Path;
 import java.util.LinkedList;
 
 import Tools.Tools;
@@ -162,7 +162,7 @@ public class Game {
      * Simulates the whole game.
      */
     public void simulateGame() {
-        String message = "";
+        String message = map.getMapWithPercentajeOfWalls();
         for (int i = 0; i < map.getColumns() * map.getRows(); i++) {
             Square s = map.getSquare(i);
             if (s.getGameCharacters().size() > 0) {
@@ -261,7 +261,7 @@ public class Game {
      */
     private String showCreatedCharacter(GameCharacter c) {
         String message = "(path:" + c.getId() + ":";
-        message += Tools.showPath(c.getMovement().getMovements()) + ")";
+        message += Path.showPath(c.getMovement().getMovements()) + ")";
         return message;
     }
 

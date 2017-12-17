@@ -1,5 +1,7 @@
 package Datastructures;
 
+import Map.Weapon;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.Comparator;
@@ -270,7 +272,7 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
         if(!empty()) {
             if (leftC != null) {
                 leftBigger = (TYPE) leftC.mostValuedNode(cmp);
-                if (cmp.compare(bigger, leftBigger) < 0) {
+                if (cmp.compare(bigger, leftBigger) <= 0) {
                     bigger = leftBigger;
                 }
             }
@@ -434,6 +436,18 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
 
     static public void main (String[] args){
         BinaryTree b = new BinaryTree();
+        b.insertData(new Weapon("c", 1));
+        b.insertData(new Weapon("b", 1));
+        b.insertData(new Weapon("a", 1));
+        b.insertData(new Weapon("d", 1));
+        b.insertData(new Weapon("e", 1));
+        b.insertData(new Weapon("f", 1));
+        b.insertData(new Weapon("g", 1));
+        b.insertData(new Weapon("h", 1));
+        b.insertData(new Weapon("i", 1));
+        b.insertData(new Weapon("j", 1));
+        System.out.println(b.depth());
+        System.out.println(b.mostValuedNode(Comparator.comparingInt(Weapon::getPower)));
         System.out.println(b.depth());
     }
 }

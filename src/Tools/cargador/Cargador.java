@@ -108,7 +108,7 @@ public class Cargador {
 			doorManSq = row*col;
 			depth = 4;
 		}
-		Game.getSI(row, col, doorManSq, depth);
+		Game.getSI(col, row, doorManSq, depth);
 
 	}
 

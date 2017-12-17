@@ -95,15 +95,16 @@ public class VillainsWFeature extends WeaponFeature {
     public void dailyPlanetAction() {
         DoorMan d = Game.getSI().getMap().getDoorMan();
         if (this.getGc().getPosition() == Game.getSI().getMap().getDailyPlanet()) {
-            if (d.isGateOpened()) {
-                this.getGc().insertIntoWinningRoom();
-            } else {
                 Weapon w = (Weapon) d.getTree().
                         mostValuedNode(Comparator.comparingInt(Weapon::getPower));
                 if (w == null) {
                     this.getGc().insertIntoWinningRoom();
                 } else {
                     if (w.getPower() < weapon.getPower()) {
+                        System.out.println("---------------------------------------------");
+                        System.out.println(w.toString());
+                        System.out.println(d.getTree().depth());
+                        System.out.println("---------------------------------------------");
                         d.getTree().delete(w);
                         if(d.isGateOpened())
                             this.getGc().insertIntoWinningRoom();
@@ -111,7 +112,6 @@ public class VillainsWFeature extends WeaponFeature {
                     }
                 }
             }
-        }
     /**
      * Getter of the weapon attribute.
      *

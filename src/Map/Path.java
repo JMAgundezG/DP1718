@@ -1,6 +1,5 @@
 package Map;
 
-import Datastructures.Grafo;
 import Game.Game;
 import Tools.Dir;
 
@@ -207,5 +206,25 @@ public class Path {
             }
 
         }
+    }
+
+
+    public static LinkedList<Dir> shortestPath(int start, int finish){
+        LinkedList path = Game.getSI().getMap().getGraph().path(start,finish);
+        path.addFirst(start);
+        return RoomsToDirections(path);
+    }
+
+    /**
+     * Method that shows the path. The list of directions.
+     * @param dirs the path we want to show.
+     * @return the String containing the path.
+     */
+    public static String showPath(LinkedList<Dir> dirs){
+        String message = "";
+        for(Dir dir : dirs){
+            message+=" "+dir.toString();
+        }
+        return message;
     }
 }

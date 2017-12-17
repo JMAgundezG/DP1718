@@ -1,5 +1,5 @@
 --Map of the game
-MAP#10#6#59#4#
+MAP#10#10#99#2#
 --Characters in the simulation
 SHPHYSICAL#Daredevil#D#1#
 SHEXTRASENSORIAL#ProfessorX#P#1#

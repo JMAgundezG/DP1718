@@ -63,6 +63,8 @@ public class Map {
      */
     private LinkedList<Walls> walls;
 
+    private String mapWithPercentajeOfWalls;
+
     private Square winnersSquare;
     private LinkedList<LinkedList<Integer>> posiblePaths;
     private int[] mostFreqRooms;
@@ -101,6 +103,7 @@ public class Map {
         graph.warshall();
         graph.floyd();
         System.out.print(matrixString());
+        this.mapWithPercentajeOfWalls = matrixString();
         erasePercentageOfWalls();
         this.winnersSquare = new Square(1111);
         this.posiblePaths = new LinkedList<>();
@@ -477,6 +480,7 @@ public class Map {
      * @param solution the path that the method will use
      */
     private void addSolution(LinkedList<Integer> solution) {
+        solution.addFirst(0);
         this.posiblePaths.add(solution);
         for (int i = 0; i < solution.size(); i++) {
             this.mostFreqRooms[solution.get(i)] += 1;
@@ -622,6 +626,10 @@ public class Map {
 
     public Grafo getGraph() {
         return graph;
+    }
+
+    public String getMapWithPercentajeOfWalls() {
+        return mapWithPercentajeOfWalls;
     }
 
     /**

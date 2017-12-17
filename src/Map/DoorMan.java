@@ -80,11 +80,12 @@ public class DoorMan {
                 Weapon bw = (Weapon) tree.extract(w);
                 if (bw.getPower() < w.getPower()) {
                     tree.delete(w);
+                    System.out.println("---------------------------------------------");
+                    System.out.println(w.toString());
+                    System.out.println(tree.depth());
+                    System.out.println("---------------------------------------------");
                     //System.out.println(tree.depth());
-                    if (tree.depth() + 1 < depth) {
-                        gateOpened = true;
-                        //tree = new BinaryTree();
-                    }
+                    isGateOpened();
                 }
             }
         }
@@ -142,24 +143,14 @@ public class DoorMan {
      * @return true if it is open. False on the opposite case.
      */
     public boolean isGateOpened() {
-        if (tree.depth() <  depth - 1)
+        int i = tree.depth();
+        System.out.println(i);
+        System.out.println(depth);
+        if (i <  depth - 1) {
             gateOpened = true;
+        }
+        System.out.println(gateOpened);
         return gateOpened;
     }
 
-    static public void main(String[] args){
-        BinaryTree<Integer> b = new BinaryTree<>();
-        b.insertData(5);
-        b.insertData(4);
-        b.insertData(3);
-        b.insertData(2);
-        b.insertData(1);
-        b.insertData(0);
-        b.insertData(-1);
-        b.insertData(6);
-        b.insertData(8);
-        b.insertData(7);
-        System.out.println(b.depth());
-
-    }
 }

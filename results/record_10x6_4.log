@@ -377,14 +377,14 @@
 (villain:V:59:12:(Latigo,26))
 (turn:13)
 (map:59)
-(doorman:open:4:(Acido,1)(Antorcha,5)(Bola,3)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Escudo,3)(Espada,11)(Gema,4))
+(doorman:closed:4:(Acido,1)(Antorcha,5)(Bola,3)(CampoEnergia,5)(CampoMagnetico,5)(Capa,10)(Escudo,3)(Espada,11)(Gema,4))
  _ _ _ _ _ _ _ _ _ _
 |  _  | |     | | | |
 | | |_ _  |_|  W  | |
 | |_   P _|_ _| |E _|
 |_|  _|      _ _|D _|
 |    _  | |_|  _|_  |
-|_|_|_ _ _|_ _ _ _ A|
+|_|_|_ _ _|_ _ _ _ 2|
 (square:0:(Garra,27)(Red,25)(Armadura,3)(Anillo,1))
 (square:1:(Lawgiver,7)(Escudo,5))
 (square:2:(Tridente,13)(Capa,11))
@@ -402,5 +402,33 @@
 (shflight:E:28:13:(Armadura,27)(Flecha,13)(Lawgiver,23))
 (shphysical:D:38:13:(Anillo,29)(Baston,28)(CadenaFuego,19)(CampoMagnetico,24)(Cetro,22)(Escudo,25)(Lucille,23)(Nullifier,23)(Tridente,17))
 (villain:A:59:13:(Antorcha,28))
+(villain:V:59:13:(Latigo,26))
+(turn:14)
+(map:59)
+(doorman:open:4:(Acido,1)(Antorcha,5)(Bola,3)(CampoEnergia,5)(CampoMagnetico,5)(Escudo,3)(Gema,4))
+ _ _ _ _ _ _ _ _ _ _
+|  _  | |     | | | |
+| | |_ _  |_|    W| |
+| |_ P   _|_ _| |  _|
+|_|  _|      _ _|E _|
+|    _  | |_|  _|D  |
+|_|_|_ _ _|_ _ _ _ A|
+(square:0:(Garra,27)(Red,25)(Armadura,3)(Anillo,1))
+(square:1:(Lawgiver,7)(Escudo,5))
+(square:2:(Tridente,13)(Capa,11))
+(square:12:(CampoMagnetico,4)(Latigo,2))
+(square:13:(RayoEnergia,8)(CampoEnergia,6))
+(square:14:(Gema,14)(Sable,12))
+(square:17:(Garra,3)(Mjolnir,1))
+(square:18:(GuanteInfinito,9)(Lucille,7))
+(square:28:(CadenaFuego,11))
+(square:38:(Baston,15)(Tentaculo,4)(MazaOro,2))
+(square:48:(RayoEnergia,20)(Bola,18)(Laser,8)(Cetro,6))
+(square:49:(Sable,16)(Acido,12)(Espada,10)(Nullifier,3)(Gema,1))
+(shphysical:W:18:14:(Espada,18)(Flecha,17)(GuanteInfinito,21)(Laser,20)(LazoVerdad,21)(MazaOro,26)(Red,5))
+(shextrasensorial:P:22:14:(Acido,16)(Antorcha,15)(Bola,10)(LazoVerdad,9)(Mjolnir,29)(Tentaculo,24))
+(shflight:E:38:14:(Armadura,27)(Capa,19)(Flecha,13)(Lawgiver,23))
+(shphysical:D:48:14:(Anillo,29)(Baston,28)(CadenaFuego,19)(CampoEnergia,22)(CampoMagnetico,24)(Cetro,22)(Escudo,25)(Lucille,23)(Nullifier,23)(Tridente,17))
+(villain:A:59:14:(Antorcha,28))
 (teseractomembers)
-(owneroftheworld:villain:V:1111:13:(Latigo,26))
+(owneroftheworld:villain:V:1111:14:(Latigo,26))

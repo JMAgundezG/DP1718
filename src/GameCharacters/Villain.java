@@ -1,11 +1,8 @@
 package GameCharacters;
 
-import GameCharacters.Movement.Deliverable2Movement;
-import GameCharacters.Movement.Movement;
 import Game.Game;
 import GameCharacters.Movement.VillainMovement;
 import GameCharacters.WeaponFeatures.VillainsWFeature;
-import Map.Weapon;
 
 /**
  * Implementation of the Villain.

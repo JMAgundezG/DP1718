@@ -1,9 +1,7 @@
 package GameCharacters;
 
-import GameCharacters.Movement.Deliverable2Movement;
 import GameCharacters.Movement.SHEPMovement;
 import GameCharacters.WeaponFeatures.HeroesWFeature;
-import GameCharacters.WeaponFeatures.WeaponFeature;
 
 /**
  * Implementation of the SHPhysical class.

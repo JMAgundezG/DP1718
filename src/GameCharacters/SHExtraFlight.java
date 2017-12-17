@@ -1,10 +1,8 @@
 package GameCharacters;
 
 import Game.Game;
-import GameCharacters.Movement.Deliverable2Movement;
 import GameCharacters.Movement.SHFMovement;
 import GameCharacters.WeaponFeatures.HeroesWFeature;
-import GameCharacters.WeaponFeatures.WeaponFeature;
 
 /**
  * Implementation of the SHExtraFlight class.
