@@ -271,13 +271,13 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
         TYPE leftBigger, rightBigger;
         if(!empty()) {
             if (leftC != null) {
-                leftBigger = (TYPE) leftC.mostValuedNode(cmp);
+                leftBigger = leftC.mostValuedNode(cmp);
                 if (cmp.compare(bigger, leftBigger) <= 0) {
                     bigger = leftBigger;
                 }
             }
             if (rightC != null) {
-                rightBigger = (TYPE) rightC.mostValuedNode(cmp);
+                rightBigger = rightC.mostValuedNode(cmp);
                 if (cmp.compare(bigger, rightBigger) < 0) {
                     bigger = rightBigger;
                 }

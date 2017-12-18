@@ -102,6 +102,8 @@ public class VillainsWFeature extends WeaponFeature {
                 } else {
                     if (w.getPower() < weapon.getPower()) {
                         System.out.println("---------------------------------------------");
+                        System.out.println(getGc().toString());
+                        System.out.println(weapon.toString());
                         System.out.println(w.toString());
                         System.out.println(d.getTree().depth());
                         System.out.println("---------------------------------------------");

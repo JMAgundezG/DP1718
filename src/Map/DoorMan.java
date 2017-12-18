@@ -46,8 +46,8 @@ public class DoorMan {
 
         tree = new BinaryTree();
 
-        doorManWeapons = new Weapon[]{new Weapon("CampoEnergia", 5),
-                new Weapon("Anillo", 11), new Weapon("Acido", 1), new Weapon("Antorcha", 5),new Weapon("Armadura", 13),
+        doorManWeapons = new Weapon[]{new Weapon("CampoEnergia", 5),new Weapon("Armadura", 13),
+                new Weapon("Anillo", 11), new Weapon("Acido", 1), new Weapon("Antorcha", 5),
                 new Weapon("Bola", 3), new Weapon("Baston", 22),
                 new Weapon("CadenaFuego", 11), new Weapon("Espada", 11),
                 new Weapon("Cetro", 20), new Weapon("Capa", 10),
@@ -143,13 +143,9 @@ public class DoorMan {
      * @return true if it is open. False on the opposite case.
      */
     public boolean isGateOpened() {
-        int i = tree.depth();
-        System.out.println(i);
-        System.out.println(depth);
-        if (i <  depth - 1) {
+        if (tree.depth() + 1 <  depth) {
             gateOpened = true;
         }
-        System.out.println(gateOpened);
         return gateOpened;
     }
 
