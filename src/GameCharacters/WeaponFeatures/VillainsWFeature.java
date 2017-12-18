@@ -101,12 +101,6 @@ public class VillainsWFeature extends WeaponFeature {
                     this.getGc().insertIntoWinningRoom();
                 } else {
                     if (w.getPower() < weapon.getPower()) {
-                        System.out.println("---------------------------------------------");
-                        System.out.println(getGc().toString());
-                        System.out.println(weapon.toString());
-                        System.out.println(w.toString());
-                        System.out.println(d.getTree().depth());
-                        System.out.println("---------------------------------------------");
                         d.getTree().delete(w);
                         if(d.isGateOpened())
                             this.getGc().insertIntoWinningRoom();
