@@ -1,9 +1,8 @@
 package Map;
-// TODO CLASS DIAGRAM 2nd
+
 import Game.Game;
 import GameCharacters.GameCharacter;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedList;
 
@@ -11,15 +10,16 @@ import java.util.LinkedList;
  * Implementation of the Square.
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
- * @version 3.0
+ * @version 4.0
  * These are the squares that form the map.
  * In the version 2.0, we have added the graph related attributes with the
  * corresponding setters and getters.
  * In the version 3.0, we have added some getters and the needed methods to print the information
  * of the characters and the weapons.
+ * In the version 4.0, we have added some more features useful to print the characters and their paths.
  * Year: 2017/2018.
  * Group: Rubber Duck.
- * Delivery: EC2.
+ * Delivery: EC3.
  */
 public class Square {
 
@@ -60,7 +60,6 @@ public class Square {
      * @param w weapon to store.
      */
     public void saveWeapon(Weapon w){
-        ArrayList a = new ArrayList();
         this.weaponList.add(w);
         this.weaponList.sort(Comparator.comparingInt(x -> -x.getPower()));
     }
@@ -200,6 +199,10 @@ public class Square {
         return message+")";
     }
 
+    /**
+     * Method that shows the initial information of the characters that are in the square.
+     * @return a string containing all the information of the characters.
+     */
     public String showInitialCharacters() {
         String message = "";
         for (GameCharacter c : getGameCharacters()) {
@@ -207,6 +210,12 @@ public class Square {
         }
         return message;
     }
+
+    /**
+     * Method that shows the information of the path that each character has.
+     * @param c the game character that has the path we want to show.
+     * @return a string containing the information of the path of the character c.
+     */
     private String showCreatedCharacter(GameCharacter c) {
         String message = "(path:" + c.getId() + ":";
         message += Path.showPath(c.getMovement().getMovements()) + ")";

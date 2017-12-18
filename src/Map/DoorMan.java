@@ -10,7 +10,7 @@ import Datastructures.BinaryTree;
  * This is the class that controls the portal for the end-game.
  * Year: 2017/2018.
  * Group: Rubber Duck.
- * Delivery: EC2.
+ * Delivery: EC3.
  */
 public class DoorMan {
 
@@ -38,7 +38,7 @@ public class DoorMan {
 
     /**
      * Public constructor of the Doorman.
-     * @param depth the depth required to open the portal.
+     * @param depth the depth attribute.
      */
     public DoorMan(int depth){
 
@@ -70,7 +70,7 @@ public class DoorMan {
     }
 
     /**
-     * Method that allows other GameCharacters to interact with the portal and try to open the portal.
+     * Method that allows other GameCharacters to interact with the portal and try to open it.
      * @param w The weapon that the Characters are using to try and open the portal.
      * @return true if the portal has been opened. False on the opposite case.
      */
@@ -116,8 +116,9 @@ public class DoorMan {
     }
 
     /**
-     * Returns the array of the doorman.
-     * @return the weapon array.
+     * Getter of the doorManWeapons attribute.
+     *
+     * @return the doorManWeapons attribute.
      */
     public Weapon[] getDoorManWeapons() {
         return doorManWeapons;

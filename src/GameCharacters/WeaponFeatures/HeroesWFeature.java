@@ -14,11 +14,12 @@ import java.util.Comparator;
  * Implementation of the HeroesWFeature class.
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
- * @version 1.0
+ * @version 2.0
  * This class inherits from the WeaponFeature class. Implements all the abstract methods.
+ * In version 2.0, we have modified the interaction with the last room.
  * Year: 2017/2018.
  * Group: Rubber Duck.
- * Delivery: EC2.
+ * Delivery: EC3.
  */
 public class HeroesWFeature extends WeaponFeature{
 
@@ -43,8 +44,10 @@ public class HeroesWFeature extends WeaponFeature{
     }
 
     /**
-     * Implementation of the weaponAction method.
-     * If the character using the weapon is in the last room, he uses it.
+     * Implementation of the dailyPlanetAction method.
+     * Method that simulates the actions that the heroes perform when they are
+     * in the last room of the game, the dailyPlanet one.
+     * They just try to open the door and, if they succeed, they enter the room.
      */
     public void dailyPlanetAction() {
 
@@ -113,7 +116,7 @@ public class HeroesWFeature extends WeaponFeature{
 
     /**
      * Override toString method used to show the information of the HeroesWFeature.
-     * @return the String that contains the HeroesWFeature information.
+     * @return the String that contains the weapon tree information.
      */
     @Override
     public String toString() {

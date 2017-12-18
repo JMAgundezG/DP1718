@@ -10,15 +10,16 @@ import Map.Square;
  * Implementation of the GameCharacter.
  *
  * @author José Manuel Agúndez García && Daniel Sagrado Iglesias
- * @version 2.0
+ * @version 3.0
  * This is the superclass of the SuperHero and the Villain.
  * Contains the needed abstract methods.
  * It will also have the main constructor and the main toString.
- * In version 2.0 we have introduced new attributes
+ * In version 2.0, we have introduced new attributes
  * and we have also modified the constructor.
+ * In version 3.0, we have added some "security methods" like the actions one.
  * Year: 2017/2018.
  * Group: Rubber Duck.
- * Delivery: EC2.
+ * Delivery: EC3.
  */
 public abstract class GameCharacter {
 
@@ -172,26 +173,56 @@ public abstract class GameCharacter {
         this.type = type;
     }
 
+    /**
+     * Getter of the turn attribute.
+     *
+     * @return the turn attribute.
+     */
     public int getTurn() {
         return turn;
     }
 
+    /**
+     * Setter of the turn attribute.
+     *
+     * @param turn the turn attribute.
+     */
     public void setTurn(int turn) {
         this.turn = turn;
     }
 
+    /**
+     * Getter of the weaponFeature attribute.
+     *
+     * @return the weaponFeature attribute.
+     */
     public WeaponFeature getWeaponFeature() {
         return weaponFeature;
     }
 
+    /**
+     * Setter of the weaponFeature attribute.
+     *
+     * @param weaponFeature the weaponFeature attribute.
+     */
     public void setWeaponFeature(WeaponFeature weaponFeature) {
         this.weaponFeature = weaponFeature;
     }
 
+    /**
+     * Getter of the action attribute.
+     *
+     * @return the action attribute.
+     */
     public boolean isAction() {
         return action;
     }
 
+    /**
+     * Setter of the action attribute.
+     *
+     * @param action the action attribute.
+     */
     public void setAction(boolean action) {
         this.action = action;
     }
@@ -207,7 +238,10 @@ public abstract class GameCharacter {
     }
 
     /**
-     * NEED COMMENTS
+     * Method that allows the Game characters to perform actions.
+     * If they are any turn behind the current map turn, they have not been captured
+     * and they have still an action left to perform, they will perform it.
+     * If they enter the winning room, they stop. Otherwise, they perform the normal actions.
      */
     public void actions() {
         if (Game.getSI().getTurn() >= turn && !Game.getSI().getCapturedCharacters().contains(this) && action) {
@@ -222,6 +256,10 @@ public abstract class GameCharacter {
 
     }
 
+    /**
+     * Introduces the Game character into the winning room.
+     * Drops the character from the square and places him into the winning room (1111).
+     */
     public void insertIntoWinningRoom() {
         Square s = Game.getSI().getMap().getSquare(getPosition());
         s.dropCharacter(this);

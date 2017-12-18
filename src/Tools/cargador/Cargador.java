@@ -2,6 +2,8 @@ package Tools.cargador;
 
 import Game.Game;
 import GameCharacters.*;
+import Map.Map;
+import Tools.MapException;
 
 import java.util.List;
 
@@ -97,13 +99,14 @@ public class Cargador {
 	 */
 	private void crearMap(int numCampos, List<String> vCampos){
 	 //   System.out.println("Creado Map: " + vCampos.get(1) + "\n");
+
 		int row = Integer.parseInt(vCampos.get(1));
 		int col = Integer.parseInt(vCampos.get(2));
 		int doorManSq = Integer.parseInt(vCampos.get(3));
 		int depth = Integer.parseInt(vCampos.get(4));
-		if(row < 1 || col < 1 || doorManSq < 0 || doorManSq > row * col || depth < 0){
-			System.err.println("[ERROR] THE MAP HAS INVALID VARIABLES");
-			System.err.println("[ERROR] Charging a default map");
+
+		if(row < 1 || col < 1 || doorManSq < 0 || doorManSq > row * col || depth < 0) {
+			new MapException().printStackTrace();
 			row = col = 6;
 			doorManSq = row*col;
 			depth = 4;

@@ -11,11 +11,13 @@ import java.util.LinkedList;
  * Implementation of the SHESMovement class.
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
- * @version 1.0
+ * @version 2.0
  * This class inherits from the movement class. Performs the extrasensorial superhero movements.
+ * In version 2.0, we have modified the constructor and we have also added
+ * the method that calculates the path for the extrasensorial superheroes.
  * Year: 2017/2018.
  * Group: Rubber Duck.
- * Delivery: EC2.
+ * Delivery: EC3.
  */
 public class SHESMovement extends Movement{
 
@@ -27,6 +29,12 @@ public class SHESMovement extends Movement{
         super(character, wallFollower(character.getPosition()));
     }
 
+    /**
+     * Method that creates the path of the extra sensorial superhero
+     * using a wall following algorithm.
+     * @param initialPosition the initial position of the character.
+     * @return the list with the proper path.
+     */
     private static LinkedList<Dir> wallFollower(int initialPosition) {
         LinkedList<Dir> movements = new LinkedList<>();
         int nRoom = initialPosition;

@@ -4,7 +4,6 @@ import GameCharacters.GameCharacter;
 
 import Map.Map;
 import Map.Square;
-import Map.Path;
 import java.util.LinkedList;
 
 import Tools.Tools;
@@ -13,11 +12,12 @@ import Tools.Tools;
  * Implementation of the Game Class.
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
- * @version 1.0
+ * @version 2.0
  * Class used to simulate the game.
+ * In version 2.0, a couple of features (like the toString method) have been added.
  * Year: 2017/2018.
  * Group: Rubber Duck.
- * Delivery: EC2.
+ * Delivery: EC3.
  */
 public class Game {
 
@@ -162,7 +162,7 @@ public class Game {
      * Simulates the whole game.
      */
     public void simulateGame() {
-        String message = map.getMapWithPercentajeOfWalls();
+        String message = map.getMapWithPercentageofwalls();
         message += map.createdGameCharacters();
         boolean winningCharacters = false;
         while (turn < Tools.MAX_TURN && !winningCharacters) {
@@ -190,7 +190,10 @@ public class Game {
         }
     }
 
-
+    /**
+     * Method that displays the required string for the winner characters.
+     * @return the string containing all the information of the winning characters.
+     */
     public String winMessage() {
         String message = "(teseractomembers)";
         if (!map.getWinnersSquare().getGameCharacters().isEmpty()) {
@@ -215,17 +218,16 @@ public class Game {
     /**
      * Getter of the turn
      *
-     * @return turn
+     * @return the current turn of the game.
      */
     public int getTurn() {
         return turn;
     }
-//
-//    /**
-//     * Method that makes a message with all the features of the Map in that moment
-//     *
-//     * @return
-//     */
+
+    /**
+     * Method that shows the message with all the information of the game.
+     * @return the string containing all the information of the game up until that point.
+     */
     public String toString() {
 
         String message = "";

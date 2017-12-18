@@ -10,12 +10,13 @@ import java.util.Comparator;
  * Implementation of the Binary Search Tree.
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
- * @version 1.0
+ * @version 2.0
  * The original version was given to us by the professors of the subject, we made the necessary changes, including the template,
- * the new methods that we had to use in order to complete the project and the translation of the ADS to English. <br/>
+ * the new methods that we had to use in order to complete the project and the translation of the ADS to English.
+ * In version 2.0 we have added the extract and the mostvaluednode methods.
  * Year: 2017/2018.
  * Group: Rubber Duck.
- * Delivery: EC2.
+ * Delivery: EC3.
  */
 public class BinaryTree<TYPE extends Comparable<TYPE>>{
 
@@ -150,6 +151,11 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
         return encontrado;
     }
 
+    /**
+     * Method that extracts an element from the tree and returns its value.
+     * @param data the data we want to erase.
+     * @return the data that we erased.
+     */
     public TYPE extract(TYPE data) {
         BinaryTree<TYPE> aux = null;
         boolean encontrado = false;
@@ -266,6 +272,11 @@ public class BinaryTree<TYPE extends Comparable<TYPE>>{
         }
     }
 
+    /**
+     * Method that returns the most valued node of the tree.
+     * @param cmp the comparator.
+     * @return the most valued node.
+     */
     public TYPE mostValuedNode(Comparator<TYPE> cmp){
         TYPE bigger = rootData;
         TYPE leftBigger, rightBigger;

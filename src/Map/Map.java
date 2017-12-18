@@ -5,6 +5,7 @@ import GameCharacters.GameCharacter;
 import Tools.Dir;
 import Tools.GenAleatorios;
 import Datastructures.Grafo;
+import Tools.MapException;
 
 import java.util.LinkedList;
 import java.util.TreeSet;
@@ -13,15 +14,17 @@ import java.util.TreeSet;
  * Implementation of the Map.
  *
  * @author José Manuel Agúndez García && Daniel Sagrado Iglesias
- * @version 2.0
+ * @version 3.0
  * This is where all the action happens.
  * In the version 2.0, We have added the graph,
  * the walls and some methods that are needed
  * for the second delivery.
  * We have also modified the constructor.
+ * In the version 3.0, we have added some methods useful to calculate the most frequented rooms
+ * in order to deliver the weapons properly. We have also added a winnersSquare.
  * Year: 2017/2018.
  * Group: Rubber Duck.
- * Delivery: EC2.
+ * Delivery: EC3.
  */
 public class Map {
 
@@ -63,10 +66,24 @@ public class Map {
      */
     private LinkedList<Walls> walls;
 
-    private String mapWithPercentajeOfWalls;
+    /**
+     * Attribute that contains the string with the percentage of walls.
+     */
+    private String mapWithPercentageofwalls;
 
+    /**
+     * Additional square where the winners are going to be placed.
+     */
     private Square winnersSquare;
+
+    /**
+     * List that contains all the possible paths for the shortcuts.
+     */
     private LinkedList<LinkedList<Integer>> posiblePaths;
+
+    /**
+     * Array used to store the frequency of steps in of every room.
+     */
     private int[] mostFreqRooms;
 
     /**
@@ -103,7 +120,7 @@ public class Map {
         graph.warshall();
         graph.floyd();
         System.out.print(matrixString());
-        this.mapWithPercentajeOfWalls = matrixString();
+        this.mapWithPercentageofwalls = matrixString();
         erasePercentageOfWalls();
         this.winnersSquare = new Square(1111);
         this.posiblePaths = new LinkedList<>();
@@ -124,7 +141,7 @@ public class Map {
     }
 
     /**
-     * Method that sets the marks of the nodes for the initial algorithms.
+     * Method that sets the numbers of the nodes for the initial algorithms.
      */
     private void setNodeNumbersInicial() {
         for (int i = 0; i < rows * columns; i++) {
@@ -134,7 +151,9 @@ public class Map {
     }
 
     /**
-     * Method that sets equals the marks of the destiny value square and the source value square.
+     * Method that equals the values of two following rooms.
+     * @param srcValue the source room value.
+     * @param dstValue the destiny room value.
      */
     private void setAllMarks(int srcValue, int dstValue) {
         Square square;
@@ -229,9 +248,9 @@ public class Map {
     /**
      * Method that determines whether you can go from sq1 to sq2 or not.
      *
-     * @param sq1 source square
-     * @param sq2 destiny square
-     * @return a boolean that says if there is a wall between two given squares.
+     * @param sq1 source square.
+     * @param sq2 destiny square.
+     * @return a boolean that says if the two squares are adjacent or not.
      */
     private boolean wall(int sq1, int sq2) {
         return !graph.adyacente(sq1, sq2);
@@ -273,7 +292,7 @@ public class Map {
     }
 
     /**
-     * Calls the "Path" method of the graph.
+     * Calls the path method of the graph.
      *
      * @param source  source room.
      * @param destiny destiny room.
@@ -285,6 +304,9 @@ public class Map {
 
     /**
      * Condition for the 5% algorithm.
+     * @param sq the square we are in and trying to check.
+     * @param dir the direction we want to move.
+     * @return whether we can remove the wall or not.
      */
     private boolean conditionForPercentage(Square sq, Dir dir) {
         boolean solution = false;
@@ -324,8 +346,10 @@ public class Map {
         }
         return solution;
     }
+
     /**
-     * Method to add a character to the game.
+     * Method that adds a character into the map.
+     * @param m the character to introduce.
      */
     public void addCharacter(GameCharacter m) {
         this.gameCharacters.add(m);
@@ -334,7 +358,7 @@ public class Map {
     /**
      * Getter of the columns attribute.
      *
-     * @return the columns of the matrix.
+     * @return the columns attribute..
      */
     public int getColumns() {
         return columns;
@@ -343,7 +367,7 @@ public class Map {
     /**
      * Setter of the columns attribute.
      *
-     * @param columns number of columns of the matrix.
+     * @param columns the columns attribute.
      */
     public void setColumns(int columns) {
         this.columns = columns;
@@ -352,7 +376,7 @@ public class Map {
     /**
      * Getter of the rows attribute.
      *
-     * @return the rows of the matrix.
+     * @return the rows attribute..
      */
     public int getRows() {
         return rows;
@@ -361,7 +385,7 @@ public class Map {
     /**
      * Setter of the rows attribute.
      *
-     * @param rows number of rows of the matrix.
+     * @param rows the rows attribute..
      */
     public void setRows(int rows) {
         this.rows = rows;
@@ -371,7 +395,7 @@ public class Map {
      * Method that returns the row of the square.
      *
      * @param nSquare the square we are using.
-     * @return the row that square belongs to.
+     * @return the row the square belongs to.
      */
     public int getRowOfSquare(int nSquare) {
         return nSquare / columns;
@@ -388,9 +412,9 @@ public class Map {
     }
 
     /**
-     * Getter of the squares's matrix.
+     * Getter of the squares's matrix. The map itself.
      *
-     * @return a [rows][columns] game.Square matrix.
+     * @return a [rows][columns] squares matrix.
      */
     public Square[][] getMap() {
         return map;
@@ -399,7 +423,7 @@ public class Map {
     /**
      * Method that returns the attribute doorMan.
      *
-     * @return the instance of the doorMan.
+     * @return the doorMan attribute..
      */
     public DoorMan getDoorMan() {
         return doorMan;
@@ -408,14 +432,15 @@ public class Map {
     /**
      * Method that returns the attribute dailyPlanet.
      *
-     * @return the last square of the map.
+     * @return the dailyPlanet attribute.
      */
     public int getDailyPlanet() {
         return dailyPlanet;
     }
 
     /**
-     * Method that places every weapon into the corresponding squares.
+     * Method that creates an array with all the weapons.
+     * @return the corresponding array containing the weapons.
      */
     public Weapon[] spendWeaponsD1() {
         return new Weapon[]{new Weapon("Mjolnir", 29), new Weapon("Anillo", 1),
@@ -446,12 +471,12 @@ public class Map {
     }
 
     /**
-     * Make a first-depth's algorithm to take all posible paths and say which are the
-     * most frequented rooms
+     * Performs a depth-first algorithm to take all the possible paths and determines
+     * which rooms are the most frequented ones.
      *
-     * @param start           initial room
-     * @param finish          final room
-     * @param partialSolution list to save the partial Path
+     * @param start           initial room.
+     * @param finish          final room.
+     * @param partialSolution list to save the partial Path.
      */
     private void mostFrequentedRooms(int start, int finish, LinkedList<Integer> partialSolution) {
         Integer nextRoom;
@@ -475,9 +500,9 @@ public class Map {
 
 
     /**
-     * increases the most frequented rooms vector and saves the possible path
+     * Increases the frequency of the room and saves the possible path.
      *
-     * @param solution the path that the method will use
+     * @param solution the path the method will use and save.
      */
     private void addSolution(LinkedList<Integer> solution) {
         solution.addFirst(0);
@@ -487,7 +512,9 @@ public class Map {
         }
     }
 
-
+    /**
+     * Method that delivers five weapons into each one of the most frequented rooms.
+     */
     private void spendWeapons() {
         int max = 0;
         Weapon[] wps = spendWeaponsD1();
@@ -616,33 +643,48 @@ public class Map {
         return columns * rows;
     }
 
+    /**
+     * Getter of the winnersSquare attribute.
+     *
+     * @return the winnersSquare attribute.
+     */
     public Square getWinnersSquare() {
         return winnersSquare;
     }
 
+    /**
+     * Getter of the possiblePaths attribute.
+     *
+     * @return the possiblePaths attribute.
+     */
     public LinkedList<LinkedList<Integer>> getPosiblePaths() {
         return posiblePaths;
     }
 
+    /**
+     * Getter of the graph.
+     *
+     * @return the graph attribute.
+     */
     public Grafo getGraph() {
         return graph;
     }
 
-    public String getMapWithPercentajeOfWalls() {
-        return mapWithPercentajeOfWalls;
+    /**
+     * Getter of the mapWithPercentageofwalls attribute.
+     *
+     * @return mapWithPercentageofwalls attribute.
+     */
+    public String getMapWithPercentageofwalls() {
+        return mapWithPercentageofwalls;
     }
 
-    /**
-     * Main method of the map class. Simulates all the general functioning of the program.
-     *
-     * @param args main parameters. Not used for now.
-     */
 
     /**
-     * Saves in a string the room features
+     * Method that generates a string showing all the square information.
      *
      * @param nSquare number of the room we want to paint
-     * @return an string with the room in it
+     * @return a string with the room and all the information in it.
      */
     private String paintSquare(int nSquare) {
         Square s = getSquare(nSquare);
@@ -658,9 +700,9 @@ public class Map {
     }
 
     /**
-     * It Saves the message in a string
+     * Method that generates a string containing all the matrix.
      *
-     * @return the message
+     * @return the string containing the matrix information.
      */
 
     public String matrixString() {
@@ -680,6 +722,10 @@ public class Map {
         return result;
     }
 
+    /**
+     * toString method that generates the initial information of the map (the weapons and the map itself).
+     * @return the generated string with all the information.
+     */
     public String toString() {
         String result = matrixString();
         for (int x = 0; x < rows; x++) {
@@ -692,6 +738,10 @@ public class Map {
         return result;
     }
 
+    /**
+     * Main method of the map class.
+     * @param args args.
+     */
     static public void main(String[] args){
         Game.getSI(6,6,35,4);
         for (LinkedList<Integer> a:Game.getSI().getMap().getPosiblePaths()){
@@ -703,6 +753,10 @@ public class Map {
         }
     }
 
+    /**
+     * Method that generates a string with the initial characters of the game.
+     * @return the string generated with the characters information.
+     */
     public String createdGameCharacters() {
         String message = "";
         for (int i = 0; i < columns * rows; i++) {
@@ -710,5 +764,6 @@ public class Map {
         }
         System.out.print(message);
         return message;
-        }
+    }
+
 }

@@ -6,8 +6,9 @@ import GameCharacters.GameCharacter;
  * Implementation of the WeaponFeature class.
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
- * @version 1.0
+ * @version 2.0
  * This class contains all the needed methods to execute the actions of the weapons.
+ * In version 2.0, we have modified the name of a method.
  * Year: 2017/2018.
  * Group: Rubber Duck.
  * Delivery: EC2.
@@ -28,7 +29,7 @@ public abstract class WeaponFeature {
     }
 
     /**
-     * Abstract method implemented in the subclasses. Performs the action of the weapon.
+     * Abstract method implemented in the subclasses. Performs the action of the last room of the map.
      */
     public abstract void dailyPlanetAction();
 

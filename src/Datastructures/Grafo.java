@@ -9,7 +9,9 @@ import java.util.*;
 * @author
 * Profesores DP.
 * Asignatura Desarrollo de Programas.
-* Curso 11/12.
+* Curso 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC3.
 */
 public class Grafo {
 	public static final int MAXVERT=115;

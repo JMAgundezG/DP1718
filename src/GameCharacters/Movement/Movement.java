@@ -14,10 +14,10 @@ import java.util.LinkedList;
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
  * @version 1.0
- * This is the class that will recreate every movement of every character in the game <br/>
+ * This is the class that will help recreate every movement of every character in the game.
  * Year: 2017/2018.
  * Group: Rubber Duck.
- * Delivery: EC2.
+ * Delivery: EC3.
  */
 public abstract class Movement {
 

@@ -8,7 +8,7 @@ package Datastructures;
  * List class.
  * Year: 2017/2018.
  * Group: Rubber Duck.
- * Delivery: EC2.
+ * Delivery: EC3.
  */
 public class List<E extends Comparable<E>> {
 	/** Reference to the first element in the list*/

@@ -9,11 +9,12 @@ import java.util.LinkedList;
  * Implementation of the Tools Class.
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
- * @version 1.0
- * Auxiliar class used to simulate movements, generate paths and to contain constants..
+ * @version 2.0
+ * In version 2.0, we have modified the functioning of this class.
+ * Still contains constants. Prints the .log file.
  * Year: 2017/2018.
  * Group: Rubber Duck.
- * Delivery: EC2.
+ * Delivery: EC3.
  */
 public class Tools {
 
@@ -28,7 +29,7 @@ public class Tools {
 
 
     /**
-     * Method to create the .log file
+     * Method to create the .log file and print all the information in it.
      */
     static public void writeGame(String message) {
         try {

@@ -16,11 +16,13 @@ import static Map.Path.neighbourRoomNumber;
  * Implementation of the VillainMovement class.
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
- * @version 1.0
+ * @version 2.0
  * This class inherits from the movement class. Performs the villain movements.
+ * In version 2.0, we have modified the constructor and we have also
+ * added the method that generates the path.
  * Year: 2017/2018.
  * Group: Rubber Duck.
- * Delivery: EC2.
+ * Delivery: EC3.
  */
 public class VillainMovement extends Movement{
     /**
@@ -32,6 +34,12 @@ public class VillainMovement extends Movement{
         super(character, wallFollowerLeftHanded(character.getPosition()));
     }
 
+    /**
+     * Static method that generates the path of the Villain using
+     * the left hand rule based on a wall following algorithm.
+     * @param initialPosition the initial position of the villain.
+     * @return the list with the proper path.
+     */
     static private LinkedList<Dir> wallFollowerLeftHanded(int initialPosition) {
         LinkedList<Dir> movements = new LinkedList<>();
         int nRoom = initialPosition;

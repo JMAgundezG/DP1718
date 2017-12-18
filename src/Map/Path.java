@@ -7,12 +7,24 @@ import Tools.Dir;
 import java.util.LinkedList;
 import java.util.TreeSet;
 
+/**
+ * Implementation of the Path.
+ *
+ * @author José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * This is where all the paths of the characters are generated.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC3.
+ */
 public class Path {
 
 
 
     /**
-     * Says the right hand of a direction
+     * Method that says the right hand direction of a given one.
+     * @param dir the direction we have.
+     * @return the right hand direction of that one. I.e.: if we have North, the right hand one is East.
      */
     static public Dir RightHand(Dir dir) {
         Dir newDir = Dir.N;
@@ -35,7 +47,9 @@ public class Path {
     }
 
     /**
-     * Says the left hand of a direction
+     * Method that says the left hand direction of a given one.
+     * @param dir the direction we have.
+     * @return the left hand direction of that one. I.e.: if we have North, the left hand one is West.
      */
     static public Dir LeftHand(Dir dir) {
         Dir newDir = Dir.N;
@@ -58,7 +72,10 @@ public class Path {
     }
 
     /**
-     * Says the neighbour room number of another room and a direction
+     * Method that says the number of the room we are aiming to with a given direction.
+     * @param nRoom the room we are in.
+     * @param dir the direction we want to move to.
+     * @return the number of the destiny room.
      */
     static public int neighbourRoomNumber(int nRoom, Dir dir) {
         Map map = Game.getSI().getMap();
@@ -85,7 +102,8 @@ public class Path {
 
 
     /**
-     * Uses the "MostFrequentedRooms" of map to take his path
+     * Method that uses the most frequented rooms of the map to generate the first possible path.
+     * @return the first possible path that we can use.
      */
     static public LinkedList<Dir> firstPosiblePath(){
         LinkedList<Integer> rooms = (LinkedList<Integer>) Game.
@@ -95,6 +113,11 @@ public class Path {
         return RoomsToDirections(rooms);
     }
 
+    /**
+     * Method that transforms the rooms into directions.
+     * @param rooms the list of rooms that we have generated with a path.
+     * @return the list of rooms transformed to a list of directions forming a path.
+     */
     public static LinkedList<Dir> RoomsToDirections(LinkedList<Integer> rooms) {
 
         Map map = Game.getSI().getMap();
@@ -120,12 +143,25 @@ public class Path {
         return directions;
     }
 
-
+    /**
+     *
+     * @param start
+     * @param finish
+     * @return
+     */
     static public LinkedList paths(int start, int finish){
         LinkedList<LinkedList<Integer>> solutions = new LinkedList<>();
         path(start, finish, new LinkedList<Integer>(), solutions);
         return solutions;
     }
+
+    /**
+     * Backtracking method that generates the depth path.
+     * @param start the starting room.
+     * @param finish the finishing room.
+     * @param partialSolution the partial solution of the path.
+     * @param solutions a list that contains all the generated possible solutions.
+     */
     private static void path(int start, int finish, LinkedList<Integer> partialSolution, LinkedList<LinkedList<Integer>> solutions) {
         Integer nextRoom;
         TreeSet<Integer> adySet = new TreeSet<>();
@@ -146,7 +182,12 @@ public class Path {
         }
     }
 
-
+    /**
+     * Method that generates the shortest path between two rooms.
+     * @param start the starting room.
+     * @param finish the finishing room.
+     * @return the generated path.
+     */
     public static LinkedList<Dir> shortestPath(int start, int finish){
         LinkedList path = Game.getSI().getMap().getGraph().path(start,finish);
         path.addFirst(start);

@@ -4,12 +4,13 @@ package Map;
  * Implementation of the Weapon.
  *
  * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
- * @version 1.0
+ * @version 2.0
  * This is the class that will contain the information of the weapons
  * used by the GameCharacters.
+ * In the version 2.0, we have added some getters and setters.
  * Year: 2017/2018.
  * Group: Rubber Duck.
- * Delivery: EC2.
+ * Delivery: EC3.
  */
 public class Weapon implements Comparable<Weapon>{
 
@@ -24,7 +25,7 @@ public class Weapon implements Comparable<Weapon>{
     private String name;
 
     /**
-     * Public constructor of the class Weapon.
+     * Public parametrized constructor of the class Weapon.
      * @param name the attribute name that the weapon will have.
      * @param power the attribute power that the weapon will have.
      */
@@ -32,15 +33,6 @@ public class Weapon implements Comparable<Weapon>{
         this.name = name;
         this.power = power;
     }
-
-
-//    public int compareTo(Weapon w){
-//        int val = power - w.getPower();
-//        if(val>0)
-//            return 1; //First value is greater
-//        else if(val==0) return 0; // both values are equals
-//            else return -1; //Second value is greater
-//    }
 
     /**
      * Getter of the attribute power.
@@ -58,10 +50,18 @@ public class Weapon implements Comparable<Weapon>{
         return name;
     }
 
+    /**
+     * Setter of the power attribute.
+     * @param power the power attribute.
+     */
     public void setPower(int power) {
         this.power = power;
     }
 
+    /**
+     * Setter of the name attribute.
+     * @param name the name attribute.
+     */
     public void setName(String name) {
         this.name = name;
     }

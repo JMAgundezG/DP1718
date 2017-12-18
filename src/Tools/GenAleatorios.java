@@ -8,9 +8,10 @@ import java.util.Random;
 * Implementacion de la clase que permite generar números aleatorios
 * @version 1.0
 * @author
-* <b> Profesores DP </b><br>
-* Asignatura Desarrollo de Programas<br/>
-* Curso 16/17
+* Profesores DP
+* Asignatura Desarrollo de Programas
+* Curso 2017/2018
+ * Delivery: EC3.
 */
 public class GenAleatorios {
 	

@@ -8,12 +8,19 @@ package Tools.cargador;
  * @author Profesores DP
  */
 import Game.Game;
+import Tools.NoArgumentsException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ClasePrincipal {
-	public static void main(String[] args) {
+
+	/**
+	 * Main method of the project.
+	 * @param args arguments that indicate the file that we are going to use.
+	 * @throws NoArgumentsException an exception saying no arguments have been specified.
+	 */
+	public static void main(String[] args) throws NoArgumentsException {
 		/**  
 		instancia asociada al fichero de entrada inicio.txt
 		*/
@@ -22,7 +29,12 @@ public class ClasePrincipal {
 			/**  
 			Método que procesa línea a línea el fichero de entrada inicio.txt
 			*/
-		     FicheroCarga.procesarFichero("init.txt", cargador);
+			if (args.length > 0) {
+				FicheroCarga.procesarFichero(args[0], cargador);
+			} else {
+				new NoArgumentsException().printStackTrace();
+				FicheroCarga.procesarFichero("init.txt", cargador);
+			}
 		}
 		catch (FileNotFoundException valor)  {
 			System.err.println ("Excepción capturada al procesar fichero: "+valor.getMessage());
