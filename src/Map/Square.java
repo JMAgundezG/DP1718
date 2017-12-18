@@ -2,7 +2,6 @@ package Map;
 // TODO CLASS DIAGRAM 2nd
 import Game.Game;
 import GameCharacters.GameCharacter;
-import sun.awt.image.ImageWatched;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -201,4 +200,16 @@ public class Square {
         return message+")";
     }
 
+    public String showInitialCharacters() {
+        String message = "";
+        for (GameCharacter c : getGameCharacters()) {
+            message += showCreatedCharacter(c) + "\n";
+        }
+        return message;
+    }
+    private String showCreatedCharacter(GameCharacter c) {
+        String message = "(path:" + c.getId() + ":";
+        message += Path.showPath(c.getMovement().getMovements()) + ")";
+        return message;
+    }
 }

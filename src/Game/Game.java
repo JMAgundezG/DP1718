@@ -163,15 +163,7 @@ public class Game {
      */
     public void simulateGame() {
         String message = map.getMapWithPercentajeOfWalls();
-        for (int i = 0; i < map.getColumns() * map.getRows(); i++) {
-            Square s = map.getSquare(i);
-            if (s.getGameCharacters().size() > 0) {
-                for (GameCharacter c : s.getGameCharacters()) {
-                    message += showCreatedCharacter(c) + "\n";
-                    System.out.println(showCreatedCharacter(c));
-                }
-            }
-        }
+        message += map.createdGameCharacters();
         boolean winningCharacters = false;
         while (turn < Tools.MAX_TURN && !winningCharacters) {
             setActionsTrue();
@@ -259,11 +251,7 @@ public class Game {
     /**
      * Show the initial message of a character
      */
-    private String showCreatedCharacter(GameCharacter c) {
-        String message = "(path:" + c.getId() + ":";
-        message += Path.showPath(c.getMovement().getMovements()) + ")";
-        return message;
-    }
+
 
     /**
      * Getter of the capturedCharacters attribute

@@ -703,4 +703,12 @@ public class Map {
         }
     }
 
+    public String createdGameCharacters() {
+        String message = "";
+        for (int i = 0; i < columns * rows; i++) {
+            message += getSquare(i).showInitialCharacters();
+        }
+        System.out.print(message);
+        return message;
+        }
 }
