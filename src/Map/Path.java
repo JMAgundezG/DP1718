@@ -107,7 +107,7 @@ public class Path {
      */
     static public LinkedList<Dir> firstPosiblePath(){
         LinkedList<Integer> rooms = (LinkedList<Integer>) Game.
-                getSI().getMap().getPosiblePaths().getFirst().
+                getSI().getMap().getPossiblePaths().getFirst().
                 clone();
         rooms.addFirst(0);
         return RoomsToDirections(rooms);

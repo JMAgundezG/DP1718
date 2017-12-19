@@ -5,7 +5,6 @@ import GameCharacters.GameCharacter;
 import Tools.Dir;
 import Tools.GenAleatorios;
 import Datastructures.Grafo;
-import Tools.MapException;
 
 import java.util.LinkedList;
 import java.util.TreeSet;
@@ -69,7 +68,7 @@ public class Map {
     /**
      * Attribute that contains the string with the percentage of walls.
      */
-    private String mapWithPercentageofwalls;
+    private String mapWithPercentageOfWalls;
 
     /**
      * Additional square where the winners are going to be placed.
@@ -79,7 +78,7 @@ public class Map {
     /**
      * List that contains all the possible paths for the shortcuts.
      */
-    private LinkedList<LinkedList<Integer>> posiblePaths;
+    private LinkedList<LinkedList<Integer>> possiblePaths;
 
     /**
      * Array used to store the frequency of steps in of every room.
@@ -120,10 +119,10 @@ public class Map {
         graph.warshall();
         graph.floyd();
         System.out.print(matrixString());
-        this.mapWithPercentageofwalls = matrixString();
+        this.mapWithPercentageOfWalls = matrixString();
         erasePercentageOfWalls();
         this.winnersSquare = new Square(1111);
-        this.posiblePaths = new LinkedList<>();
+        this.possiblePaths = new LinkedList<>();
         this.mostFreqRooms = new int[this.dailyPlanet + 1];
         LinkedList<Integer> partialSolution = new LinkedList<>();
         mostFrequentedRooms(0, dailyPlanet, partialSolution);
@@ -151,9 +150,9 @@ public class Map {
     }
 
     /**
-     * Method that equals the values of two following rooms.
-     * @param srcValue the source room value.
-     * @param dstValue the destiny room value.
+     * Method that equals the values of a number of rooms.
+     * @param srcValue the value we want to have.
+     * @param dstValue the value we want to change.
      */
     private void setAllMarks(int srcValue, int dstValue) {
         Square square;
@@ -506,7 +505,7 @@ public class Map {
      */
     private void addSolution(LinkedList<Integer> solution) {
         solution.addFirst(0);
-        this.posiblePaths.add(solution);
+        this.possiblePaths.add(solution);
         for (int i = 0; i < solution.size(); i++) {
             this.mostFreqRooms[solution.get(i)] += 1;
         }
@@ -657,8 +656,8 @@ public class Map {
      *
      * @return the possiblePaths attribute.
      */
-    public LinkedList<LinkedList<Integer>> getPosiblePaths() {
-        return posiblePaths;
+    public LinkedList<LinkedList<Integer>> getPossiblePaths() {
+        return possiblePaths;
     }
 
     /**
@@ -671,12 +670,12 @@ public class Map {
     }
 
     /**
-     * Getter of the mapWithPercentageofwalls attribute.
+     * Getter of the mapWithPercentageOfWalls attribute.
      *
-     * @return mapWithPercentageofwalls attribute.
+     * @return mapWithPercentageOfWalls attribute.
      */
-    public String getMapWithPercentageofwalls() {
-        return mapWithPercentageofwalls;
+    public String getMapWithPercentageOfWalls() {
+        return mapWithPercentageOfWalls;
     }
 
 
@@ -744,7 +743,7 @@ public class Map {
      */
     static public void main(String[] args){
         Game.getSI(6,6,35,4);
-        for (LinkedList<Integer> a:Game.getSI().getMap().getPosiblePaths()){
+        for (LinkedList<Integer> a:Game.getSI().getMap().getPossiblePaths()){
             for (Integer j: a) {
                 System.out.print(j);
                 System.out.print(" ");

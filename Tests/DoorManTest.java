@@ -3,9 +3,6 @@ import Map.Weapon;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.security.auth.kerberos.KerberosKey;
-
-import java.util.Collections;
 
 import static org.junit.Assert.*;
 
@@ -20,6 +17,8 @@ public class DoorManTest {
 
     @Before
     public void setUp() {
+
+        System.out.println("First of all, we instantiate the needed things");
         d = new DoorMan(4);
         d.configure();
         w = new Weapon("Anillo", 12);
@@ -30,12 +29,13 @@ public class DoorManTest {
                 new Weapon("Cetro", 20), new Weapon("Capa", 10),
                 new Weapon("CampoMagnetico", 5), new Weapon("Escudo", 3),
                 new Weapon("Garra", 22), new Weapon("Flecha", 12), new Weapon("Gema", 4)};
-
+        System.out.println("----------------------------------------------");
 
     }
 
     @Test
     public void doorManTest() {
+        System.out.println("We test if the weapons are ordered by name and then try to open the portal.");
         d.getTree().showInOrder();
         assertEquals(d.getDepth(), 4);
         assertEquals(d.getDoorManWeapons(), doorManWeapons);

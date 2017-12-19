@@ -124,7 +124,7 @@ public class Cargador {
 	  //  System.out.println("Creado SHPhysical: " + vCampos.get(1) + "\n");
 		SHPhysical s = new SHPhysical(vCampos.get(1), vCampos.get(2), Integer.parseInt(vCampos.get(3)));
 	 	Game.getSI().insertCharacter(s);
-	       //TODO Registrar SHPhysical en el mapa
+
 	}
 
 	/**
@@ -137,8 +137,7 @@ public class Cargador {
 		SHExtraSensorial s = new SHExtraSensorial(vCampos.get(1), vCampos.get(2), Integer.parseInt(vCampos.get(3)));
 		Game.getSI().insertCharacter(s);
 
-		//TODO Registrar SHExtraSensorial en el mapa
-	}	
+	}
 
 	/**
 	 *  método que crea una instancia de la clase SHFlight
@@ -150,8 +149,7 @@ public class Cargador {
 		SHExtraFlight s = new SHExtraFlight(vCampos.get(1), vCampos.get(2), Integer.parseInt(vCampos.get(3)));
 		Game.getSI().insertCharacter(s);
 
-		//TODO Registrar SHFlight en el mapa
-	}	
+	}
 
 	/**
 	 *  método que crea una instancia de la clase Villain
@@ -162,7 +160,6 @@ public class Cargador {
 	    //System.out.println("Creado Villain: " + vCampos.get(1) + "\n");
 		Villain s = new Villain(vCampos.get(1), vCampos.get(2), Integer.parseInt(vCampos.get(3)));
 		Game.getSI().insertCharacter(s);
-	    //TODO Registrar Villain en el mapa
 	}
 
 }

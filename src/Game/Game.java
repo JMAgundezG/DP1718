@@ -162,7 +162,7 @@ public class Game {
      * Simulates the whole game.
      */
     public void simulateGame() {
-        String message = map.getMapWithPercentageofwalls();
+        String message = map.getMapWithPercentageOfWalls();
         message += map.createdGameCharacters();
         boolean winningCharacters = false;
         while (turn < Tools.MAX_TURN && !winningCharacters) {

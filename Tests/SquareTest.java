@@ -3,13 +3,12 @@ import GameCharacters.SHExtraFlight;
 import Game.Game;
 import Map.Square;
 import Map.Weapon;
-import Map.Map;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.LinkedList;
 
+import static Game.Game.getSI;
 import static org.junit.Assert.*;
 
 
@@ -37,8 +36,8 @@ public class SquareTest {
         w2 = new Weapon("test", 4);
         weaponL = new LinkedList<>();
         gameCL = new LinkedList<>();
-        g = Game.getSI(6, 6, 35, 4);
-        sh = new SHExtraFlight("Pedro", "P", 0);
+        g = getSI(6, 6, 35, 4);
+        sh = new SHExtraFlight("UFO", "U", 0);
 
     }
 
@@ -81,6 +80,7 @@ public class SquareTest {
     public void saveDropCharacterTest() {
         //This method tests both the toString method of the game and the square interactions.
         //You can graphically see that the character has been added to the map to be later removed.
+        System.out.println("\n We print the map to check if the character is properly saved.");
         g.getMap().getSquare(3).saveCharacter(sh);
         sq.saveCharacter(sh);
         gameCL.add(sh);
