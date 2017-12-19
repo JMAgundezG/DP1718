@@ -4,7 +4,15 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 /**
- * Created by daniel on 18/12/17.
+ * Implementation of the WeaponTest.
+ *
+ * @author José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * This class tests every single method of the weapons.
+ * That way we can ensure that the base of the project is properly functioning.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC3.
  */
 public class WeaponTest {
 

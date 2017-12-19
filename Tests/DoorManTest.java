@@ -7,7 +7,14 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by daniel on 18/12/17.
+ * Implementation of the DoorManTest.
+ *
+ * @author José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * This class tests the doorman and its main methods.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC3.
  */
 public class DoorManTest {
 

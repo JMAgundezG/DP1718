@@ -10,7 +10,15 @@ import static org.junit.Assert.*;
 
 
 /**
- * Created by daniel on 19/12/17.
+ * Implementation of the CharactersTest.
+ *
+ * @author José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * This class tests the characters constructor, elements, movements,
+ *  weapon actions and interactions. Mostly by using the Game features.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC3.
  */
 public class CharactersTest {
 

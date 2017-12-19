@@ -11,7 +11,16 @@ import static org.junit.Assert.*;
 
 
 /**
- * Created by daniel on 18/12/17.
+ * Implementation of the GameTest.
+ *
+ * @author José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * This class tests the creation of the Game. The proper functioning
+ *  of the game itself can be seen in the simulation (or in the CharactersTest,
+ *  which simulates the game).
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC3.
  */
 public class GameTest {
 

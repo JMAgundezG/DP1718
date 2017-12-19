@@ -11,7 +11,16 @@ import static org.junit.Assert.*;
 
 
 /**
- * Created by daniel on 18/12/17.
+ * Implementation of the PathTest.
+ *
+ * @author José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * This class tests the main methods of the Path class.
+ * The rest of the methods can be seen in the CharactersTest or
+ *  during the simulation of the game. You can visually check the paths of the characters.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC3.
  */
 public class PathTest {
 

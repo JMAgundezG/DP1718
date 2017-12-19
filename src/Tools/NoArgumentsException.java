@@ -9,7 +9,7 @@ public class NoArgumentsException extends Exception {
 
     public void printStackTrace() {
         System.err.println("Excepción capturada al leer parámetros de entrada." +
-                "No se ha especificado un fichero. Se procede a crear la simulación" +
-                "con el fichero init.txt por defecto");
+                " No se ha especificado un fichero. Se procede a crear la simulación" +
+                " con el fichero init.txt por defecto");
     }
 }

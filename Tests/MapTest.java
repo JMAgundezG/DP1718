@@ -10,7 +10,15 @@ import static org.junit.Assert.*;
 
 
 /**
- * Created by daniel on 18/12/17.
+ * Implementation of the MapTest.
+ *
+ * @author José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * This class tests the non-graphical main features of the map.
+ * The rest can be seen when the simulation of the game happens.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC3.
  */
 public class MapTest {
 

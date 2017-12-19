@@ -13,7 +13,15 @@ import static org.junit.Assert.*;
 
 
 /**
- * Created by daniel on 18/12/17.
+ * Implementation of the SquareTest.
+ *
+ * @author José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * This class tests most of the features of the square.
+ * There are some others that can only be checked during the simulation of the game.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC3.
  */
 public class SquareTest {
 
