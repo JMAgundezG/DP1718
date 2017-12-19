@@ -31,7 +31,7 @@ public class VillainsWFeature extends WeaponFeature {
     /**
      * Public parametrized constructor of the class VillainsWFeature.
      *
-     * @param gc
+     * @param gc the villain that is being used.
      */
     public VillainsWFeature(GameCharacter gc) {
         super(gc);

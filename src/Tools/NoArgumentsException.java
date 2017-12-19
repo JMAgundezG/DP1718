@@ -1,8 +1,15 @@
 package Tools;
 
 /**
- * Created by daniel on 18/12/17.
+ * Implementation of the NoArgumentsException.
+ * @author  José Manuel Agúndez García && Daniel Sagrado Iglesias
+ * @version 1.0
+ * Exception dropped when no arguments have been specified.
+ * Year: 2017/2018.
+ * Group: Rubber Duck.
+ * Delivery: EC3.
  */
+
 public class NoArgumentsException extends Exception {
 
     private static final long serialVersionUID = 1L;

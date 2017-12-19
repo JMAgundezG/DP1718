@@ -30,6 +30,7 @@ public class Tools {
 
     /**
      * Method to create the .log file and print all the information in it.
+     * @param message The message containing all the information of the game in order to write it.
      */
     static public void writeGame(String message) {
         try {

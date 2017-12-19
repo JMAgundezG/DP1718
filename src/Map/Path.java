@@ -144,10 +144,10 @@ public class Path {
     }
 
     /**
-     *
-     * @param start
-     * @param finish
-     * @return
+     * Public method for the backtracking below.
+     * @param start the initial square.
+     * @param finish the final square.
+     * @return the list containing the depth path.
      */
     static public LinkedList paths(int start, int finish){
         LinkedList<LinkedList<Integer>> solutions = new LinkedList<>();
